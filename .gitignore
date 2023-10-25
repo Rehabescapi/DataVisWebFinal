@@ -1,5 +1,5 @@
 *.zip
 CS468/*
-
+data/*
 */data/.*
 data/Census, Elections, and LSC Elections - All Boundaries-001.parquet
