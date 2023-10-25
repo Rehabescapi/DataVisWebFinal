@@ -1,0 +1,14 @@
+.topo path {
+    stroke: #fff;
+    stroke-width: .5px;
+    transition: fill 0.2s ease;
+  }
+  
+ .topo path:hover {
+    fill: #ff6961;
+}
+
+svg {
+    width: 960;
+    height: 1000;
+  }
