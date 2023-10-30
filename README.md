@@ -11,8 +11,9 @@ source CS468/bin/activate
 (CS468) $ pip install flask
 (CS468) $ pip install python-dotenv
 
-
-
+To Run Official Dev Mode
+cd app/
+flask run
 
 
 

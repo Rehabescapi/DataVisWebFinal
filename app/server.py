@@ -5,10 +5,7 @@ import random
 
 
 reader = json.load(open("chicago_zipcodes.json"))
-#reader = csv.reader(open("cereal.csv"))
-#header = reader.__next__()
-##stringData = [ row for row in reader]
-##numericalData = [ [ float(x) for x in row[3:]] for  row in stringData]
+
 
 ##Return a sample set of rows
 def dataSample(numSamples):

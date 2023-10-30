@@ -11,29 +11,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
     <script src="style.css"></script>
     <script src="helper.js"></script>
+    <script src="ChloroplethMain.js"></script>
     
     
     <title>Geography</title>
-    <style>
-      svg {
-        font: 10px sans-serif;
-      }
-
-      a:hover tspan:first-child {
-        text-decoration: underline;
-      }
-
-      tspan:last-child {
-        font-size: 9px;
-        fill-opacity: 0.7;
-      }
-      .pan:hover rect,
- 			.pan:hover text,
-			.zoom:hover rect,
- 			.zoom:hover text {
-				fill: blue;
-			}
-    </style>
+   
 
 </head>
 <body>
@@ -61,12 +43,10 @@
 
 // Map and projection
     
-var projection = d3.geoAlbersUsa()
+    var projection = d3.geoAlbersUsa()
 								   .translate([width/2, height/2]).scale([2000]);
     const path = d3.geoPath().projection(projection);
     
-    //console.log(projection(40.71453,-74.00712))
-
 
     var zooming = function(d) {
       
@@ -106,146 +86,12 @@ var projection = d3.geoAlbersUsa()
    .center([-87.6298, 41.8781])
    .translate([width/2, height/2])
 
-   var data
-   var geojson
-  d3.json("chicago_zipcodes.json").then(function (data){
-    console.log(data);
-    data = data
-   geojson = topojson.feature(data, data.objects["Boundaries - ZIP Codes"])
-  
-  
- 
-  
-   colorScheme = d3.schemeBlues[5];
-   colorScale = d3.scaleThreshold()
-   .domain([0,2,5,10,20])
-   .range(colorScheme)
 
-  var popData = mockPopulationData(geojson);
-   /*
-    d3.csv("./us-ag-productivity.csv", function(data) {
 
-      //Set input domain for color scale
-      color.domain([
-        d3.min(data, function(d) { return d.value; }), 
-        d3.max(data, function(d) { return d.value; })
-      ]);
-   
+   //*Data Visualization Boards
+   CP = CloroplethVis();
 
-  
-// Load external data and boot
-
-       
-      //Note to Jason -- Just start running things on http-server
-        d3.json("./chicago_zipcodes.json", function(json) {
-          for(var i = 0; i < data.arcs.length; i++)
-          {
-            var dataState = data.arcs[i].state;
-            var dataValue = parseFloat(data[i].value);
-            for (var j = 0; j < json.features.length; j++) {
-      
-              var jsonState = json.features[j].properties.name;
-        
-              if (dataState == jsonState) {
-            
-                //Copy the data value into the JSON
-                json.features[j].properties.value = dataValue;
-                
-                //Stop looking through the JSON
-                break;
-        
-              }
-            }		
-
-          }
-				
-				//Bind data and create one path per GeoJSON feature
-				map.selectAll("path")
-				   .data(json.features)
-				   .enter()
-				   .append("path")
-				   .attr("d", path)
-           .style("fill", function(d) {
-					   		//Get data value
-					   		var value = d.properties.value;
-					   		
-					   		if (value) {
-					   			//If value exists…
-						   		return color(value);
-					   		} else {
-					   			//If value is undefined…
-						   		return "#ccc";
-					   		}
-					   });
-
-        d3.csv('./us-cities.csv', function(data){
-          console.log(data);
-          svg.selectAll("circle")
-						   .data(data)
-						   .enter()
-						   .append("circle")
-						   .attr("cx", function(d) {
-							   return projection([d.lon,d.lat])[0];
-						   })
-						   .attr("cy", function(d) {
-							   return projection([d.lon,d.lat])[1];
-						   })
-						   .attr("r", function(d) {
-								return Math.sqrt(parseInt(d.population) * 0.00004);
-						   })
-						   .style("fill", "yellow")
-						   .style("stroke", "gray")
-						   .style("stroke-width", 0.25)
-						   .style("opacity", 0.75)
-						   .append("title")			//Simple tooltip
-						   .text(function(d) {
-								return d.place + ": Pop. " + formatAsThousands(d.population);
-						   });
-               
-              });
-             
-		
-			});
-
-    });
-  */
-
-  
-  
-  // Add group for color legend
-    var g = svg.append("g")
-    .attr("class", "legendThreshold")
-    .attr("transform", "translate(" + width * .65 + "," + height / 2 + ")");
-    g.append("text")
-      .attr("class", "caption")
-      .attr("x", 0)
-      .attr("y", -6)
-      .text("Population");
-
-    // Add labels for legend
-    var labels = ['0','1-2', '3-5', '6-10', '11-20'];
-
-    // Create the legend based on colorScale and our labels
-    var legend = d3.legendColor()
-    .labels(function (d) { return labels[d.i]; })
-    .shapePadding(4)
-    .scale(colorScale);
-    svg.select(".legendThreshold")
-      .call(legend);  
-
-    // Add the data to the choropleth map
-    svg.selectAll("path")
-      .data(geojson.features)
-      .enter()
-      .append("path")
-      .attr("fill", function(d, i){
-        
-        
-      return colorScale(popData[d.properties.zip]);
-    })
-      .attr("d", d3.geoPath(projection))  
-
-  })
+   CP.drawCloropleth(svg)
    
     </script>
 </body>
