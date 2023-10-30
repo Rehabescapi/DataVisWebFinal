@@ -7,6 +7,13 @@ var CloroplethVis = function (){
       var width = svg.attr("width")
       var height = svg.attr("height");
 
+
+projection = d3.geoMercator()
+.scale(width * 90)
+.center([-87.6298, 41.8781])
+.translate([width/2, height/2])
+
+
      
   
   var geojson
