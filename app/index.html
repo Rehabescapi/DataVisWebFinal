@@ -11,7 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
     <script src="style.css"></script>
     <script src="helper.js"></script>
-    <script src="ChloroplethMain.js"></script>
+    <script src="ChoroplethMain.js"></script>
     
     
     <title>Geography</title>
@@ -28,10 +28,7 @@
        </g>
     </svg>
   </div>
-    
 
-    
-    
     <script>
 
 
@@ -72,8 +69,6 @@
 							.scale(0.25)
 							.translate(-center[0], -center[1]));
 
-    
-
     map.append("rect")
    .attr("x", 0)
    .attr("y", 0)
@@ -83,9 +78,9 @@
 */
 
    //*Data Visualization Boards
-   CP = CloroplethVis();
+   CP = ChoroplethBid();
 
-   CP.drawCloropleth(svg)
+   CP.drawChoropleth(svg)
    
     </script>
 </body>

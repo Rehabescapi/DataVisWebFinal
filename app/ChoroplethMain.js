@@ -1,9 +1,9 @@
 //topojson = require('https://d3js.org/topojson.v1.min.js')
 //d3 = require("https://d3js.org/d3.v5.min.js", 'd3-svg-legend')
 
-var CloroplethVis = function (){
-  var newCloropleth = {
-    drawCloropleth : function (svg){
+var ChoroplethVis = function (){
+  var newChoropleth = {
+    drawChloropleth : function (svg){
       var width = svg.attr("width")
       var height = svg.attr("height");
 
@@ -70,7 +70,7 @@ projection = d3.geoMercator()
     }
 
   }
-  return newCloropleth;
+  return newChoropleth;
 }
 
 

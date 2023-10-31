@@ -3,8 +3,8 @@ import csv , json
 import random 
 
 
-
-reader = json.load(open("chicago_zipcodes.json"))
+##Lab Remnants
+##reader = json.load(open("chicago_zipcodes.json"))
 
 
 ##Return a sample set of rows
@@ -37,3 +37,5 @@ def data(numSamples):
     return dataToCSVStr(header, dataSample(int(numSamples)))
 
 
+def catch_all(path):
+    return app.send_static_file('index.index.html');
