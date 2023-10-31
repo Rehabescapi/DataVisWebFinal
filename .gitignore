@@ -3,3 +3,6 @@ CS468/*
 data/*
 */data/.*
 data/Census, Elections, and LSC Elections - All Boundaries-001.parquet
+.DS_Store
+.idea/
+.vscode/
