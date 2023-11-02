@@ -62,7 +62,8 @@ const path = d3.geoPath().projection(projection)
         return d.properties.SCHOOL_NM;
       }) 
       .attr("fill", function(d){
-      return colorScale(popData[d.properties.SCHOOL_ID]);
+        //var y = popData(d.properties.SCHOOL_ID)
+             return colorScale(popData[d.properties.SCHOOL_ID]);
     })
       .attr("d", d3.geoPath(projection)) 
       

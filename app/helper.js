@@ -27,7 +27,7 @@ function mapDataToPopulation(data, dictionaryData){
   // Define the valid zipcodes that will map to the choropleth map
   for(const elem of geojson.features){
     // Populate dictionary with keys that will be valid "keys" based on the geojson
-    dictionaryPopData[elem.properties.SCHOOL_ID] = 1;
+    dictionaryPopData[elem.properties.SCHOOL_ID] = 0;
   }
   // Map random data to dictionary (its possible that the data may not be in the dictionary, that case we ignore data)
   let populationData = mapDataToPopulation(randomZipcodeData, dictionaryPopData);
