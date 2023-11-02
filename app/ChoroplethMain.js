@@ -13,24 +13,25 @@ projection = d3.geoMercator()
 .center([-87.6298, 41.8781])
 .translate([width/2, height/2])
 
+const path = d3.geoPath().projection(projection)
 
      
   
   var geojson
-  d3.json("chicago_zipcodes.json").then(function (data){
+  //d3.json("chicago_zipcodes.json").then(function (data){
+    d3.json("SchoolBoundariesGeoJSON.json").then(function (data){
     console.log(data);
     data = data
-   geojson = topojson.feature(data, data.objects["Boundaries - ZIP Codes"])
+    //geojson = topojson.feature(data)
   
-  
- 
   
    colorScheme = d3.schemeBlues[5];
    colorScale = d3.scaleThreshold()
    .domain([0,2,5,10,20])
    .range(colorScheme)
 
-  var popData = mockPopulationData(geojson);
+  var popData = mockPopulationData(data);
+  console.log(popData)
   // Add group for color legend
     var g = svg.append("g")
     .attr("class", "legendThreshold")
@@ -54,13 +55,17 @@ projection = d3.geoMercator()
 
     // Add the data to the choropleth map
     svg.selectAll("path")
-      .data(geojson.features)
+      .data(data.features)
       .enter()
       .append("path")
-      .attr("fill", function(d, i){
-      return colorScale(popData[d.properties.zip]);
+      .attr("name", function(d){
+        return d.properties.SCHOOL_NM;
+      }) 
+      .attr("fill", function(d){
+      return colorScale(popData[d.properties.SCHOOL_ID]);
     })
-      .attr("d", d3.geoPath(projection))  
+      .attr("d", d3.geoPath(projection)) 
+      
   })
 
 
