@@ -3,9 +3,26 @@
 
 var ChoroplethVis = function () {
   var newChoropleth = {
-    drawChloropleth: function (svg) {
+    drawChloropleth: function (svg, type = 0) {
+      
+      svg.selectAll("g").remove();
 
       strokeLevel= 2;
+      var mapDir = "SchoolBoundariesGeoJSON.json"
+      switch (type){
+        case 0:
+          mapDir = "SchoolBoundariesGeoJSON.json"
+        break;
+
+        case 1:
+          
+        case 2:
+         
+        default:
+          mapDir = "SchoolBoundariesGeoJSON.json"
+
+      }
+
 
       var zoom = d3
         .zoom()
@@ -30,7 +47,7 @@ var ChoroplethVis = function () {
      
       
       //d3.json("chicago_zipcodes.json").then(function (data){
-      d3.json("SchoolBoundariesGeoJSON.json").then(function (data) {
+      d3.json(mapDir).then(function (data) {
         console.log(data);
 
         colorScheme = d3.schemeBlues[5];
