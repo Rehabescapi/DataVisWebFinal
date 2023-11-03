@@ -5,6 +5,11 @@
 
 <html>
   <head>
+    <style>
+      svg {
+        border-style: dashed;
+      }
+    </style>
     <script src="https://d3js.org/d3.v5.min.js"></script> 
     <script src="https://d3js.org/topojson.v1.min.js"></script>
     <script src="https://unpkg.com/topojson@3"></script>
@@ -27,9 +32,11 @@
     <svg id="my_dataviz"></svg>
     <svg id="main_Legend"></svg>
    
-    <svg id="chicago">
-      <g id="city">
-       </g>
+    <svg id="SubGraphA" width =400 , height =300 >
+      
+    </svg>
+    <svg id="SubGraphB" width = 200, height = 300 >
+
     </svg>
   </div>
 
@@ -60,9 +67,17 @@
 
    CP.dispatch.on("selected",
    function(selectedPath){
-    console.log(selectedPath)
+    console.log(selectedPath);
+    /***
+     * TODO ADD ZOOM IN on Selected Area
+     * 
+     */
 
    })
+
+   /***
+    * TODO return to global scope
+    */
 
    
 

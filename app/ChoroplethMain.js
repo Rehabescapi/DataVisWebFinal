@@ -16,9 +16,13 @@ var ChoroplethVis = function () {
         break;
 
         case 1:
+          
           type="population"
           
         case 2:
+          mapDir="chicago_zipcodes.json"
+          type="nothing"
+          break;
          
         default:
           mapDir = "SchoolBoundariesGeoJSON.json"
@@ -51,6 +55,11 @@ var ChoroplethVis = function () {
       //d3.json("chicago_zipcodes.json").then(function (data){
       d3.json(mapDir).then(function (data) {
         console.log(data);
+
+        if('objects' in data)
+        {
+          data = topojson.feature(data, data.objects["Boundaries - ZIP Codes"])
+        }
 
         /**
          * TODO update Scheme to reflet things
@@ -97,7 +106,11 @@ var ChoroplethVis = function () {
           })
           .attr("stroke", "black")
           .attr("stroke-width", strokeLevel)
-          .on("click", function(d) {newChoropleth.dispatch.call("selected", {}, d.properties.SCHOOL_ID); })
+          .on("click", function(d) {
+            (SCHOOL_ID in d.properties)
+            newChoropleth.dispatch.call("selected", {}, d.properties.SCHOOL_ID); 
+          
+          })
 
 
           
