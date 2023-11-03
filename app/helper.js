@@ -22,12 +22,28 @@ function mapDataToPopulation(data, dictionaryData){
 
   function mockPopulationData (geojson) {
     // Generate random data for our "population", every entry is a "patient"
-  let randomZipcodeData = generate1DRandomDataSet(1000, 60601, 60827);
+    const yo = {
+      one: {
+        value: 0,
+        mission: 17},
+      two: {
+        value: 18,
+        mission: 3},
+      three: {
+        value: -2,
+        mission: 4},
+    }
+    console.log(geojson)
+    const min = Object.values(geojson.features).reduce((t, {properties}) => Math.min(t, properties.SCHOOL_ID), Infinity);
+    const max = Object.values(geojson.features).reduce((t, {properties}) => Math.max(t, properties.SCHOOL_ID), 0);
+   
+    console.log(min + " " + max)
+  let randomZipcodeData = generate1DRandomDataSet(1000, min, max);
   var dictionaryPopData = {}
   // Define the valid zipcodes that will map to the choropleth map
   for(const elem of geojson.features){
     // Populate dictionary with keys that will be valid "keys" based on the geojson
-    dictionaryPopData[elem.properties.SCHOOL_ID] = 0;
+    dictionaryPopData[elem.properties.SCHOOL_ID] = 10;
   }
   // Map random data to dictionary (its possible that the data may not be in the dictionary, that case we ignore data)
   let populationData = mapDataToPopulation(randomZipcodeData, dictionaryPopData);

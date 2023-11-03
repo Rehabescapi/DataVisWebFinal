@@ -27,7 +27,7 @@ const path = d3.geoPath().projection(projection)
   
    colorScheme = d3.schemeBlues[5];
    colorScale = d3.scaleThreshold()
-   .domain([0,2,5,10,20])
+   .domain([10,11,12,13,14,25])
    .range(colorScheme)
 
   var popData = mockPopulationData(data);
@@ -43,7 +43,7 @@ const path = d3.geoPath().projection(projection)
       .text("Population");
 
     // Add labels for legend
-    var labels = ['0','1-2', '3-5', '6-10', '11-20'];
+    var labels = ['10','11','12', '13', '14', '15'];
 
     // Create the legend based on colorScale and our labels
     var legend = d3.legendColor()
@@ -66,6 +66,7 @@ const path = d3.geoPath().projection(projection)
              return colorScale(popData[d.properties.SCHOOL_ID]);
     })
       .attr("d", d3.geoPath(projection)) 
+      .attr("class", "border")
       
   })
 
