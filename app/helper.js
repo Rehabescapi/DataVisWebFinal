@@ -20,13 +20,20 @@ function mapDataToPopulation(data, dictionaryData){
     return dictionaryData
   }
 
-  function mockPopulationData (geojson) {
+  function mockPopulationData (geojson, type = 'nothing') {
     // Generate random data for our "population", every entry is a "patient"
-  
-    
-    const min = Object.values(geojson.features).reduce((t, {properties}) => Math.min(t, properties.SCHOOL_ID), Infinity);
-    const max = Object.values(geojson.features).reduce((t, {properties}) => Math.max(t, properties.SCHOOL_ID), 0);
-   
+    let min ,max;
+    if(type == 'nothing')
+    {
+      min =11;
+      max =11;
+    }
+
+    else if(type= 'population')
+    {
+     min = Object.values(geojson.features).reduce((t, {properties}) => Math.min(t, properties.SCHOOL_ID), Infinity);
+     max = Object.values(geojson.features).reduce((t, {properties}) => Math.max(t, properties.SCHOOL_ID), 0);
+    }
     
   let randomZipcodeData = generate1DRandomDataSet(1000, min, max);
   var dictionaryPopData = {}

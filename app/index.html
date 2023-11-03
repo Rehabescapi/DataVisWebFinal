@@ -20,9 +20,9 @@
 </head>
 <body>
   <h1> Hello World</h1>
-  <button onclick="setYear(0)"> 2020</button>
-  <button onclick="setYear(1)"> 2018</button>
-  <button onclick="setYear(2)"> 2016</button>
+  <button onclick="setYear(0)">No Data</button>
+  <button onclick="setYear(1)"> School Population</button>
+  <button onclick="setYear(2)"> 3rdOption</button>
   <div id ="Graphs">
     <svg id="my_dataviz"></svg>
     <svg id="main_Legend"></svg>
@@ -56,12 +56,18 @@
    CP = ChoroplethVis();
 
 
-   CP.drawChloropleth(svg)
+   CP.drawChloropleth(svg);
+
+   CP.dispatch.on("selected",
+   function(selectedPath){
+    console.log(selectedPath)
+
+   })
 
    
 
    function setYear(mode){
-    console.log("woo")
+    
     CP.drawChloropleth(svg,mode);
 
 

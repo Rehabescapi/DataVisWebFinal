@@ -12,9 +12,11 @@ var ChoroplethVis = function () {
       switch (type){
         case 0:
           mapDir = "SchoolBoundariesGeoJSON.json"
+          type = "nothing"
         break;
 
         case 1:
+          type="population"
           
         case 2:
          
@@ -50,6 +52,9 @@ var ChoroplethVis = function () {
       d3.json(mapDir).then(function (data) {
         console.log(data);
 
+        /**
+         * TODO update Scheme to reflet things
+         */
         colorScheme = d3.schemeBlues[5];
         colorScale = d3
           .scaleThreshold()
@@ -61,7 +66,7 @@ var ChoroplethVis = function () {
          * Replace Mock Population Data with 
          * actual data frame.
          */  
-        var popData = mockPopulationData(data);
+        var popData = mockPopulationData(data, type);
 
        
         /**
@@ -82,9 +87,18 @@ var ChoroplethVis = function () {
           })
           .attr("d", path)
           .attr("class",'district-path')
-          .attr("opacity", .2)
+          .attr("opacity", function(d){
+            if (type == 'nothing')
+            {
+              return .3
+            }else {
+              return .2
+            }
+          })
           .attr("stroke", "black")
           .attr("stroke-width", strokeLevel)
+          .on("click", function(d) {newChoropleth.dispatch.call("selected", {}, d.properties.SCHOOL_ID); })
+
 
           
           
@@ -92,6 +106,7 @@ var ChoroplethVis = function () {
 
       svg.call(zoom);
     },
+    dispatch: d3.dispatch("selected")
   };
 
   return newChoropleth;
