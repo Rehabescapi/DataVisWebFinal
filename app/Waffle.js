@@ -1,6 +1,6 @@
 var WaffleVis = function () {
     var newWaffle = {
-      drawWaffle: function (svg, type = 0) {
+      drawWaffle: function (svg,  SchoolID, type=0) {
         svg.selectAll("g").remove();
         tempW = svg.attr("width")
         tempH = svg.attr("height")
