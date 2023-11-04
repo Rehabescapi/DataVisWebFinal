@@ -16,8 +16,9 @@ var ChoroplethVis = function () {
         break;
 
         case 1:
-          
+          mapDir = "SchoolBoundariesGeoJSON.json"
           type="population"
+          break;
           
         case 2:
           mapDir="chicago_zipcodes.json"
@@ -44,7 +45,7 @@ var ChoroplethVis = function () {
 
       var projection = d3
         .geoMercator()
-        .scale(width * 80)
+        .scale(width * 160)
         .center([-87.6298, 41.8781])
         .translate([width / 2, height / 2]);
 
@@ -107,8 +108,11 @@ var ChoroplethVis = function () {
           .attr("stroke", "black")
           .attr("stroke-width", strokeLevel)
           .on("click", function(d) {
-            (SCHOOL_ID in d.properties)
+            
+           if ('SCHOOL_ID' in d.properties)
+           {
             newChoropleth.dispatch.call("selected", {}, d.properties.SCHOOL_ID); 
+           }
           
           })
 
