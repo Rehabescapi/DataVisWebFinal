@@ -38,4 +38,4 @@ def data(numSamples):
 
 
 def catch_all(path):
-    return app.send_static_file('index.index.html');
+    return app.send_static_file('index.html');

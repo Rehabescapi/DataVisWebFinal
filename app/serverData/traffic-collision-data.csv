@@ -1,0 +1,734 @@
+CASE_ID,COLLISION_DATE,COLLISION_TIME,TYPE_OF_COLLISION,COLLISION_SEVERITY,VEHTYPE_AT_FAULT
+8195120,1/4/2017,12:13:00 PM,Broadside,Injury Visible,Passenger Car
+8281558,1/1/2017,9:46:00 PM,Broadside,No injury,Passenger Car
+8282721,1/2/2017,4:42:00 PM,Vehicle/Pedestrian,Injury Complaint,Passenger Car
+8282725,1/2/2017,6:20:00 PM,Broadside,Injury Complaint,Bicycle
+8282807,1/3/2017,3:18:00 PM,Broadside,Injury Visible,Passenger Car
+8283832,1/3/2017,2:27:00 PM,Hit Object,No injury,Passenger Car
+8283840,1/1/2017,10:27:00 PM,Broadside,No injury,Passenger Car
+8284321,1/4/2017,4:29:00 AM,Sideswipe,No injury,Passenger Car
+8284337,1/9/2017,8:12:00 AM,Sideswipe,No injury,Pickup or Panel Truck
+8284341,1/7/2017,4:53:00 PM,Head-on,No injury,Pickup or Panel Truck
+8284517,1/9/2017,12:36:00 PM,Rear End,Injury Complaint,Passenger Car
+8284525,1/10/2017,4:54:00 AM,Vehicle/Pedestrian,Injury Complaint,Passenger Car
+8284602,1/4/2017,3:05:00 AM,Other,Injury Complaint,Passenger Car
+8284726,1/7/2017,9:15:00 AM,Broadside,No injury,Passenger Car
+8284734,1/4/2017,6:29:00 PM,Rear End,No injury,Not Stated
+8284738,1/5/2017,11:33:00 AM,Broadside,No injury,Passenger Car
+8284742,1/7/2017,9:25:00 AM,Broadside,No injury,Passenger Car
+8284746,1/7/2017,12:19:00 PM,Broadside,Injury Complaint,Passenger Car
+8284750,1/8/2017,2:50:00 PM,Rear End,No injury,Passenger Car
+8284754,1/9/2017,9:19:00 AM,Sideswipe,No injury,Passenger Car
+8284758,1/9/2017,2:07:00 PM,Broadside,No injury,Passenger Car
+8284762,1/11/2017,1:36:00 PM,Rear End,No injury,Passenger Car
+8284766,1/10/2017,1:59:00 PM,Other,No injury,Passenger Car
+8284778,1/6/2017,12:00:00 AM,Rear End,No injury,Not Stated
+8289468,1/13/2017,12:29:00 PM,Other,No injury,Pickup or Panel Truck
+8289484,1/18/2017,1:33:00 PM,Rear End,Injury Complaint,Truck or Truck Tractor
+8289488,1/11/2017,4:30:00 PM,Sideswipe,No injury,Pickup or Panel Truck
+8289521,1/13/2017,8:40:00 AM,Other,Injury Complaint,Passenger Car
+8289522,1/14/2017,5:10:00 AM,Head-on,No injury,Not Stated
+8289542,1/15/2017,4:20:00 PM,Head-on,No injury,Passenger Car
+8289546,1/13/2017,7:02:00 PM,Broadside,No injury,Passenger Car
+8289549,1/17/2017,11:50:00 PM,Other,No injury,Not Stated
+8289573,1/14/2017,10:17:00 PM,Rear End,No injury,Passenger Car
+8289577,1/14/2017,11:16:00 PM,Sideswipe,No injury,Passenger Car
+8289581,1/13/2017,6:30:00 PM,Rear End,No injury,Passenger Car
+8289585,1/12/2017,8:23:00 AM,Sideswipe,No injury,Passenger Car
+8289589,1/12/2017,6:06:00 PM,Sideswipe,No injury,Passenger Car
+8289593,1/9/2017,5:03:00 PM,Sideswipe,No injury,Passenger Car
+8289597,1/9/2017,7:30:00 PM,Broadside,No injury,Passenger Car
+8289627,1/18/2017,5:21:00 PM,Vehicle/Pedestrian,Injury Complaint,Passenger Car
+8289631,1/21/2017,11:02:00 PM,Other,Injury Visible,Bicycle
+8289642,1/15/2017,9:46:00 PM,Rear End,Injury Complaint,Passenger Car
+8289674,1/17/2017,9:03:00 PM,Sideswipe,Injury Severe,Motorcycle
+8289678,1/17/2017,12:23:00 PM,Rear End,Injury Complaint,Passenger Car
+8290882,1/21/2017,9:15:00 PM,Sideswipe,No injury,Passenger Car
+8290899,1/22/2017,5:04:00 AM,Rear End,No injury,Not Stated
+8290915,1/19/2017,6:04:00 PM,Rear End,No injury,Passenger Car
+8290922,1/22/2017,4:48:00 PM,Hit Object,No injury,Passenger Car
+8290926,1/23/2017,10:18:00 AM,Rear End,No injury,Passenger Car
+8290930,1/22/2017,8:23:00 PM,Hit Object,No injury,Not Stated
+8290948,1/22/2017,12:00:00 AM,Hit Object,No injury,Not Stated
+8290951,1/20/2017,10:04:00 AM,Rear End,No injury,Passenger Car
+8290955,1/20/2017,4:00:00 PM,Sideswipe,No injury,Passenger Car
+8290959,1/21/2017,1:30:00 AM,Head-on,No injury,Passenger Car
+8290963,1/20/2017,7:45:00 AM,Broadside,Injury Complaint,Passenger Car
+8292162,3/22/2017,12:00:00 AM,Sideswipe,No injury,Not Stated
+8292169,3/29/2017,6:20:00 AM,Head-on,Injury Visible,Passenger Car
+8292830,4/2/2017,7:53:00 PM,Rear End,No injury,Passenger Car
+8292835,4/1/2017,11:20:00 AM,Sideswipe,No injury,Not Stated
+8292838,4/2/2017,2:15:00 AM,Broadside,No injury,Passenger Car
+8293974,1/19/2017,12:02:00 PM,Broadside,No injury,Passenger Car
+8294208,1/19/2017,8:17:00 AM,Hit Object,Injury Complaint,Passenger Car
+8294216,1/19/2017,2:46:00 PM,Vehicle/Pedestrian,Injury Complaint,Passenger Car
+8294249,1/15/2017,11:34:00 AM,Broadside,No injury,Passenger Car
+8296120,1/31/2017,10:55:00 AM,Sideswipe,No injury,Truck or Truck Tractor with Trailer
+8296124,1/27/2017,2:51:00 AM,Broadside,Injury Visible,Pickup or Panel Truck
+8296161,1/24/2017,1:27:00 PM,Rear End,No injury,Passenger Car
+8296165,1/26/2017,10:53:00 AM,Sideswipe,No injury,Passenger Car
+8296168,1/31/2017,3:36:00 PM,Other,Injury Complaint,Passenger Car
+8296189,1/27/2017,8:19:00 AM,Sideswipe,No injury,Passenger Car
+8296193,1/27/2017,10:21:00 AM,Broadside,No injury,Passenger Car
+8296197,1/27/2017,3:55:00 PM,Rear End,No injury,Passenger Car
+8296201,1/28/2017,10:35:00 AM,Rear End,No injury,Passenger Car
+8296205,1/22/2017,12:00:00 AM,Hit Object,No injury,Not Stated
+8296209,1/26/2017,8:09:00 PM,Broadside,Injury Complaint,Not Stated
+8296211,1/28/2017,3:00:00 AM,Vehicle/Pedestrian,Injury Visible,Passenger Car
+8296213,1/31/2017,8:12:00 AM,Rear End,No injury,Passenger Car
+8296215,1/31/2017,1:34:00 PM,Rear End,Injury Complaint,Passenger Car
+8300796,1/29/2017,12:50:00 PM,Hit Object,No injury,Pickup or Panel Truck
+8301051,1/30/2017,3:49:00 PM,Sideswipe,No injury,Passenger Car
+8301059,1/30/2017,12:00:00 AM,Sideswipe,No injury,Not Stated
+8301112,1/28/2017,4:54:00 PM,Rear End,No injury,Not Stated
+8304928,1/23/2017,11:15:00 AM,Hit Object,No injury,Pickup or Panel Truck
+8304932,2/3/2017,9:24:00 AM,Sideswipe,No injury,Not Stated
+8304940,2/5/2017,2:30:00 PM,Vehicle/Pedestrian,Injury Complaint,Not Stated
+8305806,2/4/2017,11:47:00 PM,Broadside,No injury,Passenger Car
+8305810,2/4/2017,7:38:00 AM,Rear End,No injury,Passenger Car
+8305814,2/3/2017,9:59:00 PM,Sideswipe,No injury,Passenger Car
+8305818,2/2/2017,5:07:00 PM,Rear End,No injury,Passenger Car
+8305822,2/2/2017,6:05:00 PM,Broadside,No injury,Passenger Car
+8305826,2/2/2017,5:30:00 AM,Rear End,No injury,Passenger Car
+8306717,1/30/2017,12:00:00 AM,Sideswipe,No injury,Not Stated
+8307282,2/17/2017,4:22:00 PM,Sideswipe,No injury,Passenger Car
+8307286,2/14/2017,4:31:00 PM,Rear End,No injury,Emergency Vehicle
+8307320,2/22/2017,9:49:00 AM,Hit Object,No injury,Not Stated
+8315764,2/11/2017,2:21:00 AM,Hit Object,No injury,Passenger Car
+8315768,2/11/2017,4:58:00 AM,Sideswipe,Injury Complaint,Passenger Car
+8315783,2/14/2017,9:41:00 AM,Hit Object,No injury,Not Stated
+8315787,2/20/2017,7:20:00 PM,Broadside,No injury,Passenger Car
+8315795,2/9/2017,6:00:00 PM,Sideswipe,No injury,Not Stated
+8315827,2/19/2017,12:00:00 AM,Sideswipe,No injury,Not Stated
+8315831,2/19/2017,6:38:00 PM,Broadside,No injury,Passenger Car
+8315835,2/20/2017,12:00:00 AM,Sideswipe,No injury,Not Stated
+8315839,2/8/2017,12:00:00 AM,Sideswipe,No injury,Not Stated
+8315845,2/10/2017,12:00:00 AM,Sideswipe,No injury,Not Stated
+8315849,2/18/2017,3:27:00 PM,Broadside,Injury Complaint,Passenger Car
+8315853,2/14/2017,12:49:00 PM,Rear End,No injury,Passenger Car
+8315873,2/11/2017,1:45:00 PM,Rear End,No injury,Passenger Car
+8315877,2/12/2017,10:27:00 AM,Rear End,Injury Complaint,Passenger Car
+8315881,2/13/2017,6:33:00 PM,Rear End,No injury,Passenger Car
+8315885,2/5/2017,12:00:00 AM,Sideswipe,No injury,Passenger Car
+8315889,2/13/2017,6:45:00 PM,Rear End,No injury,Not Stated
+8315893,2/15/2017,2:47:00 PM,Sideswipe,Injury Complaint,Passenger Car
+8320003,2/12/2017,6:36:00 PM,Vehicle/Pedestrian,Injury Complaint,Bicycle
+8320004,2/9/2017,9:38:00 PM,Sideswipe,No injury,Passenger Car
+8320007,2/14/2017,11:24:00 AM,Hit Object,No injury,Truck or Truck Tractor
+8320008,2/20/2017,11:28:00 AM,Broadside,No injury,Pickup or Panel Truck
+8320012,2/8/2017,8:26:00 AM,Broadside,No injury,Passenger Car
+8320078,2/13/2017,9:10:00 AM,Sideswipe,No injury,Passenger Car
+8320118,2/11/2017,11:53:00 AM,Broadside,Injury Complaint,Passenger Car
+8320154,2/10/2017,10:14:00 AM,Vehicle/Pedestrian,Injury Visible,Passenger Car
+8320158,2/22/2017,2:30:00 AM,Other,Injury Complaint,Passenger Car
+8321545,2/24/2017,5:01:00 PM,Vehicle/Pedestrian,Injury Complaint,Passenger Car
+8321558,2/27/2017,7:31:00 AM,Head-on,Injury Visible,Bicycle
+8321728,2/25/2017,5:50:00 PM,Broadside,No injury,Passenger Car
+8321732,2/24/2017,5:59:00 PM,Rear End,No injury,Passenger Car
+8321736,2/24/2017,11:14:00 PM,Sideswipe,No injury,Passenger Car
+8321752,2/27/2017,9:15:00 PM,Sideswipe,No injury,Not Stated
+8321756,2/28/2017,12:00:00 AM,Sideswipe,No injury,Not Stated
+8321760,2/26/2017,10:00:00 PM,Broadside,No injury,Passenger Car
+8322031,2/25/2017,10:55:00 PM,Sideswipe,No injury,Passenger Car
+8322066,2/25/2017,11:38:00 AM,Broadside,No injury,Not Stated
+8322219,3/1/2017,12:41:00 PM,Sideswipe,Injury Complaint,Passenger Car
+8325284,3/3/2017,5:30:00 PM,Broadside,No injury,Passenger Car
+8325288,3/3/2017,3:37:00 PM,Rear End,No injury,Passenger Car
+8325316,3/6/2017,12:00:00 AM,Hit Object,No injury,Not Stated
+8325324,3/8/2017,7:05:00 AM,Hit Object,No injury,Not Stated
+8325328,3/7/2017,12:31:00 PM,Broadside,No injury,Passenger Car
+8325332,3/7/2017,12:00:00 AM,Sideswipe,No injury,Passenger Car with Trailer
+8325336,3/6/2017,4:05:00 PM,Broadside,No injury,Passenger Car
+8325340,3/6/2017,12:00:00 AM,Sideswipe,No injury,Not Stated
+8325344,3/6/2017,9:01:00 AM,Broadside,No injury,Passenger Car
+8325363,3/7/2017,8:04:00 AM,Rear End,Injury Complaint,Passenger Car
+8325367,3/1/2017,2:20:00 PM,Other,Injury Visible,Bicycle
+8325371,3/4/2017,1:20:00 PM,Vehicle/Pedestrian,Injury Complaint,Pedestrian
+8325407,3/7/2017,2:43:00 PM,Vehicle/Pedestrian,Injury Visible,Pedestrian
+8325411,3/4/2017,7:59:00 PM,Vehicle/Pedestrian,Injury Complaint,Passenger Car
+8325415,3/5/2017,5:58:00 PM,Vehicle/Pedestrian,Injury Complaint,Pedestrian
+8325419,3/4/2017,8:06:00 AM,Broadside,Injury Complaint,Passenger Car
+8325477,3/1/2017,5:48:00 PM,Broadside,No injury,Passenger Car
+8325592,3/4/2017,10:02:00 PM,Vehicle/Pedestrian,Injury Visible,Pickup or Panel Truck
+8327657,3/28/2017,1:50:00 PM,Rear End,No injury,Passenger Car
+8328521,3/13/2017,2:25:00 PM,Rear End,No injury,Passenger Car
+8328525,3/14/2017,8:40:00 AM,Sideswipe,No injury,Pickup or Panel Truck
+8329733,3/15/2017,3:04:00 PM,Hit Object,No injury,Passenger Car
+8329737,3/14/2017,4:00:00 PM,Sideswipe,No injury,Not Stated
+8329739,3/21/2017,8:04:00 PM,Sideswipe,No injury,Passenger Car
+8329741,3/9/2017,12:00:00 AM,Rear End,No injury,Passenger Car
+8329743,3/21/2017,2:33:00 AM,Hit Object,No injury,Passenger Car
+8329781,3/18/2017,1:19:00 PM,Vehicle/Pedestrian,Injury Visible,Pedestrian
+8329799,3/21/2017,10:21:00 PM,Sideswipe,No injury,Pickup or Panel Truck
+8329803,3/18/2017,1:51:00 PM,Sideswipe,No injury,Passenger Car
+8330885,3/22/2017,2:01:00 AM,Rear End,No injury,Passenger Car
+8330929,3/1/2017,4:45:00 PM,Broadside,No injury,Not Stated
+8332212,3/2/2017,3:30:00 PM,Sideswipe,Injury Visible,Pickup or Panel Truck
+8332216,3/9/2017,2:26:00 AM,Sideswipe,Injury Visible,Passenger Car
+8332243,3/9/2017,12:00:00 AM,Sideswipe,No injury,Passenger Car
+8332255,3/8/2017,2:30:00 AM,Other,No injury,Passenger Car
+8332368,3/9/2017,8:54:00 AM,Sideswipe,Injury Visible,Bicycle
+8332816,3/10/2017,1:05:00 PM,Other,Injury Complaint,Bicycle
+8333703,3/14/2017,9:52:00 AM,Broadside,No injury,Passenger Car
+8333707,3/12/2017,11:14:00 PM,Rear End,No injury,Passenger Car
+8333711,3/13/2017,3:23:00 PM,Sideswipe,No injury,Passenger Car
+8333715,3/12/2017,12:00:00 AM,Sideswipe,No injury,Passenger Car
+8333719,3/12/2017,5:46:00 PM,Rear End,No injury,Passenger Car
+8333764,3/14/2017,2:51:00 PM,Sideswipe,No injury,Passenger Car
+8333768,3/14/2017,6:06:00 PM,Sideswipe,No injury,Passenger Car
+8333839,3/11/2017,12:00:00 AM,Sideswipe,No injury,Not Stated
+8335040,3/20/2017,2:37:00 PM,Rear End,No injury,Emergency Vehicle
+8336044,4/2/2017,3:45:00 PM,Sideswipe,No injury,Passenger Car
+8336048,4/19/2017,12:10:00 PM,Sideswipe,No injury,Passenger Car
+8337353,3/22/2017,3:33:00 PM,Rear End,Injury Complaint,Passenger Car
+8337357,3/22/2017,7:28:00 PM,Vehicle/Pedestrian,Injury Complaint,Not Stated
+8337547,4/3/2017,7:25:00 AM,Broadside,No injury,Passenger Car
+8337555,3/28/2017,7:04:00 AM,Broadside,No injury,Passenger Car
+8337559,3/23/2017,3:01:00 PM,Sideswipe,No injury,Passenger Car
+8338212,3/21/2017,3:47:00 PM,Head-on,No injury,Passenger Car
+8339050,3/19/2017,5:10:00 AM,Hit Object,No injury,Passenger Car
+8339054,3/17/2017,10:45:00 PM,Sideswipe,No injury,Passenger Car
+8339126,3/8/2017,8:07:00 PM,Vehicle/Pedestrian,Injury Visible,Passenger Car
+8339134,2/28/2017,12:42:00 PM,Other,Injury Visible,Motorcycle
+8339245,3/22/2017,3:06:00 PM,Vehicle/Pedestrian,Injury Visible,Passenger Car
+8339290,3/28/2017,12:06:00 PM,Sideswipe,No injury,Passenger Car
+8342455,3/14/2017,4:58:00 PM,Broadside,No injury,Passenger Car
+8342810,3/23/2017,5:51:00 AM,Sideswipe,No injury,Passenger Car
+8342823,3/24/2017,6:20:00 PM,Sideswipe,No injury,Passenger Car
+8342827,3/26/2017,2:59:00 PM,Rear End,No injury,Passenger Car
+8342831,3/24/2017,8:25:00 AM,Broadside,No injury,Passenger Car
+8342841,3/29/2017,7:15:00 PM,Broadside,No injury,Passenger Car
+8342844,3/27/2017,5:05:00 AM,Hit Object,No injury,Passenger Car
+8342845,3/30/2017,2:52:00 PM,Rear End,Injury Complaint,Passenger Car
+8342849,3/27/2017,8:55:00 AM,Rear End,No injury,Passenger Car
+8342853,3/27/2017,12:00:00 AM,Sideswipe,No injury,Not Stated
+8342857,3/27/2017,12:25:00 PM,Rear End,No injury,Passenger Car
+8342858,3/31/2017,9:56:00 AM,Sideswipe,No injury,Passenger Car
+8342910,3/23/2017,11:42:00 AM,Sideswipe,No injury,Not Stated
+8343566,3/24/2017,4:52:00 AM,Hit Object,Injury Complaint,Passenger Car
+8343574,3/25/2017,10:48:00 AM,Broadside,Injury Complaint,Passenger Car
+8344169,4/4/2017,1:02:00 PM,Broadside,Injury Complaint,Pickup or Panel Truck
+8344173,4/7/2017,8:25:00 PM,Sideswipe,No injury,Pickup or Panel Truck
+8344177,4/8/2017,4:00:00 PM,Sideswipe,Injury Complaint,Passenger Car
+8344181,4/9/2017,2:37:00 AM,Sideswipe,No injury,Passenger Car
+8344395,4/6/2017,8:15:00 PM,Vehicle/Pedestrian,Injury Visible,Passenger Car
+8344643,4/5/2017,3:51:00 PM,Hit Object,No injury,Passenger Car
+8344647,4/8/2017,5:30:00 PM,Broadside,No injury,Passenger Car
+8344670,3/24/2017,8:31:00 PM,Broadside,No injury,Passenger Car
+8348876,4/23/2017,3:46:00 PM,Sideswipe,No injury,Passenger Car
+8351274,4/17/2017,11:14:00 AM,Sideswipe,No injury,Not Stated
+8351278,4/15/2017,3:56:00 AM,Sideswipe,No injury,Not Stated
+8351381,4/15/2017,1:50:00 AM,Sideswipe,No injury,Passenger Car
+8351385,4/14/2017,7:57:00 AM,Sideswipe,No injury,Passenger Car
+8352523,4/25/2017,3:02:00 PM,Broadside,No injury,Motorcycle
+8352590,4/28/2017,8:58:00 PM,Sideswipe,No injury,Passenger Car
+8356576,5/8/2017,8:32:00 AM,Sideswipe,No injury,Passenger Car
+8356580,5/4/2017,7:13:00 PM,Hit Object,No injury,Passenger Car
+8357073,4/21/2017,10:10:00 PM,Overturned,Injury Complaint,Passenger Car
+8357077,4/21/2017,12:51:00 PM,Sideswipe,Injury Complaint,Passenger Car
+8357081,4/20/2017,10:57:00 AM,Sideswipe,Injury Complaint,Passenger Car
+8357085,4/19/2017,10:19:00 PM,Other,Injury Visible,Passenger Car
+8357089,4/18/2017,6:02:00 PM,Broadside,Injury Complaint,Passenger Car
+8357101,4/18/2017,11:52:00 AM,Broadside,Injury Severe,Passenger Car
+8357496,4/22/2017,2:15:00 PM,Rear End,No injury,Passenger Car
+8357500,4/9/2017,12:00:00 AM,Sideswipe,No injury,Not Stated
+8357504,4/19/2017,6:40:00 AM,Broadside,No injury,Passenger Car
+8357508,4/17/2017,5:00:00 PM,Broadside,No injury,Not Stated
+8357512,4/16/2017,6:30:00 PM,Sideswipe,No injury,Passenger Car
+8357516,4/16/2017,12:49:00 PM,Broadside,No injury,Passenger Car
+8357520,4/15/2017,7:50:00 PM,Sideswipe,No injury,Passenger Car
+8357521,4/13/2017,12:00:00 AM,Sideswipe,No injury,Not Stated
+8357525,4/11/2017,10:55:00 AM,Sideswipe,No injury,Passenger Car
+8357526,4/10/2017,3:39:00 PM,Sideswipe,No injury,Passenger Car
+8357529,4/12/2017,9:26:00 AM,Broadside,No injury,Passenger Car
+8357533,4/11/2017,8:33:00 AM,Broadside,No injury,Passenger Car
+8357537,4/10/2017,7:17:00 PM,Rear End,No injury,Passenger Car
+8357541,4/9/2017,7:30:00 PM,Sideswipe,No injury,Passenger Car
+8357545,4/9/2017,1:13:00 PM,Sideswipe,No injury,Other Bus
+8357859,4/30/2017,4:03:00 PM,Head-on,No injury,Passenger Car
+8357911,4/15/2017,8:32:00 PM,Vehicle/Pedestrian,Injury Visible,Passenger Car
+8358535,4/13/2017,10:20:00 AM,Head-on,No injury,Not Stated
+8359175,4/28/2017,12:00:00 AM,Sideswipe,No injury,Truck or Truck Tractor
+8359179,4/25/2017,8:35:00 AM,Hit Object,Injury Complaint,Pickup or Panel Truck
+8359183,4/23/2017,6:50:00 PM,Broadside,Injury Complaint,Passenger Car
+8359187,4/13/2017,9:46:00 PM,Rear End,Injury Complaint,Passenger Car
+8359553,4/19/2017,7:44:00 AM,Other,Injury Complaint,Bicycle
+8359747,4/28/2017,5:22:00 PM,Broadside,Injury Complaint,Passenger Car
+8360520,5/2/2017,2:27:00 PM,Broadside,Injury Visible,Bicycle
+8360524,5/2/2017,9:53:00 AM,Hit Object,Injury Visible,Passenger Car
+8362013,4/27/2017,12:00:00 AM,Rear End,No injury,Not Stated
+8362017,5/8/2017,6:45:00 AM,Sideswipe,No injury,Passenger Car
+8362021,5/7/2017,6:45:00 PM,Broadside,No injury,Passenger Car
+8362025,5/7/2017,11:42:00 AM,Hit Object,No injury,Not Stated
+8362029,5/5/2017,8:20:00 AM,Rear End,No injury,Passenger Car
+8364724,4/25/2017,2:06:00 PM,Hit Object,No injury,Passenger Car
+8364787,4/28/2017,2:36:00 PM,Broadside,No injury,Passenger Car
+8364791,4/27/2017,6:52:00 PM,Sideswipe,No injury,Passenger Car
+8364795,4/22/2017,10:00:00 AM,Broadside,No injury,Passenger Car
+8364799,4/25/2017,5:16:00 PM,Sideswipe,No injury,Passenger Car
+8366703,4/24/2017,12:00:00 AM,Hit Object,No injury,Passenger Car
+8366896,5/4/2017,12:00:00 AM,Sideswipe,No injury,Not Stated
+8366900,5/3/2017,12:00:00 AM,Hit Object,No injury,Not Stated
+8366904,5/2/2017,12:00:00 AM,Rear End,No injury,Not Stated
+8366908,5/8/2017,7:52:00 AM,Head-on,No injury,Passenger Car
+8366916,5/4/2017,12:00:00 AM,Sideswipe,No injury,Not Stated
+8366941,5/9/2017,5:50:00 PM,Broadside,Injury Complaint,Passenger Car
+8366945,5/4/2017,9:02:00 PM,Broadside,Injury Complaint,Passenger Car
+8370866,5/7/2017,3:22:00 AM,Rear End,No injury,Passenger Car
+8371233,5/11/2017,6:51:00 PM,Rear End,Injury Visible,Passenger Car
+8371237,5/10/2017,7:14:00 AM,Broadside,Injury Visible,Passenger Car
+8371245,5/15/2017,2:09:00 PM,Broadside,Injury Complaint,Passenger Car
+8373692,5/15/2017,12:12:00 PM,Sideswipe,No injury,Pickup or Panel Truck
+8373696,5/14/2017,10:31:00 AM,Broadside,No injury,Passenger Car
+8374195,5/12/2017,12:58:00 PM,Hit Object,No injury,Passenger Car
+8374207,5/17/2017,1:44:00 PM,Other,No injury,Passenger Car
+8374215,5/11/2017,5:32:00 PM,Rear End,No injury,Passenger Car
+8374219,5/12/2017,1:17:00 AM,Sideswipe,No injury,Passenger Car
+8374223,5/11/2017,1:36:00 PM,Broadside,No injury,Passenger Car
+8374306,5/16/2017,9:20:00 PM,Hit Object,Injury Visible,Passenger Car
+8374310,5/12/2017,10:24:00 PM,Broadside,Injury Visible,Passenger Car
+8376356,5/15/2017,4:07:00 PM,#N/A,Injury Complaint,Bicycle
+8378524,5/5/2017,9:43:00 AM,Rear End,No injury,Passenger Car
+8378766,5/11/2017,8:59:00 AM,Other,No injury,Passenger Car
+8379174,6/4/2017,5:07:00 PM,Sideswipe,No injury,Emergency Vehicle
+8379226,5/23/2017,2:51:00 PM,Broadside,Injury Complaint,Passenger Car
+8381610,5/23/2017,12:55:00 PM,Hit Object,No injury,Truck or Truck Tractor with Trailer
+8381614,5/22/2017,6:57:00 AM,Broadside,Injury Visible,Bicycle
+8381622,5/19/2017,9:00:00 AM,Rear End,No injury,Passenger Car
+8381688,5/25/2017,8:07:00 AM,Broadside,Injury Complaint,Passenger Car
+8381724,5/24/2017,8:31:00 AM,Broadside,Injury Complaint,Passenger Car
+8381763,5/23/2017,2:47:00 AM,Rear End,No injury,Passenger Car
+8381775,5/25/2017,12:14:00 PM,Hit Object,No injury,Passenger Car
+8381783,5/24/2017,6:24:00 PM,Sideswipe,No injury,Not Stated
+8383108,5/21/2017,3:12:00 PM,Sideswipe,Injury Complaint,Not Stated
+8383796,5/30/2017,12:15:00 PM,Broadside,No injury,Passenger Car
+8383800,5/31/2017,7:50:00 AM,Broadside,Injury Complaint,Passenger Car
+8383804,6/3/2017,12:00:00 AM,Sideswipe,No injury,Not Stated
+8384536,6/9/2017,3:07:00 PM,Head-on,No injury,Passenger Car
+8386383,5/23/2017,7:40:00 AM,Sideswipe,No injury,Passenger Car
+8386419,5/29/2017,5:20:00 PM,Vehicle/Pedestrian,Injury Visible,Pedestrian
+8386447,6/4/2017,5:01:00 PM,Rear End,No injury,Passenger Car
+8386451,5/29/2017,8:07:00 PM,Rear End,No injury,Passenger Car
+8386455,5/28/2017,6:17:00 PM,Sideswipe,No injury,Passenger Car
+8386882,6/8/2017,9:39:00 AM,Rear End,No injury,Passenger Car
+8386953,6/8/2017,11:38:00 AM,Broadside,No injury,Passenger Car
+8386957,6/7/2017,9:42:00 PM,Hit Object,No injury,Passenger Car
+8387767,6/1/2017,3:59:00 PM,Broadside,Injury Visible,Motorcycle
+8387803,5/30/2017,7:55:00 AM,Vehicle/Pedestrian,Injury Complaint,Passenger Car
+8387807,5/31/2017,4:57:00 PM,Head-on,Injury Complaint,Passenger Car
+8387811,5/28/2017,5:43:00 PM,Broadside,Injury Complaint,Bicycle
+8387993,5/26/2017,1:40:00 PM,Other,No injury,Passenger Car
+8387997,5/27/2017,5:05:00 PM,Rear End,No injury,Passenger Car
+8388982,6/1/2017,4:49:00 PM,Head-on,No injury,Passenger Car
+8388986,6/2/2017,1:15:00 PM,Sideswipe,No injury,Passenger Car
+8388990,6/3/2017,11:38:00 PM,Rear End,No injury,Passenger Car
+8388994,6/4/2017,7:53:00 PM,Broadside,No injury,Passenger Car
+8388998,6/4/2017,12:00:00 AM,Sideswipe,No injury,Not Stated
+8389002,6/5/2017,3:41:00 PM,Rear End,No injury,Passenger Car
+8389045,5/29/2017,8:17:00 AM,Broadside,Injury Complaint,Passenger Car
+8389049,5/31/2017,4:38:00 PM,Broadside,No injury,Passenger Car
+8389053,5/30/2017,5:00:00 PM,Sideswipe,No injury,Passenger Car
+8389057,5/31/2017,12:00:00 AM,Sideswipe,No injury,Not Stated
+8389093,5/30/2017,12:00:00 AM,Other,No injury,Not Stated
+8396750,6/6/2017,6:22:00 PM,Broadside,No injury,Passenger Car
+8396754,6/12/2017,4:03:00 PM,Broadside,No injury,Passenger Car
+8396758,6/13/2017,3:50:00 AM,Sideswipe,No injury,Passenger Car
+8396762,6/17/2017,6:24:00 AM,Sideswipe,No injury,Truck or Truck Tractor
+8396930,6/7/2017,1:08:00 PM,Vehicle/Pedestrian,Injury Complaint,Passenger Car
+8396934,6/10/2017,5:54:00 PM,Broadside,Injury Complaint,Passenger Car
+8398563,6/12/2017,3:19:00 PM,Sideswipe,No injury,Passenger Car
+8398567,6/11/2017,7:06:00 PM,Sideswipe,No injury,Passenger Car
+8398569,6/17/2017,3:17:00 PM,Hit Object,No injury,Passenger Car
+8398571,6/10/2017,12:42:00 PM,Broadside,Injury Complaint,Passenger Car
+8398573,6/16/2017,11:18:00 AM,Broadside,No injury,Passenger Car
+8398575,6/10/2017,1:15:00 AM,Hit Object,No injury,Passenger Car
+8398577,6/16/2017,12:00:00 AM,Sideswipe,No injury,Not Stated
+8398579,6/9/2017,9:45:00 AM,Sideswipe,No injury,Passenger Car
+8398581,6/15/2017,7:01:00 AM,Broadside,No injury,Passenger Car
+8398583,6/9/2017,5:20:00 AM,Hit Object,No injury,Passenger Car
+8398585,6/14/2017,12:00:00 AM,Sideswipe,No injury,Not Stated
+8398587,6/8/2017,1:18:00 PM,Broadside,No injury,Passenger Car
+8398589,6/13/2017,10:13:00 PM,Sideswipe,No injury,Passenger Car
+8398591,6/7/2017,12:00:00 AM,Sideswipe,No injury,Not Stated
+8398593,6/13/2017,7:00:00 PM,Sideswipe,No injury,Passenger Car
+8407737,6/23/2017,7:12:00 PM,Head-on,No injury,Passenger Car
+8407741,6/26/2017,11:08:00 AM,Rear End,Injury Complaint,Pickup or Panel Truck
+8407745,6/28/2017,2:20:00 AM,Other,Injury Visible,Not Stated
+8407820,6/20/2017,12:00:00 AM,Sideswipe,No injury,Not Stated
+8407824,6/21/2017,3:58:00 PM,Rear End,No injury,Passenger Car
+8407828,6/23/2017,12:00:00 AM,Sideswipe,No injury,Not Stated
+8407832,6/22/2017,8:23:00 PM,Broadside,No injury,Passenger Car
+8407836,6/26/2017,9:00:00 PM,Sideswipe,No injury,Passenger Car
+8407840,6/27/2017,12:00:00 AM,Sideswipe,No injury,Not Stated
+8407841,6/29/2017,5:40:00 PM,Rear End,No injury,Passenger Car
+8413073,6/29/2017,7:41:00 PM,Sideswipe,No injury,Not Stated
+8413074,6/21/2017,9:50:00 AM,Rear End,No injury,Passenger Car
+8413077,6/25/2017,9:37:00 PM,Rear End,Injury Visible,Passenger Car
+8413081,6/27/2017,5:12:00 PM,Broadside,Injury Complaint,Passenger Car
+8413085,6/26/2017,5:20:00 PM,Sideswipe,No injury,Passenger Car
+8413089,6/29/2017,4:41:00 PM,Sideswipe,No injury,Passenger Car
+8413093,6/21/2017,11:50:00 PM,Sideswipe,No injury,Passenger Car
+8413097,6/24/2017,12:00:00 PM,Rear End,No injury,Not Stated
+8413557,6/23/2017,10:06:00 PM,Broadside,Injury Visible,Passenger Car
+8413561,6/29/2017,4:40:00 PM,Head-on,Injury Visible,Passenger Car
+8413565,6/29/2017,4:39:00 PM,Head-on,Injury Visible,Passenger Car
+8413589,6/15/2017,2:07:00 AM,Overturned,Injury Visible,Passenger Car
+8413730,7/4/2017,3:03:00 PM,Sideswipe,No injury,Passenger Car
+8420883,7/18/2017,8:37:00 PM,Sideswipe,No injury,Passenger Car
+8420887,7/18/2017,9:20:00 AM,Head-on,No injury,Passenger Car
+8420891,7/16/2017,11:16:00 PM,Vehicle/Pedestrian,Injury Visible,Pedestrian
+8420895,7/15/2017,6:31:00 PM,Rear End,No injury,Passenger Car
+8420899,7/10/2017,3:01:00 PM,Broadside,Injury Complaint,Bicycle
+8420903,7/10/2017,5:29:00 AM,Head-on,No injury,Not Stated
+8420907,7/10/2017,5:29:00 AM,Hit Object,No injury,Passenger Car
+8420934,7/15/2017,10:36:00 AM,Sideswipe,Injury Visible,Motorcycle
+8420946,7/6/2017,4:41:00 PM,Sideswipe,No injury,Passenger Car
+8420950,7/8/2017,10:30:00 AM,Sideswipe,No injury,Passenger Car
+8420954,7/14/2017,5:42:00 PM,Broadside,No injury,Passenger Car
+8422243,7/12/2017,2:21:00 PM,Broadside,No injury,Passenger Car
+8422247,7/13/2017,7:26:00 PM,Sideswipe,No injury,Pickup or Panel Truck
+8422251,7/14/2017,9:00:00 PM,Rear End,Injury Complaint,Pickup or Panel Truck
+8422275,7/17/2017,11:36:00 AM,Sideswipe,No injury,Pickup or Panel Truck
+8422279,7/19/2017,5:20:00 PM,Broadside,No injury,Pickup or Panel Truck
+8422283,7/21/2017,9:35:00 PM,Sideswipe,No injury,Passenger Car
+8422287,7/24/2017,7:35:00 AM,Sideswipe,No injury,Pickup or Panel Truck
+8422291,7/24/2017,6:30:00 PM,Hit Object,No injury,Pickup or Panel Truck
+8422314,7/11/2017,1:22:00 PM,Rear End,No injury,Pickup or Panel Truck
+8422318,7/11/2017,5:48:00 PM,Rear End,No injury,Passenger Car
+8422321,7/25/2017,3:32:00 PM,Hit Object,Injury Complaint,Bicycle
+8422325,7/21/2017,8:46:00 AM,Broadside,Injury Complaint,Passenger Car
+8422353,7/14/2017,11:26:00 AM,Vehicle/Pedestrian,Injury Complaint,Passenger Car
+8422357,7/13/2017,11:41:00 PM,Head-on,Injury Complaint,Passenger Car
+8422361,7/12/2017,12:48:00 PM,Sideswipe,Injury Complaint,Motorcycle
+8422365,7/11/2017,5:53:00 PM,Rear End,Injury Complaint,Bicycle
+8422369,7/4/2017,9:42:00 PM,Broadside,Injury Visible,Passenger Car
+8422562,7/12/2017,1:44:00 AM,Head-on,No injury,Passenger Car
+8422565,7/25/2017,12:00:00 AM,Sideswipe,No injury,Not Stated
+8422566,7/8/2017,7:49:00 PM,Broadside,No injury,Not Stated
+8422569,7/23/2017,12:00:00 AM,Hit Object,No injury,Not Stated
+8422570,7/8/2017,12:00:00 AM,Sideswipe,No injury,Not Stated
+8422573,7/23/2017,8:37:00 AM,Broadside,No injury,Passenger Car
+8422574,7/7/2017,12:00:00 AM,Broadside,No injury,Not Stated
+8422577,7/22/2017,12:00:00 AM,Sideswipe,No injury,Not Stated
+8422581,7/20/2017,9:17:00 PM,Rear End,No injury,Passenger Car
+8422585,7/20/2017,12:00:00 AM,Other,No injury,Not Stated
+8422589,7/18/2017,4:41:00 PM,Head-on,No injury,Passenger Car
+8422593,7/19/2017,1:49:00 PM,Broadside,No injury,Passenger Car
+8422597,7/18/2017,11:00:00 AM,Sideswipe,No injury,Not Stated
+8422601,7/17/2017,5:10:00 PM,Rear End,No injury,Passenger Car
+8422625,7/15/2017,2:26:00 AM,Sideswipe,No injury,Passenger Car
+8422629,7/14/2017,10:27:00 AM,Rear End,No injury,Passenger Car
+8422633,7/12/2017,8:00:00 PM,Sideswipe,No injury,Passenger Car
+8422637,7/4/2017,12:00:00 AM,Broadside,No injury,Not Stated
+8422837,7/14/2017,7:18:00 AM,Broadside,No injury,Passenger Car
+8423558,8/3/2017,9:50:00 AM,Broadside,Injury Complaint,Passenger Car
+8424825,8/2/2017,12:00:00 AM,Sideswipe,No injury,Not Stated
+8424829,8/7/2017,12:00:00 AM,Sideswipe,No injury,Truck or Truck Tractor
+8427973,7/31/2017,4:49:00 PM,Broadside,Injury Complaint,Passenger Car
+8427993,7/30/2017,10:31:00 PM,Rear End,Injury Complaint,Passenger Car
+8427997,7/2/2017,10:40:00 AM,Rear End,Injury Complaint,Passenger Car
+8428012,7/27/2017,10:51:00 PM,Other,Injury Visible,Not Stated
+8428111,7/29/2017,12:00:00 AM,Sideswipe,No injury,Not Stated
+8428115,7/28/2017,4:30:00 PM,Rear End,No injury,Passenger Car
+8428123,7/30/2017,5:12:00 PM,Sideswipe,No injury,Passenger Car
+8428127,7/31/2017,12:00:00 AM,Sideswipe,No injury,Not Stated
+8428131,7/29/2017,7:40:00 PM,Broadside,No injury,Passenger Car
+8428143,7/26/2017,2:32:00 PM,Other,No injury,Not Stated
+8428155,7/28/2017,1:05:00 AM,Broadside,No injury,Passenger Car
+8429296,8/3/2017,12:06:00 PM,Sideswipe,Injury Visible,Passenger Car
+8429300,8/7/2017,11:13:00 AM,Rear End,Injury Complaint,Passenger Car
+8429455,8/4/2017,12:01:00 PM,Head-on,No injury,Passenger Car
+8429459,8/4/2017,6:43:00 PM,Hit Object,No injury,Passenger Car
+8429463,8/6/2017,3:50:00 AM,Hit Object,No injury,Passenger Car
+8429467,8/1/2017,4:10:00 PM,Rear End,No injury,Not Stated
+8429471,8/4/2017,7:14:00 AM,Sideswipe,No injury,Passenger Car
+8429475,8/2/2017,12:00:00 AM,Sideswipe,No injury,Not Stated
+8429479,8/2/2017,12:00:00 AM,Hit Object,No injury,Not Stated
+8430815,8/5/2017,8:05:00 PM,Hit Object,Injury Visible,Passenger Car
+8430819,8/4/2017,10:00:00 AM,Sideswipe,No injury,Pickup or Panel Truck
+8432970,7/27/2017,8:37:00 AM,Broadside,No injury,Emergency Vehicle
+8434299,8/11/2017,5:34:00 PM,Rear End,No injury,Passenger Car
+8435644,8/6/2017,2:47:00 PM,Head-on,No injury,Not Stated
+8435648,8/15/2017,1:11:00 PM,Other,No injury,Pickup or Panel Truck
+8435652,8/16/2017,4:24:00 PM,Sideswipe,Injury Complaint,Truck or Truck Tractor with Trailer
+8438791,8/19/2017,12:00:00 AM,Head-on,No injury,Not Stated
+8438795,8/18/2017,3:03:00 PM,Rear End,Injury Complaint,Passenger Car
+8438799,8/13/2017,5:30:00 AM,Overturned,No injury,Passenger Car
+8439179,8/19/2017,12:49:00 PM,Sideswipe,Injury Complaint,Passenger Car
+8439183,8/17/2017,4:31:00 PM,Broadside,Injury Complaint,Passenger Car
+8439231,8/18/2017,12:00:00 AM,Sideswipe,No injury,Not Stated
+8439235,8/17/2017,3:00:00 AM,Sideswipe,No injury,Passenger Car
+8439239,8/16/2017,5:49:00 PM,Other,No injury,Other Vehicle
+8439243,8/16/2017,1:04:00 PM,Rear End,No injury,Passenger Car
+8439247,8/13/2017,12:00:00 AM,Rear End,No injury,Passenger Car
+8439251,8/15/2017,6:04:00 PM,Broadside,No injury,Not Stated
+8439259,8/15/2017,11:00:00 AM,Rear End,No injury,Passenger Car
+8439263,8/13/2017,7:19:00 PM,Rear End,No injury,Not Stated
+8439267,8/13/2017,12:00:00 AM,Other,No injury,Not Stated
+8439271,8/12/2017,10:43:00 PM,Head-on,No injury,Passenger Car
+8439275,8/12/2017,12:00:00 AM,Sideswipe,No injury,Not Stated
+8439279,8/9/2017,5:15:00 PM,Sideswipe,No injury,Not Stated
+8439573,8/13/2017,2:17:00 PM,Rear End,Injury Complaint,Passenger Car
+8439577,8/9/2017,2:13:00 PM,Rear End,Injury Complaint,Passenger Car
+8439613,7/8/2017,4:19:00 PM,Rear End,No injury,Passenger Car
+8441489,8/28/2017,11:48:00 AM,Broadside,Injury Complaint,Passenger Car
+8447821,8/28/2017,1:06:00 PM,Sideswipe,No injury,Passenger Car
+8448062,8/26/2017,4:19:00 PM,Broadside,No injury,Passenger Car
+8448066,8/24/2017,7:55:00 AM,Broadside,No injury,Passenger Car
+8448074,8/21/2017,8:38:00 AM,Rear End,No injury,Passenger Car
+8448078,8/21/2017,5:25:00 PM,Broadside,No injury,Passenger Car
+8448188,8/25/2017,12:30:00 PM,Vehicle/Pedestrian,Injury Visible,Pickup or Panel Truck
+8448192,8/24/2017,2:59:00 PM,Rear End,No injury,Pickup or Panel Truck
+8448196,8/24/2017,10:59:00 AM,Sideswipe,No injury,Pickup or Panel Truck
+8448200,8/23/2017,8:24:00 PM,Sideswipe,No injury,Pickup or Panel Truck
+8448204,8/22/2017,9:45:00 AM,Other,No injury,Pickup or Panel Truck
+8448495,7/17/2017,1:06:00 PM,Broadside,No injury,Passenger Car
+8448721,8/28/2017,7:54:00 PM,Broadside,Injury Complaint,Passenger Car
+8448725,8/22/2017,6:14:00 PM,Other,Injury Visible,Passenger Car
+8448729,8/24/2017,5:29:00 PM,Vehicle/Pedestrian,Injury Complaint,Passenger Car
+8448733,8/27/2017,4:04:00 AM,Overturned,Injury Visible,Passenger Car
+8448788,8/23/2017,2:01:00 PM,Sideswipe,No injury,Passenger Car
+8449586,8/22/2017,1:50:00 AM,Hit Object,No injury,Emergency Vehicle
+8449804,8/19/2017,4:16:00 AM,Hit Object,No injury,Passenger Car
+8449828,8/22/2017,8:05:00 AM,Sideswipe,No injury,Passenger Car
+8450547,9/5/2017,11:14:00 AM,Sideswipe,No injury,Passenger Car
+8451135,9/19/2017,3:15:00 PM,Broadside,No injury,Passenger Car
+8453542,9/13/2017,3:32:00 PM,Sideswipe,Injury Complaint,Pickup or Panel Truck
+8453550,9/7/2017,9:31:00 AM,Hit Object,No injury,Not Stated
+8453554,9/11/2017,7:57:00 PM,Rear End,No injury,Pickup or Panel Truck
+8453602,9/13/2017,9:06:00 AM,Hit Object,No injury,Passenger Car
+8453606,9/9/2017,4:24:00 PM,Hit Object,No injury,Passenger Car
+8453610,9/12/2017,9:06:00 AM,Broadside,Injury Complaint,Passenger Car
+8453614,9/5/2017,9:11:00 PM,Sideswipe,Injury Complaint,Passenger Car
+8453622,9/5/2017,9:28:00 PM,Broadside,Injury Complaint,Motorcycle
+8453669,9/17/2017,7:03:00 PM,Hit Object,No injury,Passenger Car
+8453673,9/16/2017,12:00:00 AM,Sideswipe,No injury,Not Stated
+8453677,9/15/2017,12:50:00 PM,Broadside,No injury,Passenger Car
+8453682,9/9/2017,9:40:00 AM,Broadside,No injury,Passenger Car
+8453686,9/8/2017,7:07:00 PM,Hit Object,No injury,Passenger Car
+8453690,9/8/2017,11:05:00 AM,Rear End,No injury,Not Stated
+8453692,9/12/2017,3:47:00 PM,Sideswipe,No injury,Passenger Car
+8453698,9/6/2017,9:16:00 AM,Sideswipe,No injury,Passenger Car
+8453702,9/5/2017,12:00:00 AM,Sideswipe,No injury,Not Stated
+8455560,9/16/2017,4:59:00 PM,Sideswipe,No injury,Passenger Car
+8455564,9/2/2017,3:42:00 PM,Rear End,No injury,Passenger Car
+8455757,9/16/2017,2:58:00 PM,Broadside,Injury Complaint,Passenger Car
+8455993,9/16/2017,12:33:00 PM,Hit Object,Injury Complaint,Motorcycle
+8455997,9/12/2017,3:42:00 PM,Rear End,Injury Complaint,Passenger Car
+8459245,8/31/2017,8:26:00 AM,Rear End,Injury Visible,Passenger Car
+8459289,8/31/2017,2:18:00 PM,Broadside,No injury,Pickup or Panel Truck
+8459292,9/4/2017,11:58:00 AM,Hit Object,Injury Complaint,Passenger Car
+8459391,8/31/2017,9:51:00 PM,Rear End,No injury,Passenger Car
+8459444,9/1/2017,12:00:00 AM,Broadside,No injury,Not Stated
+8459460,9/3/2017,12:22:00 PM,Sideswipe,No injury,Passenger Car
+8459464,9/1/2017,4:37:00 PM,Broadside,No injury,Passenger Car
+8459587,8/26/2017,3:24:00 PM,Broadside,Injury Complaint,Passenger Car
+8461678,10/5/2017,7:03:00 AM,Head-on,Injury Complaint,Passenger Car
+8463156,9/25/2017,8:12:00 AM,Broadside,Injury Complaint,Bicycle
+8466802,9/24/2017,3:49:00 AM,Rear End,No injury,Passenger Car
+8466806,9/23/2017,10:50:00 AM,Broadside,No injury,Passenger Car
+8466810,9/20/2017,9:10:00 AM,Sideswipe,No injury,Pickup or Panel Truck
+8466814,9/18/2017,4:30:00 PM,Rear End,No injury,Pickup or Panel Truck
+8466818,9/19/2017,1:21:00 PM,Broadside,No injury,Passenger Car
+8466883,9/21/2017,8:31:00 AM,Head-on,Injury Complaint,Passenger Car
+8466887,9/21/2017,7:50:00 AM,Broadside,Injury Complaint,Bicycle
+8466891,9/19/2017,6:17:00 PM,Vehicle/Pedestrian,Injury Visible,Passenger Car
+8466895,9/18/2017,8:52:00 AM,Head-on,Injury Complaint,Passenger Car
+8467028,9/25/2017,11:09:00 PM,Sideswipe,No injury,Passenger Car
+8467199,9/27/2017,3:37:00 PM,Broadside,No injury,Passenger Car
+8467204,9/25/2017,5:53:00 PM,Broadside,No injury,Passenger Car
+8467208,9/25/2017,12:00:00 AM,Sideswipe,No injury,Not Stated
+8467212,9/21/2017,6:30:00 PM,Rear End,No injury,Passenger Car
+8467216,9/20/2017,1:49:00 PM,Sideswipe,No injury,Passenger Car
+8467220,9/19/2017,3:26:00 PM,Sideswipe,No injury,Passenger Car
+8467236,9/27/2017,12:00:00 AM,Rear End,No injury,Not Stated
+8468945,9/25/2017,10:13:00 PM,Broadside,Injury Visible,Passenger Car
+8468949,9/26/2017,5:33:00 PM,Hit Object,Injury Severe,Motorcycle
+8469150,9/20/2017,8:30:00 AM,Rear End,No injury,Passenger Car
+8469158,9/26/2017,4:30:00 PM,Sideswipe,No injury,Passenger Car
+8469286,12/14/2017,1:40:00 PM,Sideswipe,No injury,Passenger Car
+8470077,10/7/2017,10:40:00 AM,Head-on,No injury,Not Stated
+8471146,10/1/2017,10:42:00 PM,Head-on,No injury,Pickup or Panel Truck
+8471150,9/27/2017,12:22:00 PM,Broadside,No injury,Passenger Car
+8471162,10/2/2017,10:20:00 AM,Broadside,Injury Visible,Truck or Truck Tractor
+8471420,9/30/2017,6:04:00 PM,Head-on,Injury Complaint,Passenger Car
+8471436,9/28/2017,7:35:00 AM,Sideswipe,Injury Visible,Bicycle
+8471597,9/30/2017,10:39:00 AM,Hit Object,No injury,Passenger Car
+8471627,10/1/2017,5:58:00 PM,Rear End,No injury,Passenger Car
+8471631,10/6/2017,7:26:00 PM,Sideswipe,No injury,Passenger Car
+8471643,10/3/2017,4:00:00 PM,Rear End,No injury,Passenger Car
+8471647,10/13/2017,12:00:00 AM,Rear End,No injury,Not Stated
+8471651,10/1/2017,7:55:00 AM,Hit Object,No injury,Passenger Car
+8471655,10/6/2017,6:07:00 AM,Hit Object,No injury,Passenger Car
+8471659,10/6/2017,2:17:00 PM,Rear End,Injury Complaint,Passenger Car
+8471663,10/5/2017,3:40:00 PM,Sideswipe,No injury,Passenger Car
+8471667,10/5/2017,10:01:00 PM,Broadside,No injury,Passenger Car
+8471707,10/7/2017,10:59:00 AM,Broadside,No injury,Passenger Car
+8471944,10/6/2017,11:01:00 AM,Rear End,Injury Visible,Passenger Car
+8474673,9/27/2017,8:30:00 AM,Broadside,No injury,Passenger Car
+8475462,10/10/2017,10:31:00 PM,Hit Object,No injury,Passenger Car
+8483282,10/28/2017,9:03:00 AM,Broadside,No injury,Truck or Truck Tractor
+8483286,10/25/2017,5:17:00 PM,Sideswipe,No injury,Pickup or Panel Truck
+8483290,10/25/2017,8:29:00 AM,Rear End,No injury,Not Stated
+8483294,10/17/2017,12:53:00 PM,Sideswipe,No injury,Pickup or Panel Truck
+8483298,10/16/2017,11:55:00 AM,Broadside,Injury Complaint,Passenger Car
+8483359,10/31/2017,12:00:00 AM,Sideswipe,No injury,Not Stated
+8483868,10/30/2017,12:00:00 AM,Sideswipe,No injury,Truck or Truck Tractor
+8483872,10/29/2017,2:20:00 AM,Rear End,No injury,Passenger Car
+8483876,10/24/2017,8:04:00 AM,Broadside,Injury Complaint,Passenger Car
+8483880,10/24/2017,1:50:00 AM,Hit Object,No injury,Not Stated
+8483884,10/19/2017,1:28:00 PM,Sideswipe,No injury,Passenger Car
+8483888,10/18/2017,12:00:00 AM,Sideswipe,No injury,Not Stated
+8483892,10/15/2017,11:54:00 AM,Sideswipe,No injury,Not Stated
+8483896,10/14/2017,10:23:00 PM,Rear End,No injury,Passenger Car
+8483900,10/12/2017,7:25:00 PM,Broadside,No injury,Passenger Car
+8484015,10/27/2017,7:18:00 AM,Vehicle/Pedestrian,Injury Severe,Passenger Car
+8484019,10/25/2017,8:39:00 AM,Broadside,Injury Severe,Passenger Car
+8484023,10/23/2017,3:39:00 PM,Broadside,Injury Visible,Passenger Car
+8484027,10/21/2017,9:47:00 PM,Rear End,Injury Visible,Passenger Car
+8484031,10/20/2017,4:48:00 PM,Broadside,Injury Visible,Passenger Car
+8484035,10/17/2017,8:53:00 PM,Vehicle/Pedestrian,Injury Severe,Passenger Car
+8484039,10/13/2017,3:13:00 PM,Other,Injury Complaint,Motorcycle
+8486216,10/15/2017,2:59:00 PM,Broadside,Injury Complaint,Passenger Car
+8486221,10/9/2017,7:12:00 PM,Sideswipe,No injury,Not Stated
+8486225,10/26/2017,4:15:00 PM,Sideswipe,No injury,Passenger Car
+8486228,10/22/2017,12:07:00 PM,Vehicle/Pedestrian,Injury Visible,Passenger Car
+8486248,9/30/2017,3:15:00 PM,Sideswipe,No injury,Passenger Car
+8492437,6/19/2017,10:51:00 AM,Head-on,Injury Complaint,Not Stated
+8495724,11/3/2017,5:28:00 PM,Vehicle/Pedestrian,Injury Visible,Passenger Car
+8496223,11/13/2017,10:15:00 AM,Hit Object,No injury,Not Stated
+8496227,11/19/2017,12:00:00 AM,Sideswipe,No injury,Not Stated
+8496231,11/19/2017,1:44:00 PM,Rear End,No injury,Passenger Car
+8496820,11/15/2017,6:15:00 PM,Broadside,No injury,Not Stated
+8496850,11/18/2017,12:45:00 PM,Rear End,Injury Complaint,Passenger Car
+8497697,11/4/2017,2:05:00 PM,Rear End,Injury Complaint,Passenger Car
+8497701,11/5/2017,2:53:00 PM,Sideswipe,Injury Complaint,Passenger Car
+8497705,11/6/2017,7:35:00 AM,Broadside,Injury Complaint,Bicycle
+8497709,11/13/2017,2:15:00 PM,Sideswipe,Injury Complaint,Passenger Car
+8497713,11/14/2017,3:48:00 PM,Head-on,Injury Visible,Passenger Car
+8497762,11/12/2017,9:57:00 PM,Head-on,No injury,Passenger Car
+8497766,11/11/2017,9:57:00 PM,Hit Object,No injury,Passenger Car
+8497770,11/11/2017,8:19:00 PM,Broadside,No injury,Passenger Car
+8497774,11/11/2017,12:00:00 AM,Sideswipe,No injury,Not Stated
+8497777,11/3/2017,8:37:00 AM,Sideswipe,No injury,Passenger Car
+8497778,11/10/2017,11:25:00 AM,Hit Object,No injury,Passenger Car
+8497781,11/1/2017,12:00:00 AM,Sideswipe,No injury,Not Stated
+8497782,11/9/2017,2:39:00 PM,Head-on,No injury,Passenger Car
+8497785,11/2/2017,8:52:00 AM,Broadside,No injury,Passenger Car
+8497786,11/8/2017,2:02:00 PM,Broadside,No injury,Passenger Car
+8497789,11/1/2017,8:45:00 PM,Sideswipe,No injury,Not Stated
+8497790,11/5/2017,9:05:00 PM,Rear End,No injury,Passenger Car
+8497793,11/1/2017,5:26:00 PM,Broadside,No injury,Passenger Car
+8497794,11/2/2017,4:30:00 PM,Sideswipe,No injury,Not Stated
+8497809,11/19/2017,4:56:00 PM,Sideswipe,No injury,Passenger Car
+8497813,11/18/2017,10:07:00 PM,Sideswipe,No injury,Passenger Car
+8497817,11/18/2017,12:01:00 PM,Sideswipe,No injury,Not Stated
+8497821,11/16/2017,10:30:00 PM,Sideswipe,No injury,Not Stated
+8497825,11/16/2017,4:13:00 PM,Broadside,No injury,Passenger Car
+8497829,11/15/2017,11:04:00 PM,Sideswipe,No injury,Passenger Car
+8497833,11/14/2017,6:30:00 PM,Rear End,No injury,Passenger Car
+8497837,11/13/2017,10:38:00 AM,Head-on,No injury,Passenger Car
+8497910,9/28/2017,12:00:00 AM,Rear End,No injury,Not Stated
+8498371,11/22/2017,10:37:00 AM,Sideswipe,No injury,Truck or Truck Tractor
+8498375,11/28/2017,6:55:00 AM,Broadside,Injury Visible,Bicycle
+8498547,11/21/2017,6:12:00 AM,Vehicle/Pedestrian,Injury Severe,Passenger Car
+8498551,11/6/2017,3:02:00 PM,Vehicle/Pedestrian,Injury Visible,Not Stated
+8498702,11/25/2017,12:00:00 AM,Rear End,No injury,Not Stated
+8503700,11/12/2017,6:32:00 PM,Sideswipe,No injury,Passenger Car
+8503703,11/13/2017,8:18:00 AM,Rear End,No injury,Passenger Car
+8503708,11/2/2017,8:00:00 AM,Broadside,No injury,Passenger Car
+8503890,12/15/2017,6:03:00 PM,Rear End,No injury,Passenger Car
+8503955,12/4/2017,1:27:00 AM,Head-on,Injury Visible,Passenger Car
+8504029,1/1/2018,2:40:00 AM,Rear End,Injury Visible,Passenger Car
+8504132,12/30/2017,6:20:00 PM,Sideswipe,No injury,Passenger Car
+8504136,12/29/2017,6:25:00 PM,Rear End,No injury,Passenger Car
+8504174,12/7/2017,6:55:00 PM,Rear End,No injury,Passenger Car
+8504896,12/7/2017,8:43:00 AM,Rear End,No injury,Passenger Car
+8507854,11/22/2017,4:30:00 PM,Head-on,No injury,Not Stated
+8507877,11/6/2017,3:15:00 PM,Rear End,No injury,Not Stated
+8508121,12/5/2017,3:16:00 PM,Sideswipe,No injury,Passenger Car
+8508288,11/28/2017,6:06:00 PM,Sideswipe,No injury,Passenger Car
+8508292,11/27/2017,7:59:00 PM,Hit Object,No injury,Passenger Car
+8508296,11/27/2017,8:08:00 AM,Broadside,No injury,Passenger Car
+8508300,11/24/2017,9:06:00 AM,Hit Object,No injury,Passenger Car
+8508308,11/22/2017,4:13:00 PM,Broadside,No injury,Passenger Car
+8508312,11/21/2017,5:24:00 PM,Broadside,No injury,Passenger Car
+8508321,11/28/2017,7:06:00 PM,Broadside,No injury,Passenger Car
+8509344,11/29/2017,7:35:00 AM,Sideswipe,No injury,Highway Construction Equipment
+8509549,11/30/2017,8:08:00 AM,Rear End,Injury Complaint,Passenger Car
+8509553,11/30/2017,7:55:00 AM,Vehicle/Pedestrian,Injury Complaint,Passenger Car
+8509833,11/30/2017,4:55:00 PM,Broadside,No injury,Passenger Car
+8509837,11/26/2017,2:55:00 AM,Rear End,No injury,Passenger Car
+8510388,12/1/2017,7:50:00 PM,Sideswipe,Injury Visible,Not Stated
+8510690,12/5/2017,12:00:00 AM,Broadside,No injury,Not Stated
+8510694,12/4/2017,8:37:00 AM,Broadside,No injury,Passenger Car
+8510698,12/3/2017,3:06:00 PM,Hit Object,Injury Complaint,Passenger Car
+8510702,12/2/2017,12:00:00 AM,Hit Object,No injury,Not Stated
+8510706,12/2/2017,12:00:00 AM,Sideswipe,No injury,Not Stated
+8510710,12/1/2017,12:00:00 AM,Broadside,No injury,Not Stated
+8512237,11/30/2017,3:21:00 PM,Sideswipe,No injury,Passenger Car
+8512993,12/7/2017,1:41:00 PM,Sideswipe,No injury,Emergency Vehicle
+8513064,12/23/2017,1:16:00 PM,Sideswipe,No injury,Emergency Vehicle
+8515132,12/5/2017,1:11:00 AM,Head-on,No injury,Passenger Car
+8519295,12/3/2017,3:30:00 PM,Sideswipe,No injury,Passenger Car
+8519299,12/8/2017,6:22:00 PM,Head-on,Injury Complaint,Pickup or Panel Truck
+8519841,12/6/2017,4:23:00 AM,Broadside,Injury Complaint,Passenger Car
+8522016,12/16/2017,6:51:00 PM,Head-on,Injury Visible,Motorcycle
+8522020,12/11/2017,2:04:00 PM,Broadside,Injury Complaint,Passenger Car
+8522152,12/12/2017,9:51:00 AM,Broadside,No injury,Pickup or Panel Truck
+8522156,12/12/2017,3:48:00 PM,Hit Object,No injury,Pickup or Panel Truck
+8522160,12/13/2017,6:06:00 PM,Broadside,No injury,Pickup or Panel Truck
+8522163,12/17/2017,5:28:00 PM,Broadside,No injury,Other Bus
+8522741,12/18/2017,11:20:00 AM,Broadside,No injury,Passenger Car
+8522745,12/17/2017,10:48:00 PM,Hit Object,No injury,Passenger Car
+8522749,12/15/2017,10:36:00 PM,Hit Object,No injury,Passenger Car
+8522753,12/15/2017,6:50:00 PM,Broadside,No injury,Not Stated
+8522757,12/15/2017,6:00:00 PM,Broadside,No injury,Passenger Car
+8522761,12/14/2017,1:00:00 PM,#N/A,No injury,Passenger Car
+8522765,12/13/2017,6:00:00 PM,Sideswipe,No injury,Passenger Car
+8522769,12/13/2017,9:11:00 AM,Rear End,No injury,Passenger Car
+8522773,12/13/2017,9:10:00 AM,Broadside,No injury,Passenger Car
+8522777,12/11/2017,12:56:00 PM,Hit Object,No injury,Passenger Car
+8522781,12/12/2017,3:04:00 PM,Broadside,No injury,Passenger Car
+8523657,12/10/2017,10:54:00 AM,Sideswipe,No injury,Passenger Car
+8523661,12/7/2017,8:11:00 AM,Broadside,No injury,Passenger Car
+8523665,12/5/2017,12:40:00 PM,Sideswipe,No injury,Not Stated
+8524540,10/4/2017,6:32:00 PM,Rear End,No injury,Passenger Car
+8524546,10/5/2017,10:24:00 PM,Hit Object,Injury Visible,Passenger Car
+8527213,12/30/2017,2:43:00 PM,Sideswipe,No injury,Passenger Car
+8527217,12/26/2017,7:48:00 AM,Sideswipe,No injury,Truck or Truck Tractor
+8527454,12/27/2017,1:40:00 PM,Broadside,No injury,Passenger Car
+8527458,12/27/2017,8:14:00 PM,Broadside,No injury,Passenger Car
+8527462,12/28/2017,8:40:00 PM,Broadside,No injury,Passenger Car
+8527466,12/29/2017,9:51:00 PM,Sideswipe,No injury,Not Stated
+8527470,12/30/2017,3:56:00 PM,Hit Object,No injury,Passenger Car
+8527474,12/31/2017,1:03:00 PM,Sideswipe,No injury,Passenger Car
+8527478,12/30/2017,12:00:00 AM,Other,No injury,Not Stated
+8527495,12/25/2017,8:21:00 PM,Rear End,No injury,Passenger Car
+8527499,12/23/2017,1:55:00 PM,Rear End,No injury,Passenger Car
+8527503,12/20/2017,8:36:00 PM,Head-on,No injury,Passenger Car
+8527507,12/19/2017,12:00:00 AM,Sideswipe,No injury,Not Stated
+8527509,12/27/2017,12:06:00 AM,Sideswipe,Injury Complaint,Passenger Car
+8527513,12/31/2017,6:07:00 PM,Vehicle/Pedestrian,Injury Visible,Passenger Car
+8528772,12/19/2017,1:42:00 PM,Sideswipe,No injury,Truck or Truck Tractor with Trailer
+8528776,12/21/2017,2:32:00 PM,Rear End,Injury Severe,Pickup or Panel Truck
+8528780,12/22/2017,10:10:00 AM,Broadside,Injury Visible,Bicycle
+8529225,12/24/2017,2:42:00 PM,Broadside,Injury Complaint,Not Stated
+8529229,12/24/2017,11:25:00 AM,Broadside,Injury Complaint,Passenger Car
+8529233,12/23/2017,1:45:00 AM,Sideswipe,Injury Visible,Passenger Car
+8529237,12/18/2017,1:30:00 PM,Vehicle/Pedestrian,Injury Complaint,Pedestrian
+8550874,1/1/2018,10:51:00 PM,Hit Object,No injury,Passenger Car
+8551140,12/22/2017,5:57:00 PM,Sideswipe,No injury,Passenger Car
+90362266,1/2/2017,7:22:00 PM,Sideswipe,No injury,Passenger Car
+90400887,2/20/2017,1:42:00 PM,Hit Object,Injury Visible,Not Stated
+90440026,4/22/2017,7:45:00 AM,Rear End,Injury Complaint,Passenger Car
+90453676,5/6/2017,6:40:00 PM,Hit Object,Injury Complaint,Passenger Car
+90489487,6/24/2017,1:10:00 AM,Sideswipe,No injury,Not Stated
+90493565,6/30/2017,1:58:00 PM,Hit Object,No injury,Passenger Car
+90496511,7/1/2017,11:15:00 AM,Sideswipe,No injury,Passenger Car
+90502920,7/13/2017,2:05:00 AM,Hit Object,No injury,Passenger Car
+90522240,8/11/2017,5:30:00 PM,Rear End,No injury,Pickup or Panel Truck
+90540195,9/1/2017,12:05:00 AM,Rear End,No injury,Passenger Car
+90584458,10/25/2017,10:29:00 PM,Hit Object,Injury Severe,Passenger Car
+90614871,11/8/2017,4:00:00 PM,Sideswipe,No injury,Truck or Truck Tractor
+90618525,12/1/2017,8:15:00 AM,Sideswipe,No injury,Not Stated
