@@ -55,11 +55,15 @@ def startup(path):
 def queryTest():
    
     sample = request.args.get('ID')
-    print(df.head())
-    print(" and " + str(sample))
-    testdf = df[df['ID'] == 609772]
-    print(testdf)
-    return testdf.to_csv()
+    print(sample)
+    
+    testdf = df[df['ID'] == int(sample)]
+    print(testdf[:1])
+    
+    testdf = testdf.dropna(axis=1)
+   
+    
+    return testdf.to_json(orient='records')
 
 
 
