@@ -70,7 +70,17 @@
    CP.dispatch.on("selected",
    function(selectedPath){
     console.log(selectedPath);
-    WF.drawWaffle(subGraphA)
+    
+
+    d3.csv(`/SchoolID/?ID=${selectedPath}`).then(function( data){
+      
+      console.log(data);
+      WF.drawWaffle(subGraphA)
+
+      
+
+    })
+
     /***
      * TODO ADD ZOOM IN on Selected Area
      * 
