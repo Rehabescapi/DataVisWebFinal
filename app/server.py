@@ -3,8 +3,9 @@ import csv , json
 import random 
 
 
-##Lab Remnants
-##reader = json.load(open("chicago_zipcodes.json"))
+
+
+
 
 
 ##Return a sample set of rows
