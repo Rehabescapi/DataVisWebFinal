@@ -68,6 +68,16 @@
    CP.dispatch.on("selected",
    function(selectedPath){
     console.log(selectedPath);
+
+    d3.csv(`/SchoolID/?ID=${selectedPath}`).then(function( data){
+      
+      console.log(data);
+
+
+      
+
+    })
+
     /***
      * TODO ADD ZOOM IN on Selected Area
      * 
