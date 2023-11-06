@@ -22,7 +22,7 @@ CP.drawChloropleth(svg);
 CP.dispatch.on("selected",
     function (selectedPath) {
         console.log(selectedPath);
-        d3.csv(`/SchoolID/?ID=${selectedPath}`).then(function (data) {
+        d3.json(`/SchoolID/?ID=${selectedPath}`).then(function (data) {
             console.log(data);
         })
 
