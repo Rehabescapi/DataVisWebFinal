@@ -1,25 +1,28 @@
-Change in .flaskenv depending on your possible Environment
+# Development
+
+## Setup
+
+### 1. Activate Virtual environment
 Virtual Environment settings created based on 
-https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
-To Activate Virtual environment
+[Flask Mega-Tutorial](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world "The Flask Mega-Tutorial Part I: Hello, World!")
 
-python3 -m venv CS468
-source CS468/bin/activate
+> `$ python3 -m venv CS468`
 
+> `$ source CS468/bin/activate`
 
+### 2. Install essential packages
+> `$ pip install flask python-dotenv numpy pandas geopandas geographiclib`
 
-(CS468) $ pip install flask
-(CS468) $ pip install python-dotenv
+### 3. Make changes in `.flaskenv` depending on your Environment
 
-To Run Official Dev Mode
-cd app/
-flask run
+- MacOS <br>
+> `export FLASK_APP=server.py`
 
+- Windows <br>
+> `setx FLASK_APP "server.py"`
 
+### 4. Run Dev Mode
+> `$ cd app`
 
+> `$ flask run`
 
-.flaskenv settings
-MacOS
-export FLASK_APP=server.py
-Windows
-setx FLASK_APP "server.py"
