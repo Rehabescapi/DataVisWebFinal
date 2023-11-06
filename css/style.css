@@ -1,0 +1,19 @@
+svg {
+    font: 10px sans-serif;
+}
+
+a:hover tspan:first-child {
+    text-decoration: underline;
+}
+
+tspan:last-child {
+    font-size: 9px;
+    fill-opacity: 0.7;
+}
+
+.pan:hover rect,
+.pan:hover text,
+.zoom:hover rect,
+.zoom:hover text {
+    fill: blue;
+}
