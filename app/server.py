@@ -71,4 +71,4 @@ def queryTest():
     print(" and " + str(sample))
     testdf = df[df['ID'] == 609772]
     print(testdf)
-    return testdf.json(orient='table')
+    return testdf.json(orient='records')
