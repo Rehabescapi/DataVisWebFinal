@@ -75,7 +75,7 @@ def queryTest():
     testdf = testdf.dropna(axis=1)
    
     
-    return testdf.to_json(orient='table')
+    return testdf.to_json(orient='records')
 
 
 
