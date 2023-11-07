@@ -26,11 +26,6 @@ var WaffleVis = function () {
         options = {shape :"rect"}
         
 
-        /**
-         * ("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
-         */
-
         svg.attr("viewBox", "0 0" + (width + margin.left +margin.right) + " " + (height + margin.bottom + margin.top))
 
         
@@ -47,9 +42,7 @@ var WaffleVis = function () {
 
         d3.json(`/SchoolID/?ID=${selectedPath}`).then(function(data, i){
             //sort data Alphabetically
-            console.log("Woo")
             console.log(data)
-
             data = data[0]
             /**Stubbing for first year */
             var year = data.Year
@@ -107,9 +100,9 @@ var WaffleVis = function () {
 
 
 
+            console.log(keys)
             //convert to Categorical scale
-            var categoryScale = d3.scaleOrdinal(keys.map(function(d,i){return colors(i)}))
-            categoryScale.domain(keys);//set the scale domain
+            //var categoryScale = d3.scaleOrdinal(d3.schemeTableau10).domain(sequence(candidates.length))
 
 
             sequence = (length) => Array.apply(null, {length: length}).map((d, i) => i);

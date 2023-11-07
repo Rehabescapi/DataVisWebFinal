@@ -75,7 +75,7 @@ var ChoroplethVis = function () {
         /**
          * Drawing The Legend based on the color scale
          */
-        drawLegend(colorScale);
+        drawChoroplethLegend(colorScale);
 
 
         console.log(topo)
@@ -91,10 +91,26 @@ var ChoroplethVis = function () {
         .attr("name", function (d) {
           return d.properties.SCHOOL_NM;
         })
+        .attr("sID", function(d){
+          return d.properties.SCHOOL_ID
+        })
         .attr("fill", function (d) {
           return colorScale(popData[d.properties.SCHOOL_ID]);
         })
         .attr("d", geoGenerator)
+        .attr("stroke", "black")
+          .attr("stroke-width", strokeLevel)
+          .on("click", function(d) {
+            console.log(d.target.attributes[2].value)
+            
+            console.log(d.target)
+            
+           
+            //Formerly known as d.properties.SCHOOL_ID
+            newChoropleth.dispatch.call("selected", {}, d.target.attributes[2].value); 
+           
+          
+          })
 
 
       }
@@ -108,45 +124,14 @@ var ChoroplethVis = function () {
         console.log(svg.selectAll('g'))
         svg.call(zoom);
       }
-
-     
       update();
-
-      //initZoom();
-
+      initZoom();
       function handleZoom(event){
-        console.log("WOO")
+        
         const{transform} = event;
         g.attr('transform', transform);
         
       }
-
-        
-        /*g.selectAll("path")
-          .data(topo.features)
-          .enter()
-          .append("path")
-          .attr("d", d3.geoPath().projection(projection))
-          .attr("class",'district-path')
-          .attr("opacity", function(d){
-            if (type == 'nothing')
-            {
-              return .3
-            }else {
-              return .2
-            }
-          })
-          .attr("stroke", "black")
-          .attr("stroke-width", strokeLevel)
-           .attr("name", function (d) {
-            return d.properties.SCHOOL_NM;
-          })
-          .attr("fill", function (d) {
-            return colorScale(popData[d.properties.SCHOOL_ID]);
-          })
-          */
-
-          
           
       });
 
@@ -166,7 +151,7 @@ var ChoroplethVis = function () {
  * Current Labels are hard 
  * @param {*} colorScale 
  */
-var drawLegend = function (colorScale) {
+var drawChoroplethLegend = function (colorScale) {
   var Legend = d3.select("#main_Legend");
   var g = Legend.append("g");
   
