@@ -30,45 +30,37 @@ var ChoroplethVis = function () {
 
       }
 
-      function handleZoom(e){
-        g.selectAll("path").attr("transform", e.transform);
-        
-      }
-
-      var zoom = d3
-        .zoom()
-        .scaleExtent([1, 8])
-        .on("zoom", handleZoom);
-
-        function initZoom(){
-          d3.select('svg').call(zoom);
-        }
-
-        initZoom();
+      
+     
         
 
-      var g = svg.append("g").attr("id", "map");
+      var g = svg.append("g")
 
       var width = svg.attr("width");
       var height = svg.attr("height");
 
       var projection = d3
         .geoMercator()
-        .scale(width * 160)
+        .scale(20)
         .center([-87.6298, 41.8781])
         .translate([width / 2, height / 2]);
 
       const path = d3.geoPath().projection(projection);
+      const data = new Map();
 
      
       
       //d3.json("chicago_zipcodes.json").then(function (data){
-      d3.json(mapDir).then(function (data) {
-        console.log(data);
-
-        if('objects' in data)
+        Promise.all([
+          d3.json(mapDir)
+            ]).then(function(loadData){
+              let topo = loadData[0]
+   
+   
+        if('objects' in loadData)
         {
-          data = topojson.feature(data, data.objects["Boundaries - ZIP Codes"])
+          loadData = topojson.feature(loadData, loadData.objects["Boundaries - ZIP Codes"])
+          console.log("Mock Data condition")
         }
 
         /**
@@ -85,26 +77,69 @@ var ChoroplethVis = function () {
          * Replace Mock Population Data with 
          * actual data frame.
          */  
-        var popData = mockPopulationData(data, type);
+        var popData = mockPopulationData(topo, type);
 
-       
+
         /**
          * Drawing The Legend based on the color scale
          */
         drawLegend(colorScale);
 
+
+        console.log(topo)
+      function update(){
         g.selectAll("path")
-          .data(data.features)
+        .data(topo.features)
+        .enter().append("path")  .attr("name", function (d) {
+          return d.properties.SCHOOL_NM;
+        })
+        .attr("fill", function (d) {
+          return colorScale(popData[d.properties.SCHOOL_ID]);
+        })
+        .attr("d", path)
+        .attr("class",'district-path')
+        .attr("opacity", function(d){
+          if (type == 'nothing')
+          {
+            return .3
+          }else {
+            return .2
+          }
+        })
+        .attr("stroke", "black")
+        .attr("stroke-width", strokeLevel)
+
+
+      }
+      
+
+      var zoom = d3
+      .zoom().scaleExtent([1, 8])
+      .on("zoom", handleZoom);
+
+      function initZoom(){
+        console.log(svg.selectAll('g'))
+        svg.call(zoom);
+      }
+
+     
+      update();
+
+      initZoom();
+
+      function handleZoom(event){
+        console.log("WOO")
+        const{transform} = event;
+        g.attr('transform', transform);
+        
+      }
+
+        
+        /*g.selectAll("path")
+          .data(topo.features)
           .enter()
           .append("path")
-          
-          .attr("name", function (d) {
-            return d.properties.SCHOOL_NM;
-          })
-          .attr("fill", function (d) {
-            return colorScale(popData[d.properties.SCHOOL_ID]);
-          })
-          .attr("d", path)
+          .attr("d", d3.geoPath().projection(projection))
           .attr("class",'district-path')
           .attr("opacity", function(d){
             if (type == 'nothing')
@@ -116,7 +151,13 @@ var ChoroplethVis = function () {
           })
           .attr("stroke", "black")
           .attr("stroke-width", strokeLevel)
-          
+           .attr("name", function (d) {
+            return d.properties.SCHOOL_NM;
+          })
+          .attr("fill", function (d) {
+            return colorScale(popData[d.properties.SCHOOL_ID]);
+          })
+          */
 
           
           
