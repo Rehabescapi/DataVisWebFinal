@@ -73,6 +73,12 @@ def queryTest():
     print(testdf[:1])
     
     testdf = testdf.dropna(axis=1)
+    #TODO 
+    #Get Rid of this hardcode Pandas
+    #
+    testdf['parentSum']=testdf.apply(lambda x:sum([x[c] for c in testdf.columns if c.startswith('Parent') & c.endswith('Votes')]),axis=1)
+    testdf['CommunitySum']=testdf.apply(lambda x:sum([x[c] for c in testdf.columns if c.startswith('Community') & c.endswith('Votes')]),axis=1)
+
    
     
     return testdf.to_json(orient='records')

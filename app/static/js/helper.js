@@ -56,3 +56,15 @@ function mapDataToPopulation(data, dictionaryData){
   let populationData = mapDataToPopulation(randomZipcodeData, dictionaryPopData);
   return populationData
 }
+
+
+function CountNumberOfCandidate(Type,obj){
+  let count = 0;
+  for (const key in obj) {
+    if (key.startsWith(`${Type} Candidate`) && key.endsWith("Name")) {
+      count++;
+    }
+  }
+  return count;
+
+}

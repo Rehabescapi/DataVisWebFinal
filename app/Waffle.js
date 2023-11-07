@@ -1,12 +1,16 @@
 var WaffleVis = function () {
     var newWaffle = {
-      drawWaffle: function (svg,  SchoolID, type=0) {
+      drawWaffle: function (svg,  selectedPath, type=0) {
         svg.selectAll("g").remove();
         tempW = svg.attr("width")
         tempH = svg.attr("height")
         var margin= {top:10, right:130, bottom : 30, left: 0},
         width = tempW- margin.left - margin.right,
         height = tempH - margin.left - margin.right,
+        
+        /**
+         * TODO Math Scalable Waffle Squares
+         */
         boxSize = 7, 
         boxGap = 2, 
         hoManyAccross = Math.floor(width/boxSize)
@@ -17,10 +21,9 @@ var WaffleVis = function () {
         .attr("height", height + margin.top + margin.bottom)
          */
 
-        svg
-        .attr("viewBox", "0 0" + (width + margin.left +margin.right) + " " + (height + margin.bottom + margin.top))
+        svg.attr("viewBox", "0 0" + (width + margin.left +margin.right) + " " + (height + margin.bottom + margin.top))
 
-        var categoryHeading = "VEHTYPE_AT_FAULT"
+        
         var g = svg.append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top+ ")");
 
@@ -32,12 +35,38 @@ var WaffleVis = function () {
          * 
          */
 
-        d3.csv('./serverData/traffic-collision-data.csv').then(function(data, i){
+        d3.json(`/SchoolID/?ID=${selectedPath}`).then(function(data, i){
             //sort data Alphabetically
-            data.sort(function (a, b){ return d3.ascending(a[categoryHeading], b[categoryHeading])});
+            console.log("Woo")
+            console.log(data)
+
+            data = data[0]
+            /**Stubbing for first year */
+            var year = data.Year
 
 
-            var keys = d3.map(data, function(d) {return d[categoryHeading]}).keys()
+            var categoryHeading = data.Name + " "+ data.year
+            const candidates = [];
+
+            var count = CountNumberOfCandidate("Parent", data)
+
+            for (let i = 1; i <= count; i++) {
+              const type = "Parent"
+              const nameIndex = data[`${type} Candidate ${i} Name`];
+              const votesIndex = data[`${type} Candidate ${i} Votes`];
+             
+          
+            
+          
+              candidates.push({ 'Name': nameIndex, 'Votes': votesIndex, 'Type' : type });
+          }
+
+          console.log(candidates)
+
+            //data.sort(function (a, b){ return d3.ascending(a[Name], b[Name])});
+
+
+            var keys = d3.map(candidates, d=>d.Name).keys()
 
             colors.domain([0, keys.length]);
 
@@ -50,16 +79,21 @@ var WaffleVis = function () {
 
 
             g.selectAll(".square")
-            .data(data)
+            .data(candidates)
             .enter().append("rect")
-            .attr("class", "square").attr("x", function(d,i) {return boxSize * (i%hoManyAccross)})
-            .attr("y", function(d,i) { return Math.floor(i/hoManyAccross) * boxSize})
+            .attr("class", "square").attr("x", function(d) {return boxSize * (d.Votes%hoManyAccross)})
+            .attr("y", function(d) { return Math.floor(d.Votes/hoManyAccross) * boxSize})
             .attr("width", boxSize-3)
             .attr("height", boxSize-3)
-            .attr("fill", function(d) { return categoryScale(d[categoryHeading])})
+            .attr("fill", function(d) { return categoryScale(d.Name)})
             .exit();
 
 
+
+            /**
+             * Legend Works
+             * 
+             */
              //legend
      var legend = svg.selectAll(".legend")
      .data(keys)
