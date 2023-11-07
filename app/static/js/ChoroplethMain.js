@@ -1,6 +1,5 @@
 //topojson = require('https://d3js.org/topojson.v1.min.js')
 //d3 = require("https://d3js.org/d3.v5.min.js", 'd3-svg-legend')
-
 var ChoroplethVis = function () {
   var newChoropleth = {
     drawChloropleth: function (svg, type = 0) {
@@ -11,17 +10,17 @@ var ChoroplethVis = function () {
       var mapDir = "SchoolBoundariesGeoJSON.json"
       switch (type){
         case 0:
-          mapDir = "SchoolBoundariesGeoJSON.json"
+          mapDir = "SchoolBoundariesGeoJSONFixed.json"
           type = "nothing"
         break;
 
         case 1:
-          mapDir = "SchoolBoundariesGeoJSON.json"
+          mapDir = "SchoolBoundariesGeoJSONFixed.json"
           type="population"
           break;
           
         case 2:
-          mapDir="chicago_zipcodes.json"
+          mapDir="2024fixed.json"
           type="nothing"
           break;
          
@@ -34,36 +33,26 @@ var ChoroplethVis = function () {
      
         
 
-      var g = svg.append("g")
+      var g = svg.append("g").attr("id","map");
 
       var width = svg.attr("width");
       var height = svg.attr("height");
 
       var projection = d3
         .geoMercator()
-        .scale(width*160)
+        .scale(width*80)
         .center([-87.6298, 41.8781])
         .translate([width / 2, height / 2]);
 
-      const path = d3.geoPath().projection(projection);
-      const data = new Map();
-
-     
+      let geoGenerator = d3.geoPath().projection(projection);
       
-      //d3.json("chicago_zipcodes.json").then(function (data){
-        Promise.all([
+      Promise.all([
           d3.json(mapDir)
             ]).then(function(loadData){
               console.log(loadData)
               let topo = loadData[0]
    
    
-        if('objects' in loadData)
-        {
-          console.log(loadData)
-          loadData = topojson.feature(loadData, loadData.objects["Boundaries - ZIP Codes"])
-          console.log("Mock Data condition")
-        }
 
         /**
          * TODO update Scheme to reflet things
@@ -82,6 +71,7 @@ var ChoroplethVis = function () {
         var popData = mockPopulationData(topo, type);
 
 
+
         /**
          * Drawing The Legend based on the color scale
          */
@@ -89,27 +79,22 @@ var ChoroplethVis = function () {
 
 
         console.log(topo)
+
+        /**
+         * Updates paths after a zoom interaction. 
+         */
       function update(){
         g.selectAll("path")
         .data(topo.features)
-        .enter().append("path")  .attr("name", function (d) {
+        .join("path") 
+        .attr("d", geoGenerator)
+        .attr("name", function (d) {
           return d.properties.SCHOOL_NM;
         })
         .attr("fill", function (d) {
           return colorScale(popData[d.properties.SCHOOL_ID]);
         })
-        .attr("d", path)
-        .attr("class",'district-path')
-        .attr("opacity", function(d){
-          if (type == 'nothing')
-          {
-            return .3
-          }else {
-            return .2
-          }
-        })
-        .attr("stroke", "black")
-        .attr("stroke-width", strokeLevel)
+        .attr("d", geoGenerator)
 
 
       }
@@ -127,7 +112,7 @@ var ChoroplethVis = function () {
      
       update();
 
-      initZoom();
+      //initZoom();
 
       function handleZoom(event){
         console.log("WOO")
@@ -218,3 +203,13 @@ var drawLegend = function (colorScale) {
  * As of Deadline 4 this is out of scope. 
  */
 var DrawCartogram = function () {};
+
+
+function rewind(geo){
+  const fixedGeoJSON = {...geo}
+  fixedGeoJSON.features = fixedGeoJSON.features.map(f =>
+    turf.rewind(f, { reverse: true })
+  );
+  return fixedGeoJSON;
+
+}
