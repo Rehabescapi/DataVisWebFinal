@@ -41,7 +41,7 @@ var ChoroplethVis = function () {
 
       var projection = d3
         .geoMercator()
-        .scale(20)
+        .scale(width*160)
         .center([-87.6298, 41.8781])
         .translate([width / 2, height / 2]);
 
@@ -54,11 +54,13 @@ var ChoroplethVis = function () {
         Promise.all([
           d3.json(mapDir)
             ]).then(function(loadData){
+              console.log(loadData)
               let topo = loadData[0]
    
    
         if('objects' in loadData)
         {
+          console.log(loadData)
           loadData = topojson.feature(loadData, loadData.objects["Boundaries - ZIP Codes"])
           console.log("Mock Data condition")
         }

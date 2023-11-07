@@ -46,9 +46,10 @@ function mapDataToPopulation(data, dictionaryData){
     dictionaryPopData[elem.properties.SCHOOL_ID] = 10;
   }}
   else{
-    for(const elem of geojson.objects["Boundaries - ZIP Codes"])
+    console.log(geojson.objects)
+    for(const elem of geojson.objects["Boundaries - ZIP Codes"].geometries)
     {
-      dictionaryData[elem.properties]
+      dictionaryData[elem.properties] = 0
     }
   }
 
