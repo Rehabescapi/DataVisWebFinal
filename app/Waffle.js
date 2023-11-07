@@ -2,6 +2,8 @@ var WaffleVis = function () {
     var newWaffle = {
       drawWaffle: function (svg,  selectedPath, type=0) {
         svg.selectAll("g").remove();
+        svg.selectAll("text").remove();
+        svg.selectAll("rect").remove();
         tempW = svg.attr("width")
         tempH = svg.attr("height")
         var margin= {top:10, right:130, bottom : 30, left: 0},
@@ -15,6 +17,14 @@ var WaffleVis = function () {
         boxGap = 2, 
         hoManyAccross = Math.floor(width/boxSize)
 
+
+        /**
+         * Stubs
+         */
+        whole = true
+        isRect = true
+        options = {shape :"rect"}
+        
 
         /**
          * ("width", width + margin.left + margin.right)
@@ -54,18 +64,43 @@ var WaffleVis = function () {
               const type = "Parent"
               const nameIndex = data[`${type} Candidate ${i} Name`];
               const votesIndex = data[`${type} Candidate ${i} Votes`];
-             
-          
-            
-          
-              candidates.push({ 'Name': nameIndex, 'Votes': votesIndex, 'Type' : type });
+              candidates.push({'Name': nameIndex,index :(i-1) , 'Votes': votesIndex, 'Type' : type , 'ratio': ( votesIndex/data[`${type}Sum`]) *100 });
           }
 
           console.log(candidates)
 
             //data.sort(function (a, b){ return d3.ascending(a[Name], b[Name])});
-
-
+          waffles = function() {
+              const array = [];
+              
+                const max = candidates.length; 
+                let index = 0, curr = 1, 
+                    accu = Math.round(candidates[0].ratio), waffle = [];
+ 
+                for (let y = 9; y >= 0; y--)
+                  for (let x = 0; x < 10; x ++) {
+                    
+                    if (curr > accu ) {
+                      curr=1;
+                      if(index < max-1) 
+                        index++;
+                      accu = Math.round(candidates[index].ratio)
+                     
+                    }
+                    
+                    
+                    waffle.push({x, y, index, 'Name': candidates[index].Name});
+                    curr++;
+                    
+                    
+                    
+                  } 
+                array.push(waffle);
+              
+              return array;
+            }
+            waffleData = waffles()
+            console.log(waffleData)
             var keys = d3.map(candidates, d=>d.Name).keys()
 
             colors.domain([0, keys.length]);
@@ -77,50 +112,103 @@ var WaffleVis = function () {
             categoryScale.domain(keys);//set the scale domain
 
 
+            sequence = (length) => Array.apply(null, {length: length}).map((d, i) => i);
 
-            g.selectAll(".square")
-            .data(candidates)
-            .enter().append("rect")
-            .attr("class", "square").attr("x", function(d) {return boxSize * (d.Votes%hoManyAccross)})
-            .attr("y", function(d) { return Math.floor(d.Votes/hoManyAccross) * boxSize})
-            .attr("width", boxSize-3)
-            .attr("height", boxSize-3)
-            .attr("fill", function(d) { return categoryScale(d.Name)})
-            .exit();
+            color = d3.scaleOrdinal(d3.schemeTableau10)
+            .domain(sequence(keys.length))
 
+            /**
+             * Start of 
+             * https://observablehq.com/@analyzer2004/waffle-chart
+             */
+            const g = svg.selectAll(".waffle")  
+            .data(waffleData)
+            .join("g")
+            .attr("class", "waffle");
+            waffleSize = whole ? width < height ? width : height : 150;
 
+            scale = d3.scaleBand()
+            .domain(sequence(10))
+            .range([0, waffleSize])
+            .padding(0.1)
+            
 
+            const cellSize = scale.bandwidth();
+            const half = cellSize / 2;
+            const cells = g.append("g")
+              .selectAll(options.shape)
+              .data(d => d)
+              .join(options.shape)
+              .attr("type", d=> d.index)
+              .attr("fill", d => d.index === -1 ? "#ddd" : color(d.index))
+              .attr("candidate", d=> d.Name);
+            
+            if (isRect) {
+              cells.attr("x", d => scale(d.x))
+                .attr("y", d => scale(d.y))//Cut out whole here to see the scale
+                .attr("rx", 3).attr("ry", 3)
+                .attr("width", cellSize).attr("height", cellSize)      
+            } 
+            if (whole) {
+              cells.append("title").text(d => {
+                const cd = candidates[d.index];
+                console.log(cd)
+                return `${cd.Name}\n (${cd.ratio}%)`;
+              });    
+              
+              cells.transition()
+                .duration(d => d.y * 100)
+                .ease(d3.easeBounce)
+                .attr(isRect ? "y" : "cy", d => scale(d.y) + (isRect ? 0 : half));
+                svg.transition().delay(550)
+                .on("end", () => drawLegend(svg, cells));
+            }
             /**
              * Legend Works
              * 
              */
+            
              //legend
-     var legend = svg.selectAll(".legend")
-     .data(keys)
-     .enter();
- 
- 
- legend.append("rect")
-     .attr("x", margin.left + width + boxGap )
-     .attr("y", function(d,i){ return (i * boxSize) + margin.top; })
-     .attr("width", boxSize - 3)
-     .attr("height", boxSize - 3)
-     .attr("fill", function(d){ return categoryScale(d); })
- 
- legend.append("text")
-     .attr("x", margin.left + width + boxSize + (boxGap*2))
-     .attr("y", function(d,i){ return (i * boxSize) + margin.top; })
-     .append("tspan")
-     .attr("dx", 0)
-     .attr("dy", boxSize/2)
-     .style("alignment-baseline", "middle")
-     .style("font-size", 10)
-     .style("font-family", "Helvetica, Arial, sans-serif")
-     .text(function(d){ return d;})
+             drawLegend = function (svg, cells) {
+             console.log(candidates)
+              const legend = svg.selectAll(".legend")
+                .data(candidates.map(d => d.Name))
+                .join("g")      
+                .attr("opacity", 1)
+                .attr('index', (d)=> d.index)
+                .attr("transform", (d, i) => `translate(${waffleSize + 20},${i * 30})`)
+                .on("mouseover", highlight)
+                .on("mouseout", restore);
+            
+              legend.append("rect")
+                .attr("rx", 3).attr("ry", 3)
+                .attr("width", 30).attr("height", 20)
+                .attr("fill", (d, i) => color(i));    
+            
+              legend.append("text")
+                .attr("dx", 40)
+                .attr("alignment-baseline", "hanging")
+                .text((d, i) => `${d} (${candidates[i].ratio.toFixed(1)}%)`);
+
+                console.log(legend.nodes())
+              
+              function highlight(e, d, restore) {
+                const i = legend.nodes().indexOf(e.currentTarget);
+                console.log(e)
+                console.log(i);
+                cells.transition().duration(500)
+                  .attr("fill", d => d.index === i ? color(d.index) : "#ccc");  
+              }
+              
+              function restore() {
+                cells.transition().duration(500).attr("fill", d => color(d.index))
+              }
+            }
         })
-
-
+        
       }
+      
     }
     return newWaffle;
 }
+

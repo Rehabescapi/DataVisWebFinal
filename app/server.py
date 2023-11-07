@@ -76,7 +76,7 @@ def queryTest():
     #TODO 
     #Get Rid of this hardcode Pandas
     #
-    testdf['parentSum']=testdf.apply(lambda x:sum([x[c] for c in testdf.columns if c.startswith('Parent') & c.endswith('Votes')]),axis=1)
+    testdf['ParentSum']=testdf.apply(lambda x:sum([x[c] for c in testdf.columns if c.startswith('Parent') & c.endswith('Votes')]),axis=1)
     testdf['CommunitySum']=testdf.apply(lambda x:sum([x[c] for c in testdf.columns if c.startswith('Community') & c.endswith('Votes')]),axis=1)
 
    

@@ -30,13 +30,22 @@ var ChoroplethVis = function () {
 
       }
 
+      function handleZoom(e){
+        g.selectAll("path").attr("transform", e.transform);
+        
+      }
 
       var zoom = d3
         .zoom()
         .scaleExtent([1, 8])
-        .on("zoom", function () {
-          g.selectAll("path").attr("transform", d3.event.transform);
-        });
+        .on("zoom", handleZoom);
+
+        function initZoom(){
+          d3.select('svg').call(zoom);
+        }
+
+        initZoom();
+        
 
       var g = svg.append("g").attr("id", "map");
 
@@ -107,21 +116,13 @@ var ChoroplethVis = function () {
           })
           .attr("stroke", "black")
           .attr("stroke-width", strokeLevel)
-          .on("click", function(d) {
-            
-           if ('SCHOOL_ID' in d.properties)
-           {
-            newChoropleth.dispatch.call("selected", {}, d.properties.SCHOOL_ID); 
-           }
           
-          })
-
 
           
           
       });
 
-      svg.call(zoom);
+      
     },
     dispatch: d3.dispatch("selected")
   };
