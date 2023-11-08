@@ -46,13 +46,26 @@ function mapDataToPopulation(data, dictionaryData){
     dictionaryPopData[elem.properties.SCHOOL_ID] = 10;
   }}
   else{
-    for(const elem of geojson.objects["Boundaries - ZIP Codes"])
+    console.log(geojson.objects)
+    for(const elem of geojson.objects["Boundaries - ZIP Codes"].geometries)
     {
-      dictionaryData[elem.properties]
+      dictionaryData[elem.properties] = 0
     }
   }
 
   // Map random data to dictionary (its possible that the data may not be in the dictionary, that case we ignore data)
   let populationData = mapDataToPopulation(randomZipcodeData, dictionaryPopData);
   return populationData
+}
+
+
+function CountNumberOfCandidate(Type,obj){
+  let count = 0;
+  for (const key in obj) {
+    if (key.startsWith(`${Type} Candidate`) && key.endsWith("Name")) {
+      count++;
+    }
+  }
+  return count;
+
 }

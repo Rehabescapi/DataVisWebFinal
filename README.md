@@ -1,4 +1,11 @@
 # Development
+## GEOJSON ISSUES
+## https://observablehq.com/@john-guerra/d3-black-box-map
+## when converting to D3 V6, the current GeoJsonFiles are showing up as a black box.
+## This link resolves the issue
+
+
+
 
 ## Setup
 
