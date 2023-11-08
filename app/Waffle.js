@@ -1,9 +1,46 @@
 var WaffleVis = function () {
+  this.selectedPath;
+  this.DataTypes = [];
+  this.YearOptions = [];
+  this.ActiveType = "";
+  this.ActiveYear = "";
+
+  getDataTypes = function () {
+    return this.DataTypes;
+  };
+  setDataTypes = function (types) {
+    this.DataTypes = [...types];
+  };
+
+  getYearTypes = function () {
+    return this.YearOptions;
+  };
+
+  setYearOptions = function (options) {
+    console.log(options)
+    this.YearOptions = [...new Set(options)];
+  };
+
+  setActiveType = function (type) {
+    this.ActiveType = type;
+  };
+  getActiveType = function () {
+    return this.ActiveType;
+  };
+
+  setActiveYear = function (year) {
+    this.ActiveYear = year;
+  };
+  getActiveYear = function () {
+    return this.ActiveYear;
+  };
+
   var newWaffle = {
-    drawWaffle: function (svg, selectedPath, type = "Parent") {
-      svg.selectAll("g").remove();
-      svg.selectAll("text").remove();
-      svg.selectAll("rect").remove();
+    drawWaffle: function (svg, selectedPath, type = "Parent", year = 2020) {
+      this.selectedPath = selectedPath;
+      setActiveType(type);
+      setActiveYear(year);
+
       tempW = svg.attr("width");
       tempH = svg.attr("height");
       var margin = { top: 25, right: 100, bottom: 30, left: 0 },
@@ -40,12 +77,31 @@ var WaffleVis = function () {
        *
        */
 
-      d3.json(`/SchoolID/?ID=${selectedPath}`).then(function (data, i) {
+      d3.json(`/SchoolID/?ID=${selectedPath}`).then(function (dataSet, i) {
         //sort data Alphabetically
-        console.log(data);
-        data = data[0];
+        console.log(dataSet);
+        data = {};
+        yearOptions = [];
+        for (let row of dataSet) {
+          console.log(row.Year)
+
+          yearOptions.push(row.Year);
+          if(row.Year == getActiveYear())
+          {
+            data = row
+          }
+        }
+        
+        setYearOptions(yearOptions);
+
+        try {
+        } catch (error) {
+          throw new Error("Year not in tuple Found");
+        }
+        
+        
+        console.log(data)
         /**Stubbing for first year */
-        var year = data.Year;
 
         var categoryHeading = data.Name + " " + data.year;
 
@@ -53,12 +109,11 @@ var WaffleVis = function () {
 
         let candidates = getBasicData(data, type);
         let waffleData = getWaffleData(candidates);
-
         var keys = d3.map(candidates, (d) => d.Name).keys();
+        console.log(keys);
 
         colors.domain([0, keys.length]);
 
-        console.log(keys);
         //convert to Categorical scale
         //var categoryScale = d3.scaleOrdinal(d3.schemeTableau10).domain(sequence(candidates.length))
 
@@ -74,6 +129,9 @@ var WaffleVis = function () {
          * https://observablehq.com/@analyzer2004/waffle-chart
          */
         drawTheDangWaffle = function () {
+          svg.selectAll("g").remove();
+          svg.selectAll("text").remove();
+          svg.selectAll("rect").remove();
           const g = svg
             .selectAll(".waffle")
             .data(waffleData)
@@ -110,7 +168,6 @@ var WaffleVis = function () {
           if (whole) {
             cells.append("title").text((d) => {
               const cd = candidates[d.index];
-              console.log(cd);
               return `${cd.Name}\n (${cd.ratio}%)`;
             });
 
@@ -134,7 +191,6 @@ var WaffleVis = function () {
 
           //legend
           drawLegend = function (svg, cells) {
-            console.log(candidates);
             svg.append("svg").attr("id", "legend");
             const legend = svg
               .selectAll(".legend")
@@ -144,7 +200,7 @@ var WaffleVis = function () {
               .attr("index", (d) => d.index)
               .attr(
                 "transform",
-                (d, i) => `translate(${waffleSize + 20},${i * 30})`
+                (d, i) => `translate(${waffleSize + 20},${i * 30 + margin.top})`
               )
               .on("mouseover", highlight)
               .on("mouseout", restore);
@@ -163,24 +219,80 @@ var WaffleVis = function () {
               .attr("alignment-baseline", "hanging")
               .text((d, i) => `${d} (${candidates[i].ratio.toFixed(1)}%)`);
 
-            console.log(legend.nodes());
-
             /**
              * Add SVG button change condition.
              */
-            svg
-              .append("text")
-              .attr(
-                "transform",
-                (d, i) => `translate(${waffleSize + 20},${8 * 30})`
-              )
-              //.attr("alignment-baseline", "hanging")
-              .text("Community")
-              .on("click", function (event) {
-                console.log("Woot");
-                drawWaffle(svg, selectedPath, "Community");
-                event.stopPropogation();
-              });
+
+            /**
+             * DrawingOptions if Available in the Grid
+             */
+
+            currentDataTypes = getDataTypes();
+            yearOptions = getYearTypes();
+
+            iterator = 1
+            for(let year of yearOptions )
+            {
+              if(year != getActiveYear())
+              {
+                svg
+                .append("text")
+                .attr(
+                  "transform",
+                  (d, i) =>
+                    `translate(${iterator * 50},${9 * 30 + margin.top})`
+                )
+                //.attr("alignment-baseline", "hanging")
+                .text(year)
+                .on("click", function (event) {
+                  newWaffle.dispatch.call("selected", {}, [
+                    selectedPath,
+                    getActiveType(),
+                    year,
+                  ]);
+                });
+                iterator++
+            }
+              }
+            
+
+              currentType = getActiveType()
+            if (currentType == "Parent") {
+              svg
+                .append("text")
+                .attr(
+                  "transform",
+                  (d, i) =>
+                    `translate(${waffleSize + 20},${8 * 30 + margin.top})`
+                )
+                //.attr("alignment-baseline", "hanging")
+                .text("Community")
+                .on("click", function (event) {
+                  newWaffle.dispatch.call("selected", {}, [
+                    selectedPath,
+                    "Community",
+                    getActiveYear(),
+                  ]);
+                });
+            } else {
+              svg
+                .append("text")
+                .attr(
+                  "transform",
+                  (d, i) =>
+                    `translate(${waffleSize + 20},${9 * 30 + margin.top})`
+                )
+                //.attr("alignment-baseline", "hanging")
+                .text("Parent")
+                .on("click", function (event) {
+                  newWaffle.dispatch.call("selected", {}, [
+                    selectedPath,
+                    "Parent",
+                    getActiveYear(),
+                  ]);
+                });
+            }
+
             function highlight(e, d, restore) {
               const i = legend.nodes().indexOf(e.currentTarget);
               cells
@@ -201,6 +313,7 @@ var WaffleVis = function () {
         drawTheDangWaffle();
       });
     },
+    dispatch: d3.dispatch("selected"),
   };
   return newWaffle;
 };
@@ -236,10 +349,12 @@ function getBasicData(data, type) {
   var countParent = CountNumberOfCandidate("Parent", data);
   var countCommunity = CountNumberOfCandidate("Community", data);
 
+  setDataTypes([countParent, countCommunity]);
+
   if (type.includes("Parent")) {
     count = countParent;
   } else {
-    countCommunity;
+    count = countCommunity;
   }
   for (let i = 1; i <= count; i++) {
     const nameIndex = data[`${type} Candidate ${i} Name`];

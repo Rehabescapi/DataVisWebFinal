@@ -7,7 +7,7 @@ var ChoroplethVis = function () {
       svg.selectAll("g").remove();
 
       strokeLevel= 2;
-      var mapDir = "SchoolBoundariesGeoJSON.json"
+      var mapDir = "SchoolBoundariesGeoJSONFixed.json"
       switch (type){
         case 0:
           mapDir = "SchoolBoundariesGeoJSONFixed.json"
@@ -49,7 +49,7 @@ var ChoroplethVis = function () {
       Promise.all([
           d3.json(mapDir)
             ]).then(function(loadData){
-              console.log(loadData)
+              
               let topo = loadData[0]
    
    
@@ -78,7 +78,6 @@ var ChoroplethVis = function () {
         drawChoroplethLegend(colorScale, svg);
 
 
-        console.log(topo)
 
         /**
          * Updates paths after a zoom interaction. 
@@ -101,9 +100,6 @@ var ChoroplethVis = function () {
         .attr("stroke", "black")
           .attr("stroke-width", strokeLevel)
           .on("click", function(d) {
-            console.log(d.target.attributes[2].value)
-            
-            console.log(d.target)
             
            
             //Formerly known as d.properties.SCHOOL_ID

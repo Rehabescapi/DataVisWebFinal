@@ -20,10 +20,7 @@ CP.drawChloropleth(svg);
 
 CP.dispatch.on("selected", function (selectedPath) {
   console.log(selectedPath);
-  d3.json(`/SchoolID/?ID=${selectedPath}`).then(function (data) {
-    console.log(data);
-    firstyear = data[0];
-    console.log(firstyear)
+  
     let subGraphA = d3.select('#SubGraphA')
 
     /**
@@ -32,13 +29,23 @@ CP.dispatch.on("selected", function (selectedPath) {
     WF.drawWaffle(subGraphA, selectedPath)
     //Number of election types in side the data.
     
-  });
+  })
+
+
+
+WF.dispatch.on("selected", function(arguments){
+  [selectedPath, type, year] = arguments
+  console.log(selectedPath)
+  let subGraphA = d3.select('#SubGraphA')
+  WF.drawWaffle(subGraphA, selectedPath, type,year );
+
+}) 
 
   /***
    * TODO ADD ZOOM IN on Selected Area
    *
    */
-});
+
 
 /**
  * TODO: return to global scope
