@@ -75,7 +75,7 @@ var ChoroplethVis = function () {
         /**
          * Drawing The Legend based on the color scale
          */
-        drawChoroplethLegend(colorScale);
+        drawChoroplethLegend(colorScale, svg);
 
 
         console.log(topo)
@@ -130,6 +130,9 @@ var ChoroplethVis = function () {
         
         const{transform} = event;
         g.attr('transform', transform);
+       
+        //JML -- was chasing a way to have the legend be on top of the Main map. 
+        //drawChoroplethLegend(colorScale, svg)
         
       }
           
@@ -151,8 +154,9 @@ var ChoroplethVis = function () {
  * Current Labels are hard 
  * @param {*} colorScale 
  */
-var drawChoroplethLegend = function (colorScale) {
+var drawChoroplethLegend = function (colorScale, svg) {
   var Legend = d3.select("#main_Legend");
+  d3.select("#main_Legend").selectAll("g").remove();
   var g = Legend.append("g");
   
   /**
