@@ -1,12 +1,12 @@
 var WaffleVis = function () {
     var newWaffle = {
-      drawWaffle: function (svg,  selectedPath, type=0) {
+      drawWaffle: function (svg,  selectedPath, type = 'Parent') {
         svg.selectAll("g").remove();
         svg.selectAll("text").remove();
         svg.selectAll("rect").remove();
         tempW = svg.attr("width")
         tempH = svg.attr("height")
-        var margin= {top:10, right:130, bottom : 30, left: 0},
+        var margin= {top:25, right:100, bottom : 30, left: 0},
         width = tempW- margin.left - margin.right,
         height = tempH - margin.left - margin.right,
         
@@ -49,16 +49,27 @@ var WaffleVis = function () {
 
 
             var categoryHeading = data.Name + " "+ data.year
-            const candidates = [];
+            let candidates = [];
 
-            var count = CountNumberOfCandidate("Parent", data)
+            var countParent = CountNumberOfCandidate("Parent", data)
+            var countCommunity = CountNumberOfCandidate("Community", data);
+
+            if(type.includes("Parent"))
+            {
+                count = countParent
+            }
+            else 
+            {
+               countCommunity
+            }
+            
 
             for (let i = 1; i <= count; i++) {
-              const type = "Parent"
+              
               const nameIndex = data[`${type} Candidate ${i} Name`];
               const votesIndex = data[`${type} Candidate ${i} Votes`];
               candidates.push({'Name': nameIndex,index :(i-1) , 'Votes': votesIndex, 'Type' : type , 'ratio': ( votesIndex/data[`${type}Sum`]) *100 });
-          }
+            }
 
           console.log(candidates)
 
@@ -114,7 +125,8 @@ var WaffleVis = function () {
              * Start of 
              * https://observablehq.com/@analyzer2004/waffle-chart
              */
-            const g = svg.selectAll(".waffle")  
+            drawTheDangWaffle = function(){
+              const g = svg.selectAll(".waffle")  
             .data(waffleData)
             .join("g")
             .attr("class", "waffle");
@@ -164,6 +176,7 @@ var WaffleVis = function () {
              //legend
              drawLegend = function (svg, cells) {
              console.log(candidates)
+             svg.append('svg').attr("id", "legend")
               const legend = svg.selectAll(".legend")
                 .data(candidates.map(d => d.Name))
                 .join("g")      
@@ -185,6 +198,25 @@ var WaffleVis = function () {
 
                 console.log(legend.nodes())
               
+
+              /**
+               * Add SVG button change condition. 
+               */
+              svg.append("text")
+              .attr("transform", (d, i) => `translate(${waffleSize + 20},${8 * 30})`)
+              //.attr("alignment-baseline", "hanging")
+              .text("Community").on("click", function(event){
+                console.log("Woot")
+                this.drawWaffle(svg,selectedPath,"Community")
+                event.stopPropogation()
+              })
+
+
+
+            }
+            
+
+
               function highlight(e, d, restore) {
                 const i = legend.nodes().indexOf(e.currentTarget);
                 console.log(e)
@@ -197,6 +229,8 @@ var WaffleVis = function () {
                 cells.transition().duration(500).attr("fill", d => color(d.index))
               }
             }
+
+            drawTheDangWaffle()
         })
         
       }
