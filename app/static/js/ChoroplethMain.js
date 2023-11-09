@@ -17,8 +17,8 @@ var ChoroplethVis = function () {
     this.ActiveType= year
   }
   var newChoropleth = {
-    drawChloropleth: function (svg, type = 0) {
-      setActiveYear(2020);
+    drawChloropleth: function (svg,activeYearParam =2020,  type = 0) {
+      setActiveYear(activeYearParam);
       
       svg.selectAll("g").remove();
 

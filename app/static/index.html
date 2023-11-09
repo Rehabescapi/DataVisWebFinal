@@ -26,13 +26,15 @@
 </head>
 
 <body>
-  <script>
-/*
- <button onclick="setYear(0)">No Data</button>
-  <button onclick="setYear(1)"> School Population</button>
-  <button onclick="setYear(2)"> 3rdOption</button>
-  */
-</script>
+ 
+
+  <div class="Year_Options">
+  <button onclick="setYear(2016)">2016</button>
+  <button onclick="setYear(2018)"> 2018</button>
+  <button onclick="setYear(2020)"> 2020</button>
+  
+</div>
+
   <div id="Graphs">
     <svg id="my_dataviz" width="400" height="600">
     <svg id="main_Legend"width="150" height="200"></svg>
@@ -41,9 +43,10 @@
     <svg id="SubGraphA" width=500 , height=350>
 
     </svg>
-    <svg id="SubGraphB" width=200, height=300>
-      <img src="../Histograms.png" alt="Histogram for Parent Candidates Total Count by Year"/>
+    <img src="../Histograms.png" alt="Histogram for Parent Candidates Total Count by Year"/>
 
+    <svg id="SubGraphB" width=200, height=300>
+     
     </svg>
   </div>
 
