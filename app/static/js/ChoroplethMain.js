@@ -5,7 +5,11 @@ var ChoroplethVis = function () {
   this.ActiveYear;
   this.ActiveType;
 
+  this.LegendLabel = "Vote Count"
 
+  getLegendLabel = function(){
+    return this.LegendLabel
+  }
   getActiveYear= function(){
     return this.ActiveType
   }
@@ -102,8 +106,8 @@ var ChoroplethVis = function () {
         
         //var popData = mockPopulationData(topo, type);
 
-        domain_options = [9, 29, 62, 154,1900]
-        colorScheme = d3.schemeBlues[5];
+        domain_options = [1,9, 29, 62, 154,1900]
+        colorScheme = d3.schemeBlues[6];
         colorScale = d3
           .scaleThreshold()
           .domain(domain_options)
@@ -132,6 +136,10 @@ var ChoroplethVis = function () {
         .attr("sID", function(d){
           return d.properties.SCHOOL_ID
         })
+        .attr('TotalPopulation',function(d){
+          return d.properties.PopulationData
+
+        })
         .attr("fill", function (d) {
           return colorScale(d.properties.PopulationData);
         })
@@ -139,11 +147,14 @@ var ChoroplethVis = function () {
         .attr("stroke", "black")
           .attr("stroke-width", strokeLevel)
           .on("click", function(d) {
+            console.log(d.target.attributes[3])
             
            
+            if(d.target.attributes[3].value >1)
+            {
             //Formerly known as d.properties.SCHOOL_ID
             newChoropleth.dispatch.call("selected", {}, d.target.attributes[2].value); 
-           
+            }
           
           })
 
@@ -202,7 +213,7 @@ var drawChoroplethLegend = function (colorScale, svg) {
     .attr("class", "caption")
     .attr("x", 0)
     .attr("y", -6)
-    .text("Population");
+    .text(getLegendLabel());
 
   // Add labels for legend
   var labels = domain_options
