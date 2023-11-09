@@ -63,6 +63,17 @@ def index():
 def startup(path):
     return send_from_directory('.', path)
 
+@app.route('/Map/')
+def getSumbyYear():
+    goalYear = request.args.get('Year')
+    print(sample)
+    testdf = df[df['Year']] == goalYear
+    testdf = testdf.dropna(axis=1)
+    testdf['ParentSum']=testdf.apply(lambda x:sum([x[c] for c in testdf.columns if c.startswith('Parent') & c.endswith('Votes')]),axis=1)
+    
+    return testdf.to_json(orient='records')
+
+
 
 @app.route('/SchoolID/')
 def queryTest():

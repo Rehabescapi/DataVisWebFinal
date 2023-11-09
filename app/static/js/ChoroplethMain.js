@@ -1,8 +1,20 @@
 //topojson = require('https://d3js.org/topojson.v1.min.js')
 //d3 = require("https://d3js.org/d3.v5.min.js", 'd3-svg-legend')
 var ChoroplethVis = function () {
+
+  this.ActiveYear;
+  this.ActiveType;
+
+
+  getActiveYear= function(){
+    return this.ActiveType
+  }
+  setActiveYear= function( year){
+    this.ActiveType= year
+  }
   var newChoropleth = {
     drawChloropleth: function (svg, type = 0) {
+      setActiveYear(type);
       
       svg.selectAll("g").remove();
 
@@ -57,18 +69,21 @@ var ChoroplethVis = function () {
         /**
          * TODO update Scheme to reflet things
          */
-        colorScheme = d3.schemeBlues[5];
-        colorScale = d3
-          .scaleThreshold()
-          .domain([10, 11, 12, 13, 14, 25])
-          .range(colorScheme);
-
+        
 
         /**
          * Replace Mock Population Data with 
          * actual data frame.
          */  
-        var popData = mockPopulationData(topo, type);
+        var popData = bindPopulationData(topo, getActiveYear,type);
+        //var popData = mockPopulationData(topo, type);
+
+
+        colorScheme = d3.schemeBlues[5];
+        colorScale = d3
+          .scaleThreshold()
+          .domain([10, 11, 12, 13, 14, 25])
+          .range(colorScheme);
 
 
 

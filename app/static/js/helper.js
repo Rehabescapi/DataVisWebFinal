@@ -20,6 +20,17 @@ function mapDataToPopulation(data, dictionaryData){
     return dictionaryData
   }
 
+  function bindPopulationData(geojson,year, type)
+  {
+    Promise.all([
+    d3.json(`/Map/?Year=${year}`)]).then(function(loadData){
+
+
+
+    })
+  }
+
+
   function mockPopulationData (geojson, type = 'nothing') {
     console.log(geojson)
     // Generate random data for our "population", every entry is a "patient"
