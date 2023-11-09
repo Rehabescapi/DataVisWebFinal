@@ -22,8 +22,12 @@ function mapDataToPopulation(data, dictionaryData){
 
   function bindPopulationData(geojson,year, type)
   {
+    console.log(year)
     Promise.all([
-    d3.json(`/Map/?Year=${year}`)]).then(function(loadData){
+    d3.json(`/Map/?Year=${year}`)]).then(function(loadData,i){
+      console.log('Loaded Data')
+      console.log(loadData)
+      console.log(i)
 
 
 

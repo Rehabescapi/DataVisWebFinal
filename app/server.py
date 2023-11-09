@@ -63,15 +63,6 @@ def index():
 def startup(path):
     return send_from_directory('.', path)
 
-@app.route('/Map/')
-def getSumbyYear():
-    goalYear = request.args.get('Year')
-    print(sample)
-    testdf = df[df['Year']] == goalYear
-    testdf = testdf.dropna(axis=1)
-    testdf['ParentSum']=testdf.apply(lambda x:sum([x[c] for c in testdf.columns if c.startswith('Parent') & c.endswith('Votes')]),axis=1)
-    
-    return testdf.to_json(orient='records')
 
 
 
@@ -96,6 +87,24 @@ def queryTest():
 
 
 
+@app.route('/Map/')
+def getSumbyYear():
+    goalYear = request.args.get('Year')
+    
+    test = df[df['Year'] == int(goalYear)]
+    test= test.fillna(0)
+    test['ParentSum']=test.apply(lambda x:sum([x[c] for c in test.columns if c.startswith('Parent') & c.endswith('Votes')]),axis=1)
+
+    recordSumarry= test[['Name', 'ID', 'Year', 'ParentSum']].copy()
+    return recordSumarry.to_json(orient='records')
+    #testdf = testdf.dropna(axis=1)
+   
+   
+
+    #testdf['ParentSum']=testdf.apply(lambda x:sum([x[c] for c in testdf.columns if c.startswith('Parent') & c.endswith('Votes')]),axis=1)
+    
+    #print (testdf['ParentSum'].size)
+    #return testdf.to_json(orient='records')
 
 def catch_all(path):
     return app.send_static_file('index.html');

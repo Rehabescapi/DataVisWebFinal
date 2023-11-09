@@ -14,7 +14,7 @@ var ChoroplethVis = function () {
   }
   var newChoropleth = {
     drawChloropleth: function (svg, type = 0) {
-      setActiveYear(type);
+      setActiveYear(2020);
       
       svg.selectAll("g").remove();
 
@@ -75,7 +75,7 @@ var ChoroplethVis = function () {
          * Replace Mock Population Data with 
          * actual data frame.
          */  
-        var popData = bindPopulationData(topo, getActiveYear,type);
+        var popData = bindPopulationData(topo, getActiveYear(),type);
         //var popData = mockPopulationData(topo, type);
 
 
