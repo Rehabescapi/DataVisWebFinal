@@ -74,11 +74,15 @@ def queryTest():
     testdf = df[df['ID'] == int(sample)]
     print(testdf[:1])
     
-    testdf = testdf.dropna(axis=1)
+    testdf = testdf.dropna(axis=1, how='all')
+    testd = testdf.fillna(0, axis=1, inplace=True)
     #TODO 
     #Get Rid of this hardcode Pandas
     #
-    testdf['ParentSum']=testdf.apply(lambda x:sum([x[c] for c in testdf.columns if c.startswith('Parent') & c.endswith('Votes')]),axis=1)
+    print(testdf)
+    ##Numeric Only issue
+    testdf['ParentSum']=testdf.apply(lambda x:sum([x[c] for c in testdf.columns if c.startswith('Parent') & c.endswith('Votes') ]),axis=1)
+    
     testdf['CommunitySum']=testdf.apply(lambda x:sum([x[c] for c in testdf.columns if c.startswith('Community') & c.endswith('Votes')]),axis=1)
 
    
@@ -92,7 +96,7 @@ def getSumbyYear():
     goalYear = request.args.get('Year')
     
     test = df[df['Year'] == int(goalYear)]
-    test= test.fillna(0)
+    test= test.fillna(0 )
     test['ParentSum']=test.apply(lambda x:sum([x[c] for c in test.columns if c.startswith('Parent') & c.endswith('Votes')]),axis=1)
 
     recordSumarry= test[['Name', 'ID', 'Year', 'ParentSum']].copy()

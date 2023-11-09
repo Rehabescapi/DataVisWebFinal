@@ -76,6 +76,7 @@ var ChoroplethVis = function () {
               [topo, collectionData] = loadData
               console.log(loadData)
               
+              emptyCount = 0;
               for(i = 0 ; i< topo.features.length; i++)
               {
 
@@ -86,13 +87,26 @@ var ChoroplethVis = function () {
                   return obj.ID == topo.features[i].properties["SCHOOL_ID"]
                 })
                 console.log(tempVariable)
-                if(tempVariable=== undefined)
+                if(tempVariable === undefined)
+                {
+                    console.log("Made something undefined. ")
                      topo.features[i].properties["PopulationData"] = -1;
+                     emptyCount ++
+                }
                 else
-                  topo.features[i].properties["PopulationData"] = tempVariable["ParentSum"];
+                  {
+                  
+                  topo.features[i].properties["PopulationData"] = tempVariable.ParentSum;
+
+                  if(tempVariable.ID =='609845')
+                  {
+                    console.log("Some issue here")
+                  }
+                  }
                 
 
               }
+              console.log(emptyCount)
 
          
 
@@ -141,7 +155,11 @@ var ChoroplethVis = function () {
 
         })
         .attr("fill", function (d) {
+
+          if(d.properties.PopulationData >0)
           return colorScale(d.properties.PopulationData);
+        else 
+        return 'Red'
         })
         .attr("d", geoGenerator)
         .attr("stroke", "black")

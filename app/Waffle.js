@@ -4,6 +4,15 @@ var WaffleVis = function () {
   this.YearOptions = [];
   this.ActiveType = "";
   this.ActiveYear = "";
+  this.totalVotes = 0;
+  this.Header = ""
+
+  getHeader = function(){
+    return this.Header
+  }
+  setHeader = function(header){
+    this.Header = header
+  }
 
   getDataTypes = function () {
     return this.DataTypes;
@@ -16,6 +25,12 @@ var WaffleVis = function () {
     return this.YearOptions;
   };
 
+  getTotalVotes = function(){
+    return this.totalVotes
+  }
+  setTotalVotes = function(votes){
+    this.totalVotes = parseInt(votes)
+  }
   setYearOptions = function (options) {
     console.log(options)
     this.YearOptions = [...new Set(options)];
@@ -67,9 +82,7 @@ var WaffleVis = function () {
           " " +
           (height + margin.bottom + margin.top)
       );
-      // var g = svg.append("g")
-      // .attr("transform", "translate(" + margin.left + "," + margin.top+ ")");
-
+      
       var colors = d3.scaleSequential(d3.interpolateCubehelixDefault);
 
       /**
@@ -85,7 +98,9 @@ var WaffleVis = function () {
         for (let row of dataSet) {
           console.log(row.Year)
 
-          yearOptions.push(row.Year);
+          if(row.ParentSum >0|| row.CommunitySum > 0)
+            {yearOptions.push(row.Year);
+            }
           if(row.Year == getActiveYear())
           {
             data = row
@@ -103,11 +118,12 @@ var WaffleVis = function () {
         console.log(data)
         /**Stubbing for first year */
 
-        var categoryHeading = data.Name + " " + data.year;
+        setHeader( categoryHeading = data.Name + " " + data.Year +" ");
 
         //data.sort(function (a, b){ return d3.ascending(a[Name], b[Name])});
 
         let candidates = getBasicData(data, type);
+        setTotalVotes( (candidates[0].Votes/ ((candidates[0].ratio)* .01)));
         let waffleData = getWaffleData(candidates);
         var keys = d3.map(candidates, (d) => d.Name).keys();
         console.log(keys);
@@ -217,7 +233,7 @@ var WaffleVis = function () {
               .append("text")
               .attr("dx", 40)
               .attr("alignment-baseline", "hanging")
-              .text((d, i) => `${d} (${candidates[i].ratio.toFixed(1)}%)`);
+              .text((d, i) => `${d}: ${candidates[i].Votes} (${candidates[i].ratio.toFixed(1)}%)`);
 
             /**
              * Add SVG button change condition.
@@ -229,7 +245,10 @@ var WaffleVis = function () {
 
             currentDataTypes = getDataTypes();
             yearOptions = getYearTypes();
+            totalVotes = getTotalVotes();
 
+            svg.append("text").attr("transform", `translate(30,${ 7 * 30 + margin.top})`)
+            .text(categoryHeading + "Total Votes " +totalVotes)
             iterator = 1
             for(let year of yearOptions )
             {
@@ -319,6 +338,10 @@ var WaffleVis = function () {
 };
 
 getWaffleData = function (candidates) {
+  try
+  {
+    if(candidates.length ==0)
+      throw new error
   const array = [];
 
   const max = candidates.length;
@@ -327,20 +350,23 @@ getWaffleData = function (candidates) {
     accu = Math.round(candidates[0].ratio),
     waffle = [];
 
-  for (let y = 9; y >= 0; y--)
-    for (let x = 0; x < 10; x++) {
-      if (curr > accu) {
-        curr = 1;
-        if (index < max - 1) index++;
-        accu = Math.round(candidates[index].ratio);
+    for (let y = 9; y >= 0; y--)
+      for (let x = 0; x < 10; x++) {
+        if (curr > accu) {
+          curr = 1;
+          if (index < max - 1) index++;
+          accu = Math.round(candidates[index].ratio);
+        }
+
+        waffle.push({ x, y, index, Name: candidates[index].Name });
+        curr++;
       }
+    array.push(waffle);
 
-      waffle.push({ x, y, index, Name: candidates[index].Name });
-      curr++;
-    }
-  array.push(waffle);
+    return array;
+  }catch (error){
 
-  return array;
+  }
 };
 function getBasicData(data, type) {
   let candidates = [];
@@ -357,6 +383,10 @@ function getBasicData(data, type) {
     count = countCommunity;
   }
   for (let i = 1; i <= count; i++) {
+    if(data[`${type} Candidate ${i} Name`] === 0)
+    {
+
+    }else{
     const nameIndex = data[`${type} Candidate ${i} Name`];
     const votesIndex = data[`${type} Candidate ${i} Votes`];
     candidates.push({
@@ -366,6 +396,7 @@ function getBasicData(data, type) {
       Type: type,
       ratio: (votesIndex / data[`${type}Sum`]) * 100,
     });
+  }
   }
   return candidates;
 }
