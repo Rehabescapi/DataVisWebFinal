@@ -18,11 +18,11 @@ var ChoroplethVis = function () {
       
       svg.selectAll("g").remove();
 
-      strokeLevel= 2;
-      var mapDir = "SchoolBoundariesGeoJSONFixed.json"
+      strokeLevel= .5;
+      var mapDir = "2024fixed.json"
       switch (type){
         case 0:
-          mapDir = "SchoolBoundariesGeoJSONFixed.json"
+          mapDir = "2024fixed.json"
           type = "nothing"
         break;
 
@@ -58,31 +58,55 @@ var ChoroplethVis = function () {
 
       let geoGenerator = d3.geoPath().projection(projection);
       
+      /**
+       * Loads the GeoJson Data 
+       * And the Active Year data. 
+       */
       Promise.all([
-          d3.json(mapDir)
+          d3.json(mapDir),
+          d3.json(`/Map/?Year=${getActiveYear()}`,function(d){
+            console.log(d)
+            
+          })
             ]).then(function(loadData){
+              [topo, collectionData] = loadData
+              console.log(loadData)
               
-              let topo = loadData[0]
-   
-   
+              for(i = 0 ; i< topo.features.length; i++)
+              {
 
-        /**
-         * TODO update Scheme to reflet things
-         */
-        
+                var tempVariable = collectionData.find(obj =>{
+                  
+
+
+                  return obj.ID == topo.features[i].properties["SCHOOL_ID"]
+                })
+                console.log(tempVariable)
+                if(tempVariable=== undefined)
+                     topo.features[i].properties["PopulationData"] = -1;
+                else
+                  topo.features[i].properties["PopulationData"] = tempVariable["ParentSum"];
+                
+
+              }
+
+         
+
+
 
         /**
          * Replace Mock Population Data with 
          * actual data frame.
          */  
-        var popData = bindPopulationData(topo, getActiveYear(),type);
+        
+        
         //var popData = mockPopulationData(topo, type);
 
-
+        domain_options = [9, 29, 62, 154,1900]
         colorScheme = d3.schemeBlues[5];
         colorScale = d3
           .scaleThreshold()
-          .domain([10, 11, 12, 13, 14, 25])
+          .domain(domain_options)
           .range(colorScheme);
 
 
@@ -109,7 +133,7 @@ var ChoroplethVis = function () {
           return d.properties.SCHOOL_ID
         })
         .attr("fill", function (d) {
-          return colorScale(popData[d.properties.SCHOOL_ID]);
+          return colorScale(d.properties.PopulationData);
         })
         .attr("d", geoGenerator)
         .attr("stroke", "black")
@@ -181,7 +205,7 @@ var drawChoroplethLegend = function (colorScale, svg) {
     .text("Population");
 
   // Add labels for legend
-  var labels = ["10", "11", "12", "13", "14", "15"];
+  var labels = domain_options
   // Create the legend based on colorScale and our labels
 
 

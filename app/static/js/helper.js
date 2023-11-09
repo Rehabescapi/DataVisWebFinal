@@ -22,14 +22,24 @@ function mapDataToPopulation(data, dictionaryData){
 
   function bindPopulationData(geojson,year, type)
   {
+    var dictionaryPopData = {}
     console.log(year)
     Promise.all([
-    d3.json(`/Map/?Year=${year}`)]).then(function(loadData,i){
+    d3.json(`/Map/?Year=${year}`)]).then(function(loadData){
       console.log('Loaded Data')
       console.log(loadData)
-      console.log(i)
+
+      if('features' in geojson)
+        { for(const elem of geojson.features){
+            // Populate dictionary with keys that will be valid "keys" based on the geojson
+            dictionaryPopData[elem.properties.SCHOOL_ID] = 0;
+          }}
+      
 
 
+
+          let populationData = mapDataToPopulation(loadData, dictionaryPopData);
+          return populationData
 
     })
   }
@@ -53,7 +63,7 @@ function mapDataToPopulation(data, dictionaryData){
     
   let randomZipcodeData = generate1DRandomDataSet(1000, min, max);
   var dictionaryPopData = {}
-  console.log('features' in geojson)
+  
   // Define the valid zipcodes that will map to the choropleth map
   if('features' in geojson)
  { for(const elem of geojson.features){
