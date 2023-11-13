@@ -23,8 +23,7 @@ app = Flask(__name__)
 # Lab Remnants
 # reader = json.load(open("chicago_zipcodes.json"))
 
-
-df_lsc_elections = pd.read_csv("../data/Final_Project_Data.csv")
+df_lsc_elections = gp.read_file("../data/Final_Project_Data_with_Geo.geojson")
 df = df_lsc_elections.rename(columns={'Chicago Local School Council Voting District School ID': "ID",
                              "Chicago Local School Council Voting District School": "Name"})
 
@@ -72,6 +71,8 @@ def queryTest():
     print(sample)
     
     testdf = df[df['ID'] == int(sample)]
+    testdf = testdf.drop("geometry","columns")
+    testdf = pd.DataFrame(testdf)
     print(testdf[:1])
     
     testdf = testdf.dropna(axis=1, how='all')
@@ -84,7 +85,6 @@ def queryTest():
     testdf['ParentSum']=testdf.apply(lambda x:sum([x[c] for c in testdf.columns if c.startswith('Parent') & c.endswith('Votes') ]),axis=1)
     
     testdf['CommunitySum']=testdf.apply(lambda x:sum([x[c] for c in testdf.columns if c.startswith('Community') & c.endswith('Votes')]),axis=1)
-
    
     
     return testdf.to_json(orient='records')
@@ -99,8 +99,8 @@ def getSumbyYear():
     test= test.fillna(0 )
     test['ParentSum']=test.apply(lambda x:sum([x[c] for c in test.columns if c.startswith('Parent') & c.endswith('Votes')]),axis=1)
 
-    recordSumarry= test[['Name', 'ID', 'Year', 'ParentSum']].copy()
-    return recordSumarry.to_json(orient='records')
+    recordSumarry= test[['Name', 'ID', 'Year', 'ParentSum', 'geometry']].copy()
+    return recordSumarry.to_json()
     #testdf = testdf.dropna(axis=1)
    
    
