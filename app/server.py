@@ -73,12 +73,15 @@ def queryTest():
     print(goalYear)
     
     testdf = df[(df['ID'] == int(sample)) & (df['Year'] == int(goalYear))]
+    print(testdf[:1])
+
     testdf = testdf.drop("geometry","columns")
     testdf = pd.DataFrame(testdf)
-    print(testdf[:1])
-    
+
+    testdf = testdf.replace('',np.nan)    
     testdf = testdf.dropna(axis=1, how='all')
     testdf = testdf.fillna(0, axis=1)
+    
     #TODO 
     #Get Rid of this hardcode Pandas
     #
