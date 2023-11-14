@@ -68,15 +68,17 @@ def startup(path):
 @app.route('/SchoolID/')
 def queryTest():
     sample = request.args.get('ID')
+    goalYear = request.args.get('Year')
     print(sample)
+    print(goalYear)
     
-    testdf = df[df['ID'] == int(sample)]
+    testdf = df[(df['ID'] == int(sample)) & (df['Year'] == int(goalYear))]
     testdf = testdf.drop("geometry","columns")
     testdf = pd.DataFrame(testdf)
     print(testdf[:1])
     
     testdf = testdf.dropna(axis=1, how='all')
-    testd = testdf.fillna(0, axis=1, inplace=True)
+    testdf = testdf.fillna(0, axis=1)
     #TODO 
     #Get Rid of this hardcode Pandas
     #

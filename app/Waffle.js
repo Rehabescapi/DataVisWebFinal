@@ -385,6 +385,7 @@ function getBasicData(data, type) {
   } else {
     count = countCommunity;
   }
+  
   for (let i = 1; i <= count; i++) {
     if(data[`${type} Candidate ${i} Name`] === 0)
     {
