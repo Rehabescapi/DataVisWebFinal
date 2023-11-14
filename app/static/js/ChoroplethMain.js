@@ -23,31 +23,6 @@ var ChoroplethVis = function () {
       svg.selectAll("g").remove();
 
       strokeLevel= .5;
-      var mapDir = "2024fixed.json"
-      switch (type){
-        case 0:
-          mapDir = "2024fixed.json"
-          type = "nothing"
-        break;
-
-        case 1:
-          mapDir = "SchoolBoundariesGeoJSONFixed.json"
-          type="population"
-          break;
-          
-        case 2:
-          mapDir="2024fixed.json"
-          type="nothing"
-          break;
-         
-        default:
-          mapDir = "SchoolBoundariesGeoJSON.json"
-
-      }
-
-      
-     
-        
 
       var g = svg.append("g").attr("id","map");
 
@@ -67,58 +42,20 @@ var ChoroplethVis = function () {
        * And the Active Year data. 
        */
       Promise.all([
-          d3.json(mapDir),
           d3.json(`/Map/?Year=${getActiveYear()}`,function(d){
-            console.log(d)
-            
+            console.log(d)           
           })
             ]).then(function(loadData){
-              [topo, collectionData] = loadData
-              console.log(loadData)
-              
-              emptyCount = 0;
-              for(i = 0 ; i< topo.features.length; i++)
-              {
-
-                var tempVariable = collectionData.find(obj =>{
-                  
-
-
-                  return obj.ID == topo.features[i].properties["SCHOOL_ID"]
-                })
-                console.log(tempVariable)
-                if(tempVariable === undefined)
-                {
-                    console.log("Made something undefined. ")
-                     topo.features[i].properties["PopulationData"] = -1;
-                     emptyCount ++
-                }
-                else
-                  {
-                  
-                  topo.features[i].properties["PopulationData"] = tempVariable.ParentSum;
-
-                  if(tempVariable.ID =='609845')
-                  {
-                    console.log("Some issue here")
-                  }
-                  }
-                
-
-              }
-              console.log(emptyCount)
-
-         
-
-
-
+              [collectionData] = loadData;
+              console.log(collectionData)
+       
         /**
          * Replace Mock Population Data with 
          * actual data frame.
          */  
         
         
-        //var popData = mockPopulationData(topo, type);
+        //var popData = mockPopulationData(collectionData, type);
 
         domain_options = [1,9, 29, 62, 154,1900]
         colorScheme = d3.schemeBlues[6];
@@ -141,23 +78,26 @@ var ChoroplethVis = function () {
          */
       function update(){
         g.selectAll("path")
-        .data(topo.features)
+        .data(collectionData.features)
         .join("path") 
         .attr("d", geoGenerator)
         .attr("name", function (d) {
-          return d.properties.SCHOOL_NM;
+          return d.properties.Name;
         })
         .attr("sID", function(d){
-          return d.properties.SCHOOL_ID
+          return d.properties.ID
         })
         .attr('TotalPopulation',function(d){
-          return d.properties.PopulationData
+          return d.properties.ParentSum
 
+        })
+        .attr('Year',function(d){
+          return d.properties.Year
         })
         .attr("fill", function (d) {
 
-          if(d.properties.PopulationData >0)
-          return colorScale(d.properties.PopulationData);
+          if(d.properties.ParentSum >0)
+          return colorScale(d.properties.ParentSum);
         else 
         return 'Red'
         })
@@ -166,12 +106,12 @@ var ChoroplethVis = function () {
           .attr("stroke-width", strokeLevel)
           .on("click", function(d) {
             console.log(d.target.attributes[3])
-            
-           
-            if(d.target.attributes[3].value >1)
+            //d.target.__data__.properties
+          
+            if(d.target.attributes[3].value > 0)
             {
-            //Formerly known as d.properties.SCHOOL_ID
-            newChoropleth.dispatch.call("selected", {}, d.target.attributes[2].value); 
+            //school ID and year
+            newChoropleth.dispatch.call("selected", {}, [d.target.attributes[2].value, d.target.attributes[4].value]); 
             }
           
           })

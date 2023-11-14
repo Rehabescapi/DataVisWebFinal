@@ -53,6 +53,8 @@ var WaffleVis = function () {
   var newWaffle = {
     drawWaffle: function (svg, selectedPath, type = "Parent", year = 2020) {
       this.selectedPath = selectedPath;
+      if(selectedPath[1] > 0)
+        year = selectedPath[1];
       setActiveType(type);
       setActiveYear(year);
 
@@ -90,7 +92,7 @@ var WaffleVis = function () {
        *
        */
 
-      d3.json(`/SchoolID/?ID=${selectedPath}`).then(function (dataSet, i) {
+      d3.json(`/SchoolID/?ID=${selectedPath[0]}&Year=${selectedPath[1]}`).then(function (dataSet, i) {
         //sort data Alphabetically
         console.log(dataSet);
         data = {};
@@ -383,6 +385,7 @@ function getBasicData(data, type) {
   } else {
     count = countCommunity;
   }
+  
   for (let i = 1; i <= count; i++) {
     if(data[`${type} Candidate ${i} Name`] === 0)
     {
