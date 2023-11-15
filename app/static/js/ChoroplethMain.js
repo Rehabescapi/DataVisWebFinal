@@ -41,13 +41,29 @@ var ChoroplethVis = function () {
        * And the Active Year data.
        */
       Promise.all([
+        
         d3.json(`/Map/?Year=${getActiveYear()}`, function (d) {
           console.log(d);
         }),
       ]).then(function (loadData) {
-        [collectionData] = loadData;
+        [ collectionData] = loadData;
         console.log(collectionData);
 
+        /**
+         * Brute forcing getting the dataCategories
+         */
+        Category = new Set([0])
+        for(var i = 0; i < collectionData.features.length; i++)
+        {
+          var x = collectionData.features[i].properties.CategoryMax
+          Category.add(parseInt(x))
+
+        }
+       
+
+
+
+        
         /**
          * Replace Mock Population Data with
          * actual data frame.
@@ -55,7 +71,11 @@ var ChoroplethVis = function () {
 
         //var popData = mockPopulationData(collectionData, type);
 
-        domain_options = [1, 9, 29, 62, 154, 1900];
+
+        domain_options = Array.from(Category)
+        domain_options.sort(function(a,b){
+          return a-b;
+        })
         colorScheme = d3.schemeBlues[6];
         colorScale = d3
           .scaleThreshold()
@@ -96,7 +116,7 @@ var ChoroplethVis = function () {
             })
             .attr("fill", function (d) {
               if (d.properties.ParentSum > 0)
-                return colorScale(d.properties.ParentSum);
+                return colorScale(d.properties.CategoryMax);
               else return "White";
             })
             .attr("d", geoGenerator)

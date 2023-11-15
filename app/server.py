@@ -94,7 +94,32 @@ def queryTest():
     
     return testdf.to_json(orient='records')
 
+@app.route('/Legend/')
+def getLegendYear():
+    goalYear = request.args.get('Year')
+    goalRanges = request.args.get('Bin')
 
+    if(goalRanges):
+        print("Goal Ranges Exist")
+    testdf = df[(df['Year'] == int(goalYear))]
+    
+    testdf = testdf.drop(['geometry'],axis=1)
+    testdf = pd.DataFrame(testdf)
+
+    testdf = testdf.replace('',np.nan)    
+    testdf = testdf.dropna(axis=1, how='all')
+    testdf = testdf.fillna(0, axis=1)
+
+    testdf['ParentSum']=testdf.apply(lambda x:sum([x[c] for c in testdf.columns if c.startswith('Parent') & c.endswith('Votes')]),axis=1)
+
+    test_Array = testdf[['ParentSum']].to_numpy()
+
+    sorted_Array = np.sort(test_Array, axis=None)
+
+    goal = pd.qcut(sorted_Array, q=int(goalRanges), retbins=False )
+    print(goal)
+   
+    return json.dumps(goal)
 
 @app.route('/Map/')
 def getSumbyYear():
@@ -104,7 +129,9 @@ def getSumbyYear():
     test= test.fillna(0 )
     test['ParentSum']=test.apply(lambda x:sum([x[c] for c in test.columns if c.startswith('Parent') & c.endswith('Votes')]),axis=1)
 
-    recordSumarry= test[['Name', 'ID', 'Year', 'ParentSum', 'geometry']].copy()
+    test['Category'] = pd.qcut(test.ParentSum, q = 5, labels=False)
+    test['CategoryMax'] = test.groupby(['Category'])["ParentSum"].transform("max")
+    recordSumarry= test[['Name', 'ID', 'Year', 'ParentSum', 'geometry','Category','CategoryMax']].copy()
     return recordSumarry.to_json()
     #testdf = testdf.dropna(axis=1)
    
