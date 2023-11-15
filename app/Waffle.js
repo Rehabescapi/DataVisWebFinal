@@ -235,7 +235,7 @@ var WaffleVis = function () {
             legend
               .append("text")
               .attr("dx", 40)
-              .attr("alignment-baseline", "hanging")
+              .attr("dominant-baseline", "hanging")
               .text((d, i) => `${d}: ${candidates[i].Votes} (${candidates[i].ratio.toFixed(1)}%)`);
 
             /**
