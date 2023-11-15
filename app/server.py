@@ -75,7 +75,7 @@ def queryTest():
     testdf = df[(df['ID'] == int(sample)) & (df['Year'] == int(goalYear))]
     print(testdf[:1])
 
-    testdf = testdf.drop("geometry","columns")
+    testdf = testdf.drop(['geometry'],axis=1)
     testdf = pd.DataFrame(testdf)
 
     testdf = testdf.replace('',np.nan)    

@@ -8,6 +8,11 @@ path:hover {
   fill: #ff6961;
 }
 
+path.no-Data:hover{
+  fill: #5f5f5f;
+
+}
+
 svg {
   width: 960;
   height: 1000;
