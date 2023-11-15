@@ -28,26 +28,37 @@
 <body>
  
 
-  <div class="Year_Options">
-  <button onclick="setYear(2016)">2016</button>
-  <button onclick="setYear(2018)"> 2018</button>
-  <button onclick="setYear(2020)"> 2020</button>
+ <div class="wrapper">
   
-</div>
-
-  <div id="Graphs">
+<div class="flex-row">
+<div class ="flex-container">
+  <div class="Year_Options">
+    <button onclick="setYear(2016)">2016</button>
+    <button onclick="setYear(2018)"> 2018</button>
+    <button onclick="setYear(2020)"> 2020</button>
+    
+  </div>
+  <div id="Graphs" >
     <svg id="my_dataviz" width="400" height="600">
     <svg id="main_Legend"width="150" height="200"></svg>
   </svg>
 
+  </div>
+  </div>
+  <div class="flex-container">
+  <svg id="SubGraphB" width=200, height=250></svg>
     <svg id="SubGraphA" width=500 , height=350>
 
+      
     </svg>
+
+  </div>
+</div>
     <img src="../Histograms.png" alt="Histogram for Parent Candidates Total Count by Year"/>
 
-    <svg id="SubGraphB" width=200, height=300>
+    
      
-    </svg>
+    
   </div>
 
   <script src="static/js/main-viz.js"></script>

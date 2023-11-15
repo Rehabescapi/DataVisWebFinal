@@ -14,10 +14,14 @@ path.no-Data:hover{
 }
 
 svg {
-  width: 960;
-  height: 1000;
+  
   border-style: dashed;
   font: 10px sans-serif;
+}
+
+svg#SubGraphB{
+  border-style: groove;
+
 }
 
 a:hover tspan:first-child {
@@ -40,4 +44,18 @@ tspan:last-child {
   opacity: .2;
   stroke: black;
   stroke-width: 10;
+}
+
+.flex-container{
+  display: flex;
+  flex-direction: column;
+}
+.flex-container svg{
+  margin: 10px;
+
+}
+
+
+.flex-row{
+  display: flex;
 }
