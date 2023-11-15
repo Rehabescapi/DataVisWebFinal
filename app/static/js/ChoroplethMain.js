@@ -99,7 +99,7 @@ var ChoroplethVis = function () {
           if(d.properties.ParentSum >0)
           return colorScale(d.properties.ParentSum);
         else 
-        return 'Red'
+        return 'White'
         })
         .attr("d", geoGenerator)
         .attr("stroke", "black")
@@ -198,7 +198,7 @@ var drawChoroplethLegend = function (colorScale, svg) {
 var DrawCartogram = function () {};
 
 
-function rewind(geo){
+function rewind (geo){
   const fixedGeoJSON = {...geo}
   fixedGeoJSON.features = fixedGeoJSON.features.map(f =>
     turf.rewind(f, { reverse: true })
