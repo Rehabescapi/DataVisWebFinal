@@ -10,41 +10,44 @@ const svg = d3.select("svg").attr("width", width).attr("height", height);
 /***
  * TODO selet PoI from Main map to expand on subGraphs.
  * */
-function getSchoolIDData(node, ID) {}
+function getSchoolIDData(node, ID) { }
 
 //*Data Visualization Boards
-CP = ChoroplethVis();
-WF = WaffleVis();
+const CP = ChoroplethVis();
+const WF = WaffleVis();
+const lChart = LineChart();
 
 CP.drawChloropleth(svg);
 
 CP.dispatch.on("selected", function (selectedPath) {
+  console.log("current selection: ");
   console.log(selectedPath);
-  
-    let subGraphA = d3.select('#SubGraphA')
 
-    /**
-     * Can actually have the Subgraph make this call. 
-     */
-    WF.drawWaffle(subGraphA, selectedPath)
-    //Number of election types in side the data.
-    
-  })
+  let subGraphA = d3.select('#SubGraphA')
+
+  /**
+   * Can actually have the Subgraph make this call. 
+   */
+  WF.drawWaffle(subGraphA, selectedPath)
+  //Number of election types in side the data.
+
+  lChart.draw(selectedPath);
+})
 
 
 
-WF.dispatch.on("selected", function(arguments){
-  [selectedPath, type, year] = arguments
+WF.dispatch.on("selected", function (arguments) {
+  let [selectedPath, type, year] = arguments
   console.log(selectedPath)
   let subGraphA = d3.select('#SubGraphA')
-  WF.drawWaffle(subGraphA, selectedPath, type,year );
+  WF.drawWaffle(subGraphA, selectedPath, type, year);
 
-}) 
+})
 
-  /***
-   * TODO ADD ZOOM IN on Selected Area
-   *
-   */
+/***
+ * TODO ADD ZOOM IN on Selected Area
+ *
+ */
 
 
 /**
