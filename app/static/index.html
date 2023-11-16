@@ -15,53 +15,42 @@
     }
   </style>
   <!-- Load d3.js -->
-  <!-- TODO: should we use latest D3 version (6, 7?)? -->
-  <script src="https://d3js.org/d3.v6.min.js"></script>
+  <script src="https://d3js.org/d3.v6.js"></script>
   <script src="https://d3js.org/topojson.v1.min.js"></script>
   <script src="https://unpkg.com/topojson@3"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
   <script src="static/js/helper.js"></script>
   <script src="static/js/ChoroplethMain.js"></script>
   <script src="Waffle.js"></script>
+  <script src="static/js/line-chart.js"></script>
 </head>
 
 <body>
- 
+  <div class="wrapper">
+    <div class="flex-row">
+      <div class="flex-container">
+        <div class="Year_Options">
+          <button onclick="setYear(2016)">2016</button>
+          <button onclick="setYear(2018)"> 2018</button>
+          <button onclick="setYear(2020)"> 2020</button>
+        </div>
+        <div id="Graphs">
+          <svg id="my_dataviz" width="400" height="600">
+            <svg id="main_Legend" width="150" height="200"></svg>
+          </svg>
+        </div>
+      </div>
+      <div class="flex-container">
+        <div id="line-chart"></div>
+        <svg id="SubGraphA" width="500" height="350"></svg>
+      </div>
+    </div>
 
- <div class="wrapper">
-  
-<div class="flex-row">
-<div class ="flex-container">
-  <div class="Year_Options">
-    <button onclick="setYear(2016)">2016</button>
-    <button onclick="setYear(2018)"> 2018</button>
-    <button onclick="setYear(2020)"> 2020</button>
-    
-  </div>
-  <div id="Graphs" >
-    <svg id="my_dataviz" width="400" height="600">
-    <svg id="main_Legend"width="150" height="200"></svg>
-  </svg>
-
-  </div>
-  </div>
-  <div class="flex-container">
-  <svg id="SubGraphB" width=200, height=250></svg>
-    <svg id="SubGraphA" width=500 , height=350>
-
-      
-    </svg>
-
-  </div>
-</div>
-    <img src="../Histograms.png" alt="Histogram for Parent Candidates Total Count by Year"/>
-
-    
-     
-    
+    <img src="../Histograms.png" alt="Histogram for Parent Candidates Total Count by Year" />
   </div>
 
   <script src="static/js/main-viz.js"></script>
+  <!-- <script src="static/js/line-chart.js"></script> -->
 </body>
 
 </html>

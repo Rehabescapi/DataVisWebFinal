@@ -62,7 +62,7 @@ def index():
 def startup(path):
     return send_from_directory('.', path)
 
-
+# /SchoolID/?ID=609739&Year=2020
 
 
 @app.route('/SchoolID/')
@@ -71,76 +71,138 @@ def queryTest():
     goalYear = request.args.get('Year')
     print(sample)
     print(goalYear)
-    
     testdf = df[(df['ID'] == int(sample)) & (df['Year'] == int(goalYear))]
     print(testdf[:1])
 
-    testdf = testdf.drop(['geometry'],axis=1)
+    testdf = testdf.drop(['geometry'], axis=1)
     testdf = pd.DataFrame(testdf)
 
-    testdf = testdf.replace('',np.nan)    
+    testdf = testdf.replace('', np.nan)
     testdf = testdf.dropna(axis=1, how='all')
     testdf = testdf.fillna(0, axis=1)
-    
-    #TODO 
-    #Get Rid of this hardcode Pandas
+
+    # TODO
+    # Get Rid of this hardcode Pandas
     #
     print(testdf)
-    ##Numeric Only issue
-    testdf['ParentSum']=testdf.apply(lambda x:sum([x[c] for c in testdf.columns if c.startswith('Parent') & c.endswith('Votes') ]),axis=1)
-    
-    testdf['CommunitySum']=testdf.apply(lambda x:sum([x[c] for c in testdf.columns if c.startswith('Community') & c.endswith('Votes')]),axis=1)
-   
-    
+    # Numeric Only issue
+    testdf['ParentSum'] = testdf.apply(lambda x: sum(
+        [x[c] for c in testdf.columns if c.startswith('Parent') & c.endswith('Votes')]), axis=1)
+
+    testdf['CommunitySum'] = testdf.apply(lambda x: sum(
+        [x[c] for c in testdf.columns if c.startswith('Community') & c.endswith('Votes')]), axis=1)
+
     return testdf.to_json(orient='records')
+
 
 @app.route('/Legend/')
 def getLegendYear():
     goalYear = request.args.get('Year')
     goalRanges = request.args.get('Bin')
 
-    if(goalRanges):
+    if (goalRanges):
         print("Goal Ranges Exist")
     testdf = df[(df['Year'] == int(goalYear))]
-    
-    testdf = testdf.drop(['geometry'],axis=1)
+
+    testdf = testdf.drop(['geometry'], axis=1)
     testdf = pd.DataFrame(testdf)
 
-    testdf = testdf.replace('',np.nan)    
+    testdf = testdf.replace('', np.nan)
     testdf = testdf.dropna(axis=1, how='all')
     testdf = testdf.fillna(0, axis=1)
 
-    testdf['ParentSum']=testdf.apply(lambda x:sum([x[c] for c in testdf.columns if c.startswith('Parent') & c.endswith('Votes')]),axis=1)
+    testdf['ParentSum'] = testdf.apply(lambda x: sum(
+        [x[c] for c in testdf.columns if c.startswith('Parent') & c.endswith('Votes')]), axis=1)
 
     test_Array = testdf[['ParentSum']].to_numpy()
 
     sorted_Array = np.sort(test_Array, axis=None)
 
-    goal = pd.qcut(sorted_Array, q=int(goalRanges), retbins=False )
+    goal = pd.qcut(sorted_Array, q=int(goalRanges), retbins=False)
     print(goal)
-   
+
     return json.dumps(goal)
+
 
 @app.route('/Map/')
 def getSumbyYear():
     goalYear = request.args.get('Year')
-    
+
     test = df[df['Year'] == int(goalYear)]
-    test= test.fillna(0 )
-    test['ParentSum']=test.apply(lambda x:sum([x[c] for c in test.columns if c.startswith('Parent') & c.endswith('Votes')]),axis=1)
+    test = test.fillna(0)
+    test['ParentSum'] = test.apply(lambda x: sum(
+        [x[c] for c in test.columns if c.startswith('Parent') & c.endswith('Votes')]), axis=1)
 
-    test['Category'] = pd.qcut(test.ParentSum, q = 5, labels=False)
-    test['CategoryMax'] = test.groupby(['Category'])["ParentSum"].transform("max")
-    recordSumarry= test[['Name', 'ID', 'Year', 'ParentSum', 'geometry','Category','CategoryMax']].copy()
+    test['Category'] = pd.qcut(test.ParentSum, q=5, labels=False)
+    test['CategoryMax'] = test.groupby(
+        ['Category'])["ParentSum"].transform("max")
+    recordSumarry = test[['Name', 'ID', 'Year', 'ParentSum',
+                          'geometry', 'Category', 'CategoryMax']].copy()
     return recordSumarry.to_json()
-    #testdf = testdf.dropna(axis=1)
-   
-   
+    # testdf = testdf.dropna(axis=1)
 
-    #testdf['ParentSum']=testdf.apply(lambda x:sum([x[c] for c in testdf.columns if c.startswith('Parent') & c.endswith('Votes')]),axis=1)
-    
-    #print (testdf['ParentSum'].size)
-    #return testdf.to_json(orient='records')
+    # testdf['ParentSum']=testdf.apply(lambda x:sum([x[c] for c in testdf.columns if c.startswith('Parent') & c.endswith('Votes')]),axis=1)
+
+    # print (testdf['ParentSum'].size)
+    # return testdf.to_json(orient='records')
+
 
 def catch_all(path):
-    return app.send_static_file('index.html');
+    return app.send_static_file('index.html')
+
+
+@app.route("/blc")
+def basic_line_chart():
+    """Basic Line Chart"""
+    return app.send_static_file("basic-line-chart.html")
+
+
+@app.route("/glc")
+def gradient_line_chart():
+    """Gradient Line Chart"""
+    return app.send_static_file("gradient-line-chart.html")
+
+
+# /school-districts/609739/2020
+@app.route('/school-districts/<district_id>/<election_year>')
+def school_district_details(district_id, election_year):
+    return school_district_details_by_year(district_id, election_year)
+
+# /school-districts/609739
+
+
+@app.route('/school-districts/<district_id>')
+def district_multi_year_elections(district_id):
+    """School district multi-year election results (votes per candidate)"""
+
+    d_collection = {}
+    goal_years = range(2016, 2021)  # (2016-2020)
+    for goal_year in goal_years:
+        d_collection[goal_year] = school_district_details_by_year(
+            district_id, goal_year)
+
+    return d_collection
+
+
+def school_district_details_by_year(district_id, election_year):
+    print(district_id)
+    print(election_year)
+    d_frame = df[(df['ID'] == int(district_id)) &
+                 (df['Year'] == int(election_year))]
+    print(d_frame[:1])
+
+    d_frame = d_frame.drop(['geometry'], axis=1)
+    d_frame = pd.DataFrame(d_frame)
+
+    d_frame = d_frame.replace('', np.nan)
+    d_frame = d_frame.dropna(axis=1, how='all')
+    d_frame = d_frame.fillna(0, axis=1)
+
+    print(d_frame)
+    d_frame['ParentSum'] = d_frame.apply(lambda x: sum(
+        [x[c] for c in d_frame.columns if c.startswith('Parent') & c.endswith('Votes')]), axis=1)
+
+    d_frame['CommunitySum'] = d_frame.apply(lambda x: sum(
+        [x[c] for c in d_frame.columns if c.startswith('Community') & c.endswith('Votes')]), axis=1)
+
+    return d_frame.to_json(orient='records')
