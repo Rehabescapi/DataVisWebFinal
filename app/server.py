@@ -128,6 +128,8 @@ def getLegendYear():
 def getSumbyYear():
     goalYear = request.args.get('Year')
 
+
+
     test = df[df['Year'] == int(goalYear)]
     test = test.fillna(0)
     test['ParentSum'] = test.apply(lambda x: sum(

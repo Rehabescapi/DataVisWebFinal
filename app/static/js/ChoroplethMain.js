@@ -149,8 +149,7 @@ var ChoroplethVis = function () {
           const { transform } = event;
           g.attr("transform", transform);
 
-          //JML -- was chasing a way to have the legend be on top of the Main map.
-          //drawChoroplethLegend(colorScale, svg)
+          d3.select("#main_Legend").raise()
         }
       });
     },
