@@ -28,8 +28,36 @@ Virtual Environment settings created based on
 - Windows <br>
 > `setx FLASK_APP "server.py"`
 
-### 4. Run Dev Mode
-> `$ cd app`
+<br><br>
 
-> `$ flask run`
+# How to run the app
+
+##### Prerequisite installations
+1. Python 3.
+2. Flask.
+
+#### Windows*
+1. Open Powershell
+2. Move into the root level of the project (same level as `run.sh`)
+3. Run the shell script: `$ bash run.sh`
+
+#### MacOS/Linux
+1. Open Terminal
+2. Move into the root level of the project (same level as `run.sh`)
+3. Run the shell script: `$ bash run.sh`
+
+<hr>
+
+__The app should launch in a new tab in your default browser.__
+
+<br>
+
+> __*__ `Script not tested on Windows`
+
+<br><br>
+
+# Browsing around
+1. [Homepage](http://127.0.0.1:9909 "Landing page")
+2. [Others](http://127.0.0.1:8000/others "Others")
+3. [Map of Illinois](http://127.0.0.1:8000/il-map "Elections map")
 
