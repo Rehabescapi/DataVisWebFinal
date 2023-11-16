@@ -4,22 +4,37 @@ path {
   transition: fill 0.2s ease;
 }
 
+path.line-path {
+  stroke: url('#line-gradient');
+  stroke-width: 1px;
+  transition: fill 0.2s ease;
+  fill: none;
+}
+
+path.domain {
+  stroke: rgb(3, 22, 16);
+}
+
+path.line-path:hover,
+path.domain:hover {
+  fill: none;
+}
+
 path:hover {
   fill: #ff6961;
 }
 
-path.no-Data:hover{
+path.no-Data:hover {
   fill: #5f5f5f;
 
 }
 
 svg {
-  
   border-style: dashed;
   font: 10px sans-serif;
 }
 
-svg#SubGraphB{
+svg#SubGraphB {
   border-style: groove;
 
 }
@@ -46,16 +61,15 @@ tspan:last-child {
   stroke-width: 10;
 }
 
-.flex-container{
+.flex-container {
   display: flex;
   flex-direction: column;
 }
-.flex-container svg{
-  margin: 10px;
 
+.flex-container svg {
+  margin: 10px;
 }
 
-
-.flex-row{
+.flex-row {
   display: flex;
 }
