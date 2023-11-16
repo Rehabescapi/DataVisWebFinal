@@ -103,6 +103,7 @@ def getSumbyYear():
     test = df[df['Year'] == int(goalYear)]
     test= test.fillna(0 )
     test['ParentSum']=test.apply(lambda x:sum([x[c] for c in test.columns if c.startswith('Parent') & c.endswith('Votes')]),axis=1)
+    test=test[test['ParentSum'] > 0]
 
     recordSumarry= test[['Name', 'ID', 'Year', 'ParentSum', 'geometry']].copy()
     return recordSumarry.to_json()
