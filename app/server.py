@@ -128,6 +128,7 @@ def getSumbyYear():
     test = df[df['Year'] == int(goalYear)]
     test= test.fillna(0 )
     test['ParentSum']=test.apply(lambda x:sum([x[c] for c in test.columns if c.startswith('Parent') & c.endswith('Votes')]),axis=1)
+    test=test[test['ParentSum'] > 0]
 
     test['Category'] = pd.qcut(test.ParentSum, q = 5, labels=False)
     test['CategoryMax'] = test.groupby(['Category'])["ParentSum"].transform("max")

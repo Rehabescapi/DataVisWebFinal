@@ -100,7 +100,7 @@ var WaffleVis = function () {
         for (let row of dataSet) {
           console.log(row.Year)
 
-          if(row.ParentSum >0|| row.CommunitySum > 0)
+          if(row.ParentSum >0 /*|| row.CommunitySum > 0*/)
             {yearOptions.push(row.Year);
             }
           if(row.Year == getActiveYear())
@@ -288,14 +288,14 @@ var WaffleVis = function () {
                     `translate(${waffleSize + 20},${8 * 30 + margin.top})`
                 )
                 //.attr("alignment-baseline", "hanging")
-                .text("Community")
+                /*.text("Community")
                 .on("click", function (event) {
                   newWaffle.dispatch.call("selected", {}, [
                     selectedPath,
                     "Community",
                     getActiveYear(),
                   ]);
-                });
+                })*/;
             } else {
               svg
                 .append("text")
