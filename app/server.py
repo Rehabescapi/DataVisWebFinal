@@ -84,6 +84,7 @@ def get_sum_by_year():
     test['Category'] = pd.qcut(test.ParentSum, q=5, labels=False)
     test['CategoryMax'] = test.groupby(
         ['Category'])["ParentSum"].transform("max")
+    test=test[test['ParentSum'] > 0]
     record_sumarry = test[['Name', 'ID', 'Year', 'ParentSum',
                           'geometry', 'Category', 'CategoryMax']].copy()
 
