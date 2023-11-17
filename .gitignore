@@ -1,12 +1,10 @@
 *.zip
 CS468/*
-data/*
-*/data/.*
-data/Census, Elections, and LSC Elections - All Boundaries-001.parquet
+data/
+!data/README.txt
 .DS_Store
 .idea/
 .vscode/
-
 
 .venv/
 
@@ -22,3 +20,5 @@ htmlcov/
 dist/
 build/
 *.egg-info/
+
+tmp

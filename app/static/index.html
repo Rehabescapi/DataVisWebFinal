@@ -20,8 +20,8 @@
   <script src="https://unpkg.com/topojson@3"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
   <script src="static/js/helper.js"></script>
-  <script src="static/js/ChoroplethMain.js"></script>
-  <script src="Waffle.js"></script>
+  <script src="static/js/choropleth-main.js"></script>
+  <script src="static/js/waffle.js"></script>
   <script src="static/js/line-chart.js"></script>
 </head>
 
@@ -31,8 +31,8 @@
       <div class="flex-container">
         <div class="Year_Options">
           <button onclick="setYear(2016)">2016</button>
-          <button onclick="setYear(2018)"> 2018</button>
-          <button onclick="setYear(2020)"> 2020</button>
+          <button onclick="setYear(2018)">2018</button>
+          <button onclick="setYear(2020)">2020</button>
         </div>
         <div id="Graphs">
           <svg id="my_dataviz" width="400" height="600">
@@ -41,16 +41,15 @@
         </div>
       </div>
       <div class="flex-container">
-        <div id="line-chart"></div>
+        <div id="line-chart" width="460" height="400">
+          <span style="margin-left: 20%;">Line Chart goes here</span>
+        </div>
         <svg id="SubGraphA" width="500" height="350"></svg>
       </div>
     </div>
-
-    <img src="../Histograms.png" alt="Histogram for Parent Candidates Total Count by Year" />
   </div>
 
   <script src="static/js/main-viz.js"></script>
-  <!-- <script src="static/js/line-chart.js"></script> -->
 </body>
 
 </html>

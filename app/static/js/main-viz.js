@@ -20,7 +20,6 @@ const lChart = LineChart();
 CP.drawChloropleth(svg);
 
 CP.dispatch.on("selected", function (selectedPath) {
-  console.log("current selection: ");
   console.log(selectedPath);
 
   let subGraphA = d3.select('#SubGraphA')
@@ -36,12 +35,11 @@ CP.dispatch.on("selected", function (selectedPath) {
 
 
 
-WF.dispatch.on("selected", function (arguments) {
-  let [selectedPath, type, year] = arguments
+WF.dispatch.on("selected", function (args) {
+  let [selectedPath, type, year] = args
   console.log(selectedPath)
   let subGraphA = d3.select('#SubGraphA')
   WF.drawWaffle(subGraphA, selectedPath, type, year);
-
 })
 
 /***

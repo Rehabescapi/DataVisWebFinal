@@ -93,7 +93,7 @@ function CountNumberOfCandidate(Type, obj) {
 
 }
 
-
+// Deprecated
 const jsonToCsv = json => {
   const topLevelKeys = Object.keys(json);
   let currentCSV = "date,value";
@@ -105,8 +105,6 @@ const jsonToCsv = json => {
         .forEach(k => currentCSV += `\n${yearData[0].Year}-06-25,${yearData[0][k]}`);
     }
   }
-
-  console.log(currentCSV);
 
   return currentCSV;
 }

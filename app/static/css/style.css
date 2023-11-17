@@ -34,9 +34,15 @@ svg {
   font: 10px sans-serif;
 }
 
-svg#SubGraphB {
-  border-style: groove;
+div#line-chart>svg {
+  border: 1px dotted goldenrod;
+}
 
+div#line-chart {
+  border-width: 3px;
+  border-style: groove;
+  width: 500px !important;
+  height: 450px !important;
 }
 
 a:hover tspan:first-child {
