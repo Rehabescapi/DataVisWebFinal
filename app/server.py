@@ -98,17 +98,14 @@ def school_district_details(district_id, election_year):
 
 @app.route('/school-districts/<district_id>')
 def district_multi_year_elections(district_id):
-    """
-        School district multi-year election results (votes per candidate)\n
-        Example call: 127.0.0.1:9909/school-districts/609739
-    """
-    d_collection = {}
-    goal_years = [2016, 2018, 2020]
-    for goal_year in goal_years:
-        d_collection[goal_year] = school_district_details_by_year(
-            district_id, goal_year)
+    """ Example call: 127.0.0.1:9909/school-districts/609739"""
+    return get_multi_year_elections(district_id)
 
-    return d_collection
+
+@app.route('/school-districts/<district_id>/csv')
+def data_as_csv(district_id):
+    """Example call: 127.0.0.1:9909/school-districts/609739/csv"""
+    return json_to_csv(get_multi_year_elections(district_id))
 
 
 def school_district_details_by_year(district_id, election_year):
@@ -135,6 +132,17 @@ def school_district_details_by_year(district_id, election_year):
     return d_frame.to_json(orient='records')
 
 
+def get_multi_year_elections(district_id):
+    """School district multi-year election results (votes per candidate)"""
+    d_collection = {}
+    goal_years = [2016, 2018, 2020]
+    for goal_year in goal_years:
+        d_collection[goal_year] = school_district_details_by_year(
+            district_id, goal_year)
+
+    return d_collection
+
+
 def get_arg(arg_name):
     return request.args.get(arg_name)
 
@@ -145,3 +153,17 @@ def data_to_csv_str(header, data_list):
     csv_str += "\n".join(str_data)
 
     return csv_str
+
+
+def json_to_csv(json_data):
+    top_level_keys = list(json_data.keys())
+    current_csv = "date,value\n"
+
+    for i in range(len(top_level_keys)):
+        year_data = json.loads(json_data[top_level_keys[i]])
+        if len(year_data) > 0:
+            for k in year_data[0].keys():
+                if "votes" in k.lower():
+                    current_csv += f'{year_data[0]["Year"]}-06-25,{year_data[0][k]}\n'
+
+    return current_csv
