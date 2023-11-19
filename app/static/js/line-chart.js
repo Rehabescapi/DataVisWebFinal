@@ -36,7 +36,7 @@ const LineChart = () => {
                     .range([0, width]);
                 theSvg.append("g")
                     .attr("transform", `translate(0, ${height})`)
-                    .call(d3.axisBottom(x).tickFormat(d3.format(".0f")).ticks(3));
+                    .call(d3.axisBottom(x).tickFormat(d3.format(".0f")).ticks(2));
 
                 // Add Y axis
                 const y = d3.scaleLinear()
