@@ -1,8 +1,6 @@
 // The svg
-let width = 300;
-let height = 500;
-const svg = d3.select("svg").attr("width", width).attr("height", height);
 
+const svg = d3.select("svg")
 /**
  * Moved projection to ChoroplethMain.
  */
@@ -23,6 +21,7 @@ CP.dispatch.on("selected", function (selectedPath) {
   console.log(selectedPath);
 
   let subGraphA = d3.select('#SubGraphA')
+  let subGraphB = d3.select('#SubGraphB')
 
   /**
    * Can actually have the Subgraph make this call. 
@@ -30,7 +29,7 @@ CP.dispatch.on("selected", function (selectedPath) {
   WF.drawWaffle(subGraphA, selectedPath)
   //Number of election types in side the data.
 
-  lChart.draw(selectedPath);
+  lChart.draw(subGraphB, selectedPath);
 })
 
 

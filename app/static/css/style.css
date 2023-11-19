@@ -41,8 +41,7 @@ div#line-chart>svg {
 div#line-chart {
   border-width: 3px;
   border-style: groove;
-  width: 1000px !important;
-  height: 550px !important;
+  
 }
 
 a:hover tspan:first-child {

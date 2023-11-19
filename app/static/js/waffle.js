@@ -156,7 +156,7 @@ var WaffleVis = function () {
             .join("g")
             .attr("class", "waffle").
             attr("transform", "translate(0, 30)");
-          waffleSize = whole ? (width < height ? width : height) : 150;
+          waffleSize = whole ? (width < height ? width : height) : 200;
 
           scale = d3
             .scaleBand()
