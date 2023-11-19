@@ -15,6 +15,7 @@ import math
 import decimal
 from decimal import Decimal
 from flask import Flask, send_from_directory, request
+import re
 
 # Root
 app = Flask(__name__)
@@ -109,6 +110,18 @@ def data_as_csv(district_id):
     return json_to_csv(get_multi_year_elections(district_id))
 
 
+@app.route('/school-districts/<district_id>/nj')
+def district_multi_year_elections_new_json(district_id):
+    """Example call: 127.0.0.1:9909/school-districts/609739/nj"""
+    return reconstruct_json(get_multi_year_elections(district_id))
+
+
+@app.route('/school-districts/<district_id>/new/csv')
+def data_as_csv_new(district_id):
+    """Example call: 127.0.0.1:9909/school-districts/609739/new/csv"""
+    return json_to_csv_new(reconstruct_json(get_multi_year_elections(district_id)))
+
+
 def school_district_details_by_year(district_id, election_year):
     print(district_id)
     print(election_year)
@@ -168,3 +181,70 @@ def json_to_csv(json_data):
                     current_csv += f'{year_data[0]["Year"]}-06-25,{year_data[0][k]}\n'
 
     return current_csv
+
+
+def json_to_csv_new(json_data):
+    """JSON data as 'year,name,votes' CSV"""
+    current_csv = "year,name,votes\n"
+    for entry in json_data:
+        for candidate in entry['candidates']:
+            current_csv += f"{entry['year']},{candidate['name']},{int(candidate['votes'])}\n"
+
+    return current_csv
+
+
+def reconstruct_json(json_data):
+    top_level_keys = list(json_data.keys())
+    current_json_arr = []
+
+    for i in range(len(top_level_keys)):
+        year_data = json.loads(json_data[top_level_keys[i]])
+        if len(year_data) > 0:
+            d = year_data[0]
+            json_obj = {
+                "id": d["ID"],
+                "name": d["Name"],
+                "boundary_type": d["Chicago Local School Council Voting District School Boundary Type"],
+                "year": d["Year"],
+                "parent_total": d["ParentSum"],
+                "community_total": d["CommunitySum"],
+                "candidates": []
+            }
+
+            votes_related = []
+            name_related = []
+            votes_key_re = re.compile(r'\d+ votes')  # number in votes key
+            name_key_re = re.compile(r'\d+ name')  # number in name key
+            for k in d.keys():
+                ci_k = k.lower()
+                found_votes_key = votes_key_re.search(ci_k)
+                found_name_key = name_key_re.search(ci_k)
+                if found_votes_key:
+                    votes = d[k]
+                    [type, _, number, _] = k.split(" ")
+                    votes_related.append([votes, type, number])
+
+                if found_name_key:
+                    name = d[k]
+                    [type, _, number, _] = k.split(" ")
+                    name_related.append([name, type, number])
+
+            add_candidate_details(json_obj, votes_related, name_related)
+            current_json_arr.append(json_obj)
+
+    return current_json_arr
+
+
+def add_candidate_details(json_obj, votes, names):
+    """Add one candidate details to the candidates list"""
+    the_new_obj = None
+    for v in votes:
+        for n in names:
+            # same type + same number == same candidate
+            if v[1] == n[1] and int(v[2]) == int(n[2]):
+                the_new_obj = {
+                    "name": f"{n[0]}",
+                    "votes": v[0],
+                    "type": f"{n[1]}"
+                }
+                json_obj.get("candidates").append(the_new_obj)
