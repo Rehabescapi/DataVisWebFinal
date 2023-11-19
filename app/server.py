@@ -116,6 +116,12 @@ def district_multi_year_elections_new_json(district_id):
     return reconstruct_json(get_multi_year_elections(district_id))
 
 
+@app.route('/school-districts/<district_id>/new/csv')
+def data_as_csv_new(district_id):
+    """Example call: 127.0.0.1:9909/school-districts/609739/new/csv"""
+    return json_to_csv_new(reconstruct_json(get_multi_year_elections(district_id)))
+
+
 def school_district_details_by_year(district_id, election_year):
     print(district_id)
     print(election_year)
@@ -173,6 +179,16 @@ def json_to_csv(json_data):
             for k in year_data[0].keys():
                 if "votes" in k.lower():
                     current_csv += f'{year_data[0]["Year"]}-06-25,{year_data[0][k]}\n'
+
+    return current_csv
+
+
+def json_to_csv_new(json_data):
+    """JSON data as 'year,name,votes' CSV"""
+    current_csv = "year,name,votes\n"
+    for entry in json_data:
+        for candidate in entry['candidates']:
+            current_csv += f"{entry['year']},{candidate['name']},{int(candidate['votes'])}\n"
 
     return current_csv
 
