@@ -184,11 +184,11 @@ def json_to_csv(json_data):
 
 
 def json_to_csv_new(json_data):
-    """JSON data as 'year,name,votes' CSV"""
-    current_csv = "year,name,votes\n"
+    """JSON data as 'year,name,type,votes' CSV"""
+    current_csv = "year,name,type,votes\n"
     for entry in json_data:
         for candidate in entry['candidates']:
-            current_csv += f"{entry['year']},{candidate['name']},{int(candidate['votes'])}\n"
+            current_csv += f"{entry['year']},{candidate['name']},{candidate['type']},{int(candidate['votes'])}\n"
 
     return current_csv
 
