@@ -155,7 +155,7 @@ var WaffleVis = function () {
             .data(waffleData)
             .join("g")
             .attr("class", "waffle").
-            attr("transform", "translate(0, 30)");
+            attr("transform", "translate(10 , 30)");
           waffleSize = whole ? (width < height ? width : height) : 200;
 
           scale = d3
@@ -251,8 +251,8 @@ var WaffleVis = function () {
             yearOptions = getYearTypes();
             totalVotes = getTotalVotes();
 
-            svg.append("text").attr("transform", `translate(0,20)`)
-            .text(categoryHeading + ", Total Votes :" +totalVotes)
+            svg.append("text").attr("transform", `translate(20,20)`)
+            .text("School Disctric : "+ categoryHeading + ", Total Votes: " +totalVotes)
             iterator = 1
             for(let year of yearOptions )
             {

@@ -4,7 +4,7 @@ var ChoroplethVis = function () {
   this.ActiveYear;
   this.ActiveType;
 
-  this.LegendLabel = "Vote Count";
+  this.LegendLabel = "Chicago School Council Vote Count, Parent Category ";
 
   getLegendLabel = function () {
     return this.LegendLabel;
@@ -179,7 +179,7 @@ var drawChoroplethLegend = function (colorScale, svg) {
     .attr("class", "caption")
     .attr("x", 0)
     .attr("y", -6)
-    .text(getLegendLabel());
+    .text(getLegendLabel() + getActiveYear());
 
   // Add labels for legend
   var labels = domain_options;
